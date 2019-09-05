@@ -32,12 +32,20 @@ def latest2(word):
     word.sort()
     return word[-1]
 
-# def latest3(word):
-# 
+def latest3(word):
+    # word = [char for char in word]
+    # print(word)
+    # word = [ord(char) for char in word]
+    # print(word)
+    # highest_letter_code = max(word)
+    # print(highest_letter_code)
+    # return chr(highest_letter_code)
+    
+    return chr(max([ord(char) for char in word]))
+    
 
 
-
-print(latest("hjfoiajefaewnmf"))
+print(latest3("hjfoiajefaewnmf"))
 
 
 
@@ -94,8 +102,7 @@ print(latest("hjfoiajefaewnmf"))
 #     else:
 #         i += 1
 
-
-print(' '.join(words))
+# print(' '.join(words))
 
 
 
