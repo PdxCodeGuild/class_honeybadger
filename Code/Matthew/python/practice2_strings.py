@@ -118,13 +118,25 @@ def latest3(word):
 def count_occurances(text, word):
     count = 0
     for i in range(len(text)-(len(word)-1)):
-        print(text)
-        print(' '*i + word)
-        for j in range(len(word)):
-            if text[i+j] != word[j]:
-                break
-        else:
+        # print(text)
+        # print(' '*i + word)
+        # for j in range(len(word)):
+        #     if text[i+j] != word[j]:
+        #         break
+        # else:
+        #     count += 1
+        
+        # matches = True
+        # for j in range(len(word)):
+        #     if text[i+j] != word[j]:
+        #         matches = False
+        #         break
+        # if matches:
+        #     count += 1
+        
+        if text[i:i+len(word)] == word:
             count += 1
+        
     return count
         
     
@@ -146,7 +158,7 @@ def count_cat(text):
     return count
 
 
-def count_home(text)
+def count_home(text):
     count = 0
     for i in range(len(text)-3):
         if text[i+0] == 'h' and text[i+1] == 'o' and text[i+2] == 'm' and text[i+3] == 'e':
