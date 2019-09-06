@@ -45,7 +45,7 @@ def latest3(word):
     
 
 
-print(latest3("hjfoiajefaewnmf"))
+# print(latest3("hjfoiajefaewnmf"))
 
 
 
@@ -106,6 +106,61 @@ print(latest3("hjfoiajefaewnmf"))
 
 
 
+
+# print('hello world'.find('world'))
+# print('hello world world'.find('world', 7))
+# exit()
+
+
+
+
+
+def count_occurances(text, word):
+    count = 0
+    for i in range(len(text)-(len(word)-1)):
+        print(text)
+        print(' '*i + word)
+        for j in range(len(word)):
+            if text[i+j] != word[j]:
+                break
+        else:
+            count += 1
+    return count
+        
+    
+
+def count_hi(text):
+    count = 0
+    word = 'hi'
+    for i in range(len(text)-1):
+        if text[i+0] == word[0] and text[i+1] == word[1]:
+            count += 1
+    return count
+
+def count_cat(text):
+    count = 0
+    word = 'cat'
+    for i in range(len(text)-2):
+        if text[i+0] == word[0] and text[i+1] == word[1] and text[i+2] == word[2]:
+            count += 1
+    return count
+
+
+def count_home(text)
+    count = 0
+    for i in range(len(text)-3):
+        if text[i+0] == 'h' and text[i+1] == 'o' and text[i+2] == 'm' and text[i+3] == 'e':
+            count += 1
+    return count
+
+# print(count_hi('hihih'))
+# print(count_hi('hihi')) # 2
+# print(count_hi('sdfsjfdlskdfhi')) # 1
+# print(count_hi('hello hi how are you hihihi')) # 4
+
+
+
+print(count_occurances('hello cat 123 cat', 'cat'))
 
 
 
