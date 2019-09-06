@@ -1,0 +1,8 @@
+
+nums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]
+
+def powers_of_two(nums):
+    for numbers in nums:
+        print(2**numbers)
+
+powers_of_two(nums)
