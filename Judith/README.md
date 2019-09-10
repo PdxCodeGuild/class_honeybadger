@@ -1,2 +1,0 @@
-# PDXCG
-labs and assignments
