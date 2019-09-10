@@ -1,13 +1,15 @@
 # test.py
 
-def combine(nums1, nums2):
+def fibonacci(num):
+    num_list = list(range(1, num + 1))
+    print(num_list)
     my_list = []
-    for i in range(len(nums1)):
-        my_list.append(nums1[i])
-        my_list.append(nums2[i])
+    # my_list.append(num_list[i])
+    # for i in range(len(num_list)):
+    #     print(num_list[i])
+    #     print(num_list[i+1])
+    #     print(num_list[i+2])
+    #     my_list.append(num_list[i-1] + num_list[i-2])
     return my_list
-    
-l1 = ["a", "b", "c"]
-l2 = [1, 2, 3]
 
-print(combine(l1, l2))
+print(fibonacci(8))
