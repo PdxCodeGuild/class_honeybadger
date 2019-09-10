@@ -1,9 +1,15 @@
 # test.py
 
-def missing_char(word):
-    word_list = []
-    for char in range(len(word)):
-        word_list.append(word[:char] + word[char + 1:])
-    return word_list
-    
-print(missing_char("pizza"))
+def fibonacci(num):
+    num_list = list(range(1, num + 1))
+    print(num_list)
+    my_list = []
+    # my_list.append(num_list[i])
+    # for i in range(len(num_list)):
+    #     print(num_list[i])
+    #     print(num_list[i+1])
+    #     print(num_list[i+2])
+    #     my_list.append(num_list[i-1] + num_list[i-2])
+    return my_list
+
+print(fibonacci(8))
