@@ -26,7 +26,7 @@ else:
 
 again = input("Want to play again?: ")
 while again == "yes" and turn_counter < 11:
-        turn_counter += 1
-        print(f"This is your {turn_counter} guess")
+    turn_counter += 1
+    print(f"This is your {turn_counter} guess")
 else:
     print("No? OK, maybe next time.")

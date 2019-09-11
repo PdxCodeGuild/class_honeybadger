@@ -32,6 +32,13 @@ def kilometers_to_meters(kilometers):
     if what_to_convert_to == kilometers:
         return kilometers
 
+# ADDED CODE
+input_units = separated_input[1]
+if input_units in ['ft', 'feet']:
+    input_units = 'ft'
+
+
+
 print(separated_input[1])
 if separated_input[1] =='ft' or separated_input[1] == 'feet' and what_to_convert_to == 'meters':
     converted_value = feet_to_meters(user_input_value)
