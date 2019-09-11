@@ -1,15 +1,12 @@
 # test.py
 
-def fibonacci(num):
-    num_list = list(range(1, num + 1))
-    print(num_list)
-    my_list = []
-    # my_list.append(num_list[i])
-    # for i in range(len(num_list)):
-    #     print(num_list[i])
-    #     print(num_list[i+1])
-    #     print(num_list[i+2])
-    #     my_list.append(num_list[i-1] + num_list[i-2])
-    return my_list
+def median(nums):
+    nums = sorted(nums)
+    if nums
+    nums = nums[0:(len(nums)//2)]
+    print(nums)
+    nums = nums[-1]
+    print(nums)
+    return nums
 
-print(fibonacci(8))
+print(median([1, 2, 3, 4, 5, 6, 6, 7, 8]))
