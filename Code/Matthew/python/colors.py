@@ -5,6 +5,7 @@ import chalk
 import random
 
 
+
 colors = [chalk.red, chalk.yellow, chalk.green, chalk.blue, chalk.cyan, chalk.magenta]
 
 for i in range(10000):
