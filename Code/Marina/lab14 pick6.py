@@ -1,11 +1,17 @@
 from random import randint
 
+
+# this_is_snake_case - variables and functions
+# thisIsCamelCase
+# ThisIsPascalCase - classes
+
+
 def getRandomNumbers():
     ticket = []
     for i in range(6):
         ticket.append(randint(1,99))
     return ticket
-    
+
 def compTix(winning_tix, ticket):
     match = 0
     for i in range(0, 6):
