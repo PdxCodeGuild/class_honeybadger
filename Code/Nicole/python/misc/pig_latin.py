@@ -20,7 +20,7 @@ def pig_latin(phrase):
     pig_phrase = []
     
     vowel = ["a", "e", "i", "o", "u", "y"]
-    punct = [".", ",", "'", "\"", "!", "?"]
+    punct = [".", ",", "'", "!", "?"]
     th = ["th"]
     
     for x in range(len(phrase)):
@@ -44,12 +44,13 @@ def pig_latin(phrase):
                 pig_phrase.append(new_phrase[y][0][2:] + new_phrase[y][0][0:2] + "ay")
         else:
             pig_phrase.append(new_phrase[y][0][1:] + new_phrase[y][0][0] + "ay")
-            
-    return pig_phrase
+    
+    pig_phrase_2 = " ".join(pig_phrase).capitalize()
+    return pig_phrase_2
 
 
 user_input = input("Please type a phrase: ").lower()
-print(*pig_latin(user_input))
+print(pig_latin(user_input))
 
 # my_list = [["this"], ["one"], ["my"]]
 # 
