@@ -137,9 +137,9 @@ def rain_plot_day_avg(rain_plot_day_avg):
     # y_values.replace(0, "Monday")
     
     
-    plt.bar(d_values, y_values)
-    plt.ylabel("Average rainfall (in \"tips\")")
-    plt.xlabel("Days of the week")
+    plt.bar(d_values, y_values, color = "g")
+    plt.ylabel("Average rainfall (in \"tips\")", color = "b")
+    plt.xlabel("Days of the week", color = "r")
     return plt.show()
     
 
