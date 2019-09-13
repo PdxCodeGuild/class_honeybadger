@@ -11,6 +11,6 @@ for x in range(5):
 another_one = input("Do you want to see another one?")
 while another_one == "yes":
     print(f"{eye_rndm}{nose_rndm}{mouth_rndm}")
-    another_one = input("Do you want to see another one?")  
+    another_one = input("Do you want to see another one?")
 else:
     print("Later, alligator!")
