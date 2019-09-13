@@ -1,4 +1,4 @@
-#filename: picksixx.py
+#filename: lab14_picksixx.py
 
 import random
 
@@ -23,14 +23,22 @@ def przcalc():
     return prize
 
 bal = 0
+investment = 0
+earnings = 0
 
 for i in range(100000):
     plylist = sixgen()
-    #print(plylist,winlist)
+    if przcalc() > 0:
+        print(plylist,winlist,przcalc())
     bal = bal - 2
     bal = bal + przcalc()
+    investment += 2
+    earnings += przcalc()
 
-print(bal)
+roi = (earnings-investment)/investment
+
+print(f'final balance is {bal}\nyou earned {earnings}\nand spent {investment}')
+print(f'your ROI equals {roi}')
 
 
 

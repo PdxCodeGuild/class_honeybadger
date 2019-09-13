@@ -1,4 +1,4 @@
-#filename: rockpaperscissors.py
+#filename: lab7_janken.py
 
 #modules
 import random

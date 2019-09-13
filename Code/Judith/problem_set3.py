@@ -143,15 +143,12 @@ import random
 # print(combine_all())
 
 # problem 12: Write a function that takes n as a parameter, and returns a list containing the first n Fibonacci Numbers.
-# def p12(n):
-#     list_two = [0]
-#     for x in range(len(list_two),n):
-#         if list_two == [0]:
-#             list_two.append(1)
-#         else:
-#             list_two.append(list_two[x-1]+list_two[x-2])
-#     return list_two
-# print(p12(12))
+def p12(n):
+    list_two = [1,1]
+    for x in range(len(list_two),n):
+        list_two.append(list_two[x-1]+list_two[x-2])
+    return list_two
+print(p12(12))
 
 # problem 13: Write functions to find the minimum, maximum, mean, and (optionally) mode of a list of numbers.
 # def minimum(nums):

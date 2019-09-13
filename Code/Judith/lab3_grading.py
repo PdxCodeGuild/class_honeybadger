@@ -1,23 +1,4 @@
-#filename: grading.py
-
-'''Lab 4: Grading
-
-Let's convert a number grade to a letter grade, using if and elif statements and comparisons.
-
-    Have the user enter a number representing the grade (0-100) ..use input()
-    Convert the number grade to a letter grade
-
-Numeric Ranges
-
-    90-100: A
-    80-89: B
-    70-79: C
-    60-69: D
-    0-59: F
-
-Advanced Version 1
-
-Use randint() from the random module to determine the user's rival's score. Let the user know if they did better than their rival.'''
+#filename: lab3_grading.py
 
 #random module imported for rival test
 import random
@@ -29,15 +10,16 @@ print(f"You entered a score of ", grade1)
 
 
 #function to determine if input is a valid
-def isFloat(string):
+def isFloat(grade):
     try:
-        float(string)
-        return True
+        grade = float(grade)
+        if grade in range(0,100):
+            return True
     except ValueError:
         return False
 #protection from improper input
 if isFloat(grade1):
-    grade1=float(grade1)
+    grade1 = float(grade1)
     yga=("Your letter grade is: ")
 
     #rival grade

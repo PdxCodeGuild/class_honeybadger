@@ -11,13 +11,8 @@ def p1():
 
 #problem 2
 def p2():
-    blis = list(p1().values())
-    avg = 0
-    for x in range(len(blis)):
-        avg += blis[x]
-    avg = avg/len(blis)
-    return avg
-#print(p2())
+    return sum(list(p1().values()))/len(p1())
+# print(p2())
 
 #problem 3
 def p3():
@@ -34,7 +29,7 @@ def p3():
             total += dic[key]
             adic.update({let:round(total/count)})
     return adic
-#print(p3())
+print(p3())
 
         
     
