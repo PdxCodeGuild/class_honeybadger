@@ -16,6 +16,7 @@ while play_again == "y":
     num1 = int(input("Give me a number: "))
     num2 = int(input("Give me another number: "))
 ​
+
     chosen_operator = random.choice(operators_list)
 ​
     print(f"Round {round_num}")
