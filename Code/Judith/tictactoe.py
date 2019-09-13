@@ -84,15 +84,15 @@ def main():
 
     while newgame.isgameover() == False:
         for player in players:
-                if newgame.isgameover() == False:
-                    print(player,' turn')
-                    newgame.move(int(input('row: ')),int(input('col: ')),player)
-                    print(newgame.__repr__())
-                    print(newgame.calc_winner())
-                    if newgame.calc_winner() == 'win':
-                        print(player,' is the winner!')
-                    elif newgame.isfull() == False:
-                        print('draw...')
+            if newgame.isgameover() == False:
+                print(player,' turn')
+                newgame.move(int(input('row: ')),int(input('col: ')),player)
+                print(newgame.__repr__())
+                print(newgame.calc_winner())
+                if newgame.calc_winner() == 'win':
+                    print(player,' is the winner!')
+                elif newgame.isfull() == False:
+                    print('draw...')
         
         
         

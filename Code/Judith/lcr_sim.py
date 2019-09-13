@@ -5,19 +5,8 @@ import random
 dot = '\u2022'
 die = ['L', 'C', 'R', dot, dot, dot]
 
-# players = [{
-#     'name': 'mike',
-#     'chips': 3
-# },{
-#     'name': 'nancy',
-#     'chips': 3
-# }]
-
-
 players = [{'name': f'player {i}', 'chips': 3} for i in range(int(input('How many players?: ')))]
-# players[2]['chips'] += 1 
 
-# players = [{f'player: {i}': 3} for i in range(int(input('How many players?: ')))]
 print(players)
 
 
@@ -29,13 +18,14 @@ def game(players):
     
     pot = 0
 
-    game_won = False
+    game_over = False
     
-    while not game_won:
+    while not game_over:
         for i in range(len(players)):
-            player = players[i]            
-            for result in roll(player['chips']):
-                print(result)
+            player = players[i]
+            reslist = []            
+            for result in roll(player['chips'] if player['chips'] <= 3 else 3):
+                reslist.append(result)
                 if result == 'L':
                     player['chips'] -= 1
                     players[i+1 if i+1 < len(players) else 0]['chips'] += 1
@@ -47,6 +37,7 @@ def game(players):
                     pot += 1
                 if result == dot:
                     continue
+            print(player, reslist)
             if player['chips'] + pot == len(players) * 3:
                 player['chips'] += pot
                 prize = player['chips']
@@ -57,10 +48,13 @@ def game(players):
                     play_again = input('play again? y or n: ')
                 if play_again == 'n':
                     print(f'Game ended, {winner} leaves with {prize} chips!')
-                    game_won = True
+                    game_over = True
                 if play_again == 'y':
-                    print('no.') #come back later.
-                    game_won = True
+                    players = [{'name': f'player {i}', 'chips': 3} for i in range(int(input('How many players?: ')))]
+                    print('winner becomes player: 0 and starts with all their winnings from the previous game')
+                    players[0]['chips'] = prize
+                    print(players)
+
 
                 
         
