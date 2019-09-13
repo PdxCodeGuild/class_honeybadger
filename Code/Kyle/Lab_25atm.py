@@ -24,8 +24,6 @@ class ATM:
     def withdraw(self, value):
         self.balance -= value
         self.transaction_list.append(f'you withdrew {value}')
-        return self.balance
-        return self.transaction_list
 
     def print_transactions(self):
         return self.transaction_list
