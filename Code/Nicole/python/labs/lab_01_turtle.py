@@ -5,10 +5,8 @@
 import turtle as t
 
 def design():
-ddd ddd dddd
 
-
-ddd
+#test test test
 
 
 
