@@ -14,4 +14,4 @@ user_input = int(input("How long would you like your password to be? "))
 def randomString(stringLength=user_input):
     return ''.join(random.choice(choices) for i in range(stringLength))
 
-print ("Password is ", randomString() )
+print ("Password is ", randomString())

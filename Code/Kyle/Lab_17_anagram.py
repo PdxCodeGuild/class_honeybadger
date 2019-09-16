@@ -1,22 +1,26 @@
+#Anagram
 
 
-def anagram_checker(word1, word2):
-    count1 = 0
-    count2 = 0
+user_input = print("Welcome to Anagram Checker")
 
-    for i in word1:
-        count1[ord(i)] += 1
-    for i in word2:
-        count2[ord(i)] += 1
-    if len(word1) != len(word2):
-        print("not anagrams")
-    else:
-        print("anagrams")
+first_word = input("First Word:").lower()
+second_word = input("Second Word:").lower()
+# printing variable values
 
 
-word1 = input("Enter first word").lower()
-word2 = input("Enter second word").lower()
-if(anagram_checker(word1, word2)):
-    print("the two strings are anagram")
+first_word = first_word.replace(" ","")
+second_word = second_word.replace(" ","")
+
+first_word = list(first_word)
+second_word = list(second_word)
+
+first_word.sort()
+second_word.sort()
+
+print(first_word)
+
+print(second_word)
+if first_word == second_word:
+  print("Words are anagrams")
 else:
-    print("the two strings are not anagrams")
+    print("Words are not anagrams")
