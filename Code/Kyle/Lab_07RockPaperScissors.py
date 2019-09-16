@@ -6,7 +6,7 @@ choices = ["rock", "paper", "scissors"]
 
 tie_outcomes = ["rock vs rock",  "scissors vs scissors", "paper vs paper"]
 
-user_wins = ["TIGER vs scissors", "TIGER vs rock", "TIGER vs paper", "rock vs scissors", "paper vs rock", "scissors vs paper"]
+user_wins = ["tiger vs scissors", "tiger vs rock", "tiger vs paper", "rock vs scissors", "paper vs rock", "scissors vs paper"]
 cpu_win = ["rock vs paper", "scissors vs rock", "paper vs scissors"]
 
 play_again = "yes"
@@ -28,8 +28,6 @@ while play_again == "yes":
         print("You Won!!")
     elif outcome in cpu_win:
         print("Oof! you lost")
-    elif user_choice == "TIGER":
-        print("TIGER BEATS ALL")
 
     else:
         print("Please enter rock, paper or scissors.")
