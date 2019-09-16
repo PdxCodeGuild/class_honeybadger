@@ -1,14 +1,12 @@
-#Filename: palingram.py
+#Filename: lab17_palingram.py
 
 def palchk():
-    phrase = input('phrase...')
+    phrase = input('is this a palindrome?...')
     modphrase = phrase[::-1]
     if modphrase == phrase:
-        print(True)
-        return True
+        print('This is a palindrome')
     else:
-        print(False)
-        return False
+        print('Not a palindrome')
 
 def anachk():
     phrase_one=input("Please type something\n")

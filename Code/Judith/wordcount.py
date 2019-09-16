@@ -5,7 +5,7 @@ import string
 with open('ThroughtheDesert.txt', 'r') as f:
     contents = f.read()
 
-#print(contents)
+print(contents)
 
 def string_modifier(contents):
     results = ''
