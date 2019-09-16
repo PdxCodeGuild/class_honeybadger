@@ -26,6 +26,12 @@ while flag == True:
         continue
     else:
         break
+
+# Version 3 ###############################
+
+# oper = str(input('give us a problem'))
+# prod = eval(oper)
+# print(prod)
     
 
 

@@ -53,7 +53,6 @@ def drawMap(data):
 def gapFill(drawMap,findPeaks):
     listMap = drawMap(data)
     oCount = 0
-    peaks = findPeaks(data)
     for lis in listMap:
         for i in range(len(lis)):
             if lis[i-1] in ['X','O'] and lis[i] == ' ' and not i == 0 and 'X' in lis[i:len(lis)]:

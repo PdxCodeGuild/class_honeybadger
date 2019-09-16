@@ -1,6 +1,6 @@
-#filename: ccvalidation.py
+#filename: lab20_ccvalidation.py
 
-ccnum = list(input('enter num'))
+ccnum = list(input('enter num: '))
 
 def main(ccnum):
     ccnuml = []
