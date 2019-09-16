@@ -28,6 +28,8 @@ while play_again == "yes":
         print("You Won!!")
     elif outcome in cpu_win:
         print("Oof! you lost")
+    elif user_choice == "TIGER":
+        print("TIGER BEATS ALL")
 
     else:
         print("Please enter rock, paper or scissors.")
