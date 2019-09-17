@@ -8,11 +8,10 @@ pennies = .01
 
 
 # print('=====')
-# print(.03//.01)f
+# print(.03//.01)
 # print(.03/.01)
 #
 # print('======')
-ff
 
 def makechange(total):
 

@@ -32,4 +32,4 @@ while game_in_session != 'done':
             print('User wins!')
         if computer_choice == 'rock':
             print('Computer wins ! ')
-    game_in_session = input(f'Do you want to keep playing if your done, type "done":')
+    game_in_session = int(input(f'Do you want to keep playing if your done, type "done":')

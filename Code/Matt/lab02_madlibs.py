@@ -1,4 +1,6 @@
 import random
+
+
 game_in_session = 'yes'
 while game_in_session == 'yes':
     user_name = input('What is your name?: ')
@@ -22,4 +24,4 @@ while game_in_session == 'yes':
     print("Here is your madlibs!")
     print(f'Today I went to the zoo. I saw a {rand_adj} {noun_1} jumping up and down in its tree.He {verb_1} {adverb1} through the large tunnel that led to its {rand_adj2} {noun_2}.')
 
-    game_in_session = input('Do you want to do another madlib? If your done type "done": ')
+    game_in_session = input('Do you want to do another madlib? If your done type "done": ').lower().strip()
