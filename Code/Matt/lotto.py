@@ -23,12 +23,17 @@ def num_matches(user_tickets, winning_numbers):
     for i in range(len(user_tickets)):
        if user_tickets[i] == winning_numbers[i]:
             total_matches += 1
-       continue
     return total_matches
        # elif user_tickets[i] != winning_numbers[i]:
        #      continue
 
 
+# nums = [4, 5, 6, 10, 2, 11]
+# nums_less_than_10 = []
+# for num in nums:
+#     if num >= 10:
+#         continue
+#     nums_less_than_10.append(num)
 
 
 
