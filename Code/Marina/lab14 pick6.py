@@ -1,11 +1,6 @@
 from random import randint
 
 
-# this_is_snake_case - variables and functions
-# thisIsCamelCase
-# ThisIsPascalCase - classes
-
-
 def getRandomNumbers():
     ticket = []
     for i in range(6):
