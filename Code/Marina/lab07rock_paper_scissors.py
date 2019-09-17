@@ -13,23 +13,9 @@ print(game_instance)
 
 print(f"{user_choice} vs {comp_choice}")
 
-# rock vs rock (tie)
-# paper vs paper
-# scissors vs scissors
-
-# paper vs rock(win)
-# rock vs scissors
-# scissors vs paper
-
-# rock vs paper(loose)
-# paper vs scissors
-# scissors vs rock
-
-# tie = ["rock vs rock", "paper vs paper", "scissors vs scissors"]
 
 win = ["paper vs rock", "rock vs scissors", "scissors vs paper"]
 
-# loose = ["rock vs paper", "paper vs scissors", "scissors vs rock"]
 
 if user_choice == comp_choice:
     print("Tie")

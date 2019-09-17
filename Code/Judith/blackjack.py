@@ -41,3 +41,39 @@ def round(plyrHand,dlrHand,action):
 if round(plyrHand,dlrHand,action):
     print('win!')
 else: print('lose...')
+
+###############################################
+##############  class method  #################
+###############################################
+
+import random
+
+
+class Players:
+    def __init__(self, name, hand = [], chips = 20):
+        self.name = name
+        self.hand = hand
+        self.chips = chips
+    
+    def __str__(self):
+        return f'{self.name}, {self.hand}, {self.chips}'
+
+class Deck:
+    def __init__(self, cards, players):
+        self.cards = ['A','2','3','4','5','6','7','8','9','J','Q','K'] * 4
+    
+    def deal(self, cards, players):
+        for player in players:
+            for i in range(2):
+                top = random.choice(cards)
+                player.hand.append(top)
+                cards.remove(top)
+
+players = [Players(input(f'player {i}, input your name: ')) for i in range(int(input('How many players?...')))]
+for player in players:
+    print(player)
+
+    
+    
+
+        
