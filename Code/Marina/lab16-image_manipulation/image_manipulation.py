@@ -1,6 +1,6 @@
-# from PIL import Image
-# import PIL
-# import Image
+from PIL import Image
+import PIL
+import Image
 
 Y = 0.299*R + 0.587*G + 0.114*B
 
