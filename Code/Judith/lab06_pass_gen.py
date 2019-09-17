@@ -1,4 +1,4 @@
-#filename: lab6_pass_gen.py
+#filename: lab06_pass_gen.py
 
  #mods
 import random

@@ -1,4 +1,4 @@
-#filename: lab8_change_maker.py
+#filename: lab08_change_maker.py
 
 #modules
 import math

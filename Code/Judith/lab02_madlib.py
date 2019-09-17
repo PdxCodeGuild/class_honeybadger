@@ -1,4 +1,4 @@
-#filename: lab2_madlib.py
+#filename: lab02_madlib.py
 
 import random
 

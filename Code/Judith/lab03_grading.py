@@ -1,4 +1,4 @@
-#filename: lab3_grading.py
+#filename: lab03_grading.py
 
 #random module imported for rival test
 import random

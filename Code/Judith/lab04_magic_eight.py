@@ -1,4 +1,4 @@
-#filename: lab4_magic_eight.py
+#filename: lab04_magic_eight.py
 
 #import the damn library, fool
 import random

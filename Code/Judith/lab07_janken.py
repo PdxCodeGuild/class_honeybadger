@@ -1,4 +1,4 @@
-#filename: lab7_janken.py
+#filename: lab07_janken.py
 
 #modules
 import random

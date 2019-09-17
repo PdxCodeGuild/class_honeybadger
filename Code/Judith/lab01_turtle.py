@@ -1,4 +1,4 @@
-# filename: lab1_turtle.py
+# filename: lab01_turtle.py
 
 import turtle as t
 import random as r
