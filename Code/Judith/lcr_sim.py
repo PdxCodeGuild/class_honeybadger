@@ -5,17 +5,14 @@ import random
 dot = '\u2022'
 die = ['L', 'C', 'R', dot, dot, dot]
 
-players = [{'name': f'player {i}', 'chips': 3} for i in range(int(input('How many players?: ')))]
-
-print(players)
-
-
 def roll(int):
     roll = [random.choice(die) for i in range(int)]
     return roll
        
-def game(players):
+def game():
     
+    players = [{'name': f'player {i}', 'chips': 3} for i in range(int(input('How many players?: ')))]
+
     pot = 0
 
     game_over = False
@@ -50,15 +47,17 @@ def game(players):
                     print(f'Game ended, {winner} leaves with {prize} chips!')
                     game_over = True
                 if play_again == 'y':
-                    players = [{'name': f'player {i}', 'chips': 3} for i in range(int(input('How many players?: ')))]
-                    print('winner becomes player: 0 and starts with all their winnings from the previous game')
-                    players[0]['chips'] = prize
+                    pot = 0
+                    players = [{'name': f'player {i}', 'chips': 3} for i in range(int(input('How many players?: '))-1)]
+                    players.append({'name': 'player: X', 'chips': prize})
+                    print('winner becomes player: X and starts with all their winnings from the previous game')
                     print(players)
+                    break
 
 
                 
         
         
 
-game(players)
+game()
 

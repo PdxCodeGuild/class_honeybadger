@@ -7,7 +7,6 @@ print(text)
 contacts = [line.split(',') for line in text.split('\n')]
 contacts_key = contacts.pop(0)
 contact_dic = [{contacts_key[i]:contacts[j][i] for i in range(len(contacts_key))} for j in range(len(contacts))]
-# print(contact_dic)
 
 
 while True:
