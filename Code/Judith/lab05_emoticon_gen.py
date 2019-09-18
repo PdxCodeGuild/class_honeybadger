@@ -1,4 +1,4 @@
-#filename: lab5_emoticon_gen.py
+#filename: lab05_emoticon_gen.py
 
 import random
 

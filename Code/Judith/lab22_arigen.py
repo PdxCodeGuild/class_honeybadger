@@ -1,4 +1,4 @@
-#filename: arigen.py
+#filename: lab22_arigen.py
 
 import string
 import re

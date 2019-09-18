@@ -65,7 +65,7 @@ def main(acct):
     
     while myflag == True:
         
-        selection = int(input('press 1 to check balance \n press 2 to make a withdrawal \n press 3 to make a deposit \n press 4 to exit'))
+        selection = int(input('press 1 to check balance \n press 2 to make a withdrawal \n press 3 to make a deposit \n press 4 to exit\n'))
         
         if 0<selection<5:
             
