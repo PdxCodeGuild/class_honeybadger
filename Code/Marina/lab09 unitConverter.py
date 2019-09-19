@@ -1,9 +1,3 @@
-user_input = input("what is the distance in feet, miles or kilometers? ")
-print(user_input)
-what_to_convert_to = input("what units do you wish to convert to? please enter meters, miles or kilometers: ")
-print(what_to_convert_to)
-separated_input = user_input.split(sep=' ')
-user_input_value = float(separated_input[0])
 
 def feet_to_meters(user_input_value):
     conversion_factor = 0.3048
@@ -32,12 +26,18 @@ def kilometers_to_meters(kilometers):
     if what_to_convert_to == kilometers:
         return kilometers
 
-# ADDED CODE
+
 input_units = separated_input[1]
 if input_units in ['ft', 'feet']:
     input_units = 'ft'
 
-
+def main():
+    user_input = input("what is the distance in feet, miles or kilometers? ")
+    print(user_input)
+    what_to_convert_to = input("what units do you wish to convert to? please enter meters, miles or kilometers: ")
+    print(what_to_convert_to)
+    separated_input = user_input.split(sep=' ')
+    user_input_value = float(separated_input[0])
 
 print(separated_input[1])
 if separated_input[1] =='ft' or separated_input[1] == 'feet' and what_to_convert_to == 'meters':
@@ -53,6 +53,6 @@ else:
     print("Please enter feet, miles or kilometers")
 
 
-# converted_input = feet_to_meters(user_input)
-#
-# print(f"your calculation is {converted_input})
+converted_input = feet_to_meters(user_input)
+
+print(f"your calculation is {converted_input}")

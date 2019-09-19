@@ -20,7 +20,7 @@ date_total = re.findall(r'(\d{2}-\w{3}-\d{4})\s+(\d+)',page)
 dates = [datetime.datetime.strptime(str(date_total[i][0]), '%d-%b-%Y') for i in range(len(date_total))]
 totals = [int(date_total[i][1]) for i in range(len(date_total))]
 
-avg_rainfall = sum(totals)/len(totals)
+
 
 def find_record_year(dates, totals):
     years = list(set(dates[i].year for i in range(len(dates))))
@@ -39,15 +39,26 @@ def find_record_year(dates, totals):
 
     return years[year_avgs.index(max(year_avgs))]
 
+def find_variance(dates, totals):
+    avg_rainfall = sum(totals)/len(totals)
+    total_variance = 0
+    total_days = 0
+    for i in range(len(totals)):
+        v = (totals[i]-avg_rainfall)**2
+        total_variance += v
+        total_days +=1
+    return (total_variance/total_days)**0.5
 
-
+print(f'data variance: {find_variance(dates, totals)}')
 record_year = find_record_year(dates, totals)
 record_day = dates[totals.index(max(totals))]
-print(record_year)
-print(record_day, max(totals))
+print(f'record year: {record_year}')
+print(f'record day: {record_day, max(totals)}')
 
 plt.plot(dates, totals)
 plt.show()
+
+
 
 
     

@@ -12,7 +12,7 @@ print(today.strftime("%A, %B %d, %Y"))
 # user_date = datetime.date(1979, 10, 1)
 # print(user_date.strftime("%A, %B %d, %Y"))
 
-
+# use the time delta object to do math on the dates
 
 exit()
 

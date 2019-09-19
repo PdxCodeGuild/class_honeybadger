@@ -1,0 +1,84 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+  
+  <head>
+    
+      <meta charset="utf-8">
+      <title>Bokeh Plot</title>
+      
+      
+        
+          
+        
+        
+          
+        <script type="text/javascript" src="https://cdn.pydata.org/bokeh/release/bokeh-1.3.4.min.js"></script>
+        <script type="text/javascript">
+            Bokeh.set_log_level("info");
+        </script>
+        
+      
+      
+    
+  </head>
+  
+  
+  <body>
+    
+      
+        
+          
+          
+            
+              <div class="bk-root" id="437df2c4-bea4-4087-9a40-eac11ec939f3" data-root-id="1001"></div>
+            
+          
+        
+      
+      
+        <script type="application/json" id="1110">
+          {"33b59167-ef0f-4d49-b53b-38acdf764b1a":{"roots":{"references":[{"attributes":{"callback":null},"id":"1004","type":"DataRange1d"},{"attributes":{},"id":"1008","type":"LinearScale"},{"attributes":{},"id":"1023","type":"ZoomInTool"},{"attributes":{"callback":null,"overlay":{"id":"1045","type":"BoxAnnotation"}},"id":"1026","type":"BoxSelectTool"},{"attributes":{"bottom_units":"screen","fill_alpha":{"value":0.5},"fill_color":{"value":"lightgrey"},"left_units":"screen","level":"overlay","line_alpha":{"value":1.0},"line_color":{"value":"black"},"line_dash":[4,4],"line_width":{"value":2},"render_mode":"css","right_units":"screen","top_units":"screen"},"id":"1045","type":"BoxAnnotation"},{"attributes":{"fill_alpha":{"value":0.1},"fill_color":{"value":"#1f77b4"},"line_alpha":{"value":0.1},"line_color":{"value":"#1f77b4"},"top":{"field":"top"},"width":{"value":0.7},"x":{"field":"x"}},"id":"1035","type":"VBar"},{"attributes":{"below":[{"id":"1012","type":"LinearAxis"}],"center":[{"id":"1016","type":"Grid"},{"id":"1021","type":"Grid"}],"left":[{"id":"1017","type":"LinearAxis"}],"plot_width":1200,"renderers":[{"id":"1036","type":"GlyphRenderer"}],"title":{"id":"1002","type":"Title"},"toolbar":{"id":"1027","type":"Toolbar"},"x_range":{"id":"1004","type":"DataRange1d"},"x_scale":{"id":"1008","type":"LinearScale"},"y_range":{"id":"1006","type":"DataRange1d"},"y_scale":{"id":"1010","type":"LinearScale"}},"id":"1001","subtype":"Figure","type":"Plot"},{"attributes":{},"id":"1025","type":"PanTool"},{"attributes":{"text":"Average rainfall throughout 2018"},"id":"1002","type":"Title"},{"attributes":{"callback":null},"id":"1006","type":"DataRange1d"},{"attributes":{},"id":"1024","type":"ZoomOutTool"},{"attributes":{"axis_label":"Months in 2018","formatter":{"id":"1039","type":"BasicTickFormatter"},"ticker":{"id":"1013","type":"BasicTicker"}},"id":"1012","type":"LinearAxis"},{"attributes":{"active_drag":"auto","active_inspect":"auto","active_multi":null,"active_scroll":"auto","active_tap":"auto","tools":[{"id":"1022","type":"SaveTool"},{"id":"1023","type":"ZoomInTool"},{"id":"1024","type":"ZoomOutTool"},{"id":"1025","type":"PanTool"},{"id":"1026","type":"BoxSelectTool"}]},"id":"1027","type":"Toolbar"},{"attributes":{"dimension":1,"ticker":{"id":"1018","type":"BasicTicker"}},"id":"1021","type":"Grid"},{"attributes":{},"id":"1013","type":"BasicTicker"},{"attributes":{"fill_color":{"value":"firebrick"},"line_color":{"value":"firebrick"},"top":{"field":"top"},"width":{"value":0.7},"x":{"field":"x"}},"id":"1034","type":"VBar"},{"attributes":{"axis_label":"Average Rainfall (in inches)","formatter":{"id":"1041","type":"BasicTickFormatter"},"ticker":{"id":"1018","type":"BasicTicker"}},"id":"1017","type":"LinearAxis"},{"attributes":{"source":{"id":"1033","type":"ColumnDataSource"}},"id":"1037","type":"CDSView"},{"attributes":{},"id":"1039","type":"BasicTickFormatter"},{"attributes":{"callback":null,"data":{"top":[0.0,0.07,0.5700000000000001,0.39,0.0,0.22,0.0,0.04,0.63,0.36,0.0,0.1,0.0,1.01,0.45,0.38,0.07,0.0,0.01,0.03,0.78,0.03,0.72,0.04,0.0,0.0,0.0,0.01,0.0,0.05,0.11,0.48,0.0,0.35000000000000003,0.58,0.29,0.0,0.0,0.55,0.54,0.08,0.0,0.0,0.01,0.0,0.0,0.01,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.01,0.03,0.11,0.14,0.04,0.16,0.01,0.12,0.02,0.21,0.62,1.08,0.28,0.31,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.29,0.12,0.06,0.52,0.0,0.0,0.01,0.0,0.03,0.04,0.0,0.0,0.0,0.0,0.0,0.0,0.09,0.0,0.0,0.0,0.0,0.0,0.15,0.0,0.0,0.01,0.23,0.12,0.0,0.0,0.01,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.03,0.01,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.21,0.03,0.0,0.0,0.0,0.0,0.01,0.25,0.54,0.16,0.0,0.0,0.0,0.0,0.0,0.0,0.01,0.1,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.08,0.02,0.06,0.0,0.01,0.0,0.0,0.0,0.0,0.0,0.05,0.02,0.36,0.07,0.0,0.0,0.0,0.0,0.0,0.01,0.0,0.0,0.0,0.0,0.41000000000000003,0.42,0.1,0.04,0.22,0.2,0.19,0.0,0.8,1.77,0.04,0.39,0.02,0.0,0.01,0.22,0.0,0.0,0.0,0.0,0.06,0.04,0.16,0.22,0.61,0.59,0.23,0.0,0.0,0.0,0.13,0.05,0.23,0.0,0.37,0.0,0.0,0.0,0.02,0.31,0.0,0.0,0.03,0.0,0.0,0.0,0.06,0.35000000000000003,0.04,0.01,0.24,0.16,0.0,0.25,0.35000000000000003,0.13,0.24,0.42,0.1,0.11,0.04,0.27,0.0,0.0,0.0,0.0,0.01,0.0,0.0,0.0,0.0,0.01,0.01,0.04,0.12,0.0,0.07,0.43,0.02,0.41000000000000003,0.3,0.25,0.67,0.59,0.17,0.23,0.0,0.03,0.22,0.5700000000000001,0.08,0.07,0.0,0.0,0.02,0.81,0.08,0.61,0.07,0.09,0.03,0.33,0.05,0.0,0.0,0.0],"x":[12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,11,11,11,11,11,11,11,11,11,11,11,11,11,11,11,11,11,11,11,11,11,11,11,11,11,11,11,11,11,11,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]},"selected":{"id":"1044","type":"Selection"},"selection_policy":{"id":"1043","type":"UnionRenderers"}},"id":"1033","type":"ColumnDataSource"},{"attributes":{},"id":"1041","type":"BasicTickFormatter"},{"attributes":{},"id":"1043","type":"UnionRenderers"},{"attributes":{"ticker":{"id":"1013","type":"BasicTicker"}},"id":"1016","type":"Grid"},{"attributes":{},"id":"1018","type":"BasicTicker"},{"attributes":{},"id":"1010","type":"LinearScale"},{"attributes":{},"id":"1022","type":"SaveTool"},{"attributes":{},"id":"1044","type":"Selection"},{"attributes":{"data_source":{"id":"1033","type":"ColumnDataSource"},"glyph":{"id":"1034","type":"VBar"},"hover_glyph":null,"muted_glyph":null,"nonselection_glyph":{"id":"1035","type":"VBar"},"selection_glyph":null,"view":{"id":"1037","type":"CDSView"}},"id":"1036","type":"GlyphRenderer"}],"root_ids":["1001"]},"title":"Bokeh Application","version":"1.3.4"}}
+        </script>
+        <script type="text/javascript">
+          (function() {
+            var fn = function() {
+              Bokeh.safely(function() {
+                (function(root) {
+                  function embed_document(root) {
+                    
+                  var docs_json = document.getElementById('1110').textContent;
+                  var render_items = [{"docid":"33b59167-ef0f-4d49-b53b-38acdf764b1a","roots":{"1001":"437df2c4-bea4-4087-9a40-eac11ec939f3"}}];
+                  root.Bokeh.embed.embed_items(docs_json, render_items);
+                
+                  }
+                  if (root.Bokeh !== undefined) {
+                    embed_document(root);
+                  } else {
+                    var attempts = 0;
+                    var timer = setInterval(function(root) {
+                      if (root.Bokeh !== undefined) {
+                        embed_document(root);
+                        clearInterval(timer);
+                      }
+                      attempts++;
+                      if (attempts > 100) {
+                        console.log("Bokeh: ERROR: Unable to run BokehJS code because BokehJS library is missing");
+                        clearInterval(timer);
+                      }
+                    }, 10, root)
+                  }
+                })(window);
+              });
+            };
+            if (document.readyState != "loading") fn();
+            else document.addEventListener("DOMContentLoaded", fn);
+          })();
+        </script>
+    
+  </body>
+  
+</html>
