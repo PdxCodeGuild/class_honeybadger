@@ -1,4 +1,4 @@
-# test.py
+# lab_24_rain_data_bokeh.py
 
 # This code pulls data from the Oregon website that displays data charts of daily rainfall.
 
@@ -90,7 +90,7 @@ def most_rain_year(most_rain_year):
     return max_year
 
 
-# Creates a
+# Creates a chart
 
 def rain_plot(rain_plot_chart):
     x_values = []
@@ -108,6 +108,8 @@ def rain_plot(rain_plot_chart):
             # print(rain_count)
         y_values.append(rain_count)
     
+    print(x_values)
+    print(y_values)
     output_file("rain_data.html")
 
     p = figure(
@@ -176,4 +178,4 @@ print(f"The variance of rain is: {rain_variance(data)}")
 print(f"The day with the most rain: {most_rain_day(data)}")
 print(f"The year with the most rain: {most_rain_year(data)}")
 rain_plot(data)
-rain_plot_days(data, 2012)
+# rain_plot_days(data, 2012)

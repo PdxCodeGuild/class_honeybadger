@@ -61,7 +61,7 @@ def change_pen_size():
 
 # makes a spiral with random colors each time it's run
 
-def octagon_spiral():
+def color_spiral():
     t.title("Octagon spiral with random colors")
     t.hideturtle()
     num = 100.0 # this is the length of each octagon side
@@ -84,10 +84,10 @@ def octagon_spiral():
     t.exitonclick()
     
 def choose_sides():
-    t.title("Choose sides")
     t.hideturtle()
     sides = t.numinput("Create your design:", "How many sides do you want the shape to have?")
     sides = int(sides)
+    t.title(f"{side}-sided design")
     num = 200.0 # this is the length of each side
     pen = 4.0 # this is the starting pen size
     x = randint(0, 255)
@@ -106,5 +106,47 @@ def choose_sides():
 
     t.exitonclick()
 
+def circle_spiral():
+    t.title("Circle Spiral")
+    t.hideturtle()
+    num = 150.0 # this is the radius of the circle
+    pen = 3 # this is the starting pen size
+    x = randint(0, 255)
+    y = randint(0, 255)
+    while num > 0:
+        for i in range(0, 255):
+            # x = randint(0,255)
+            i = (i+100)%255
+            t.pencolor(i, (x%255), (y%255)) # i changes which makes a gradient
+            t.pensize(pen) # determines pen size
+            for j in range(3): # prints the circle four times
+                t.circle(num)
+                t.left(120)
+            t.left(100.5) # rotates to the left
+            num -= .25 # decreases the size of the circle until it hits zero
+            pen -= 0.01 # makes the pen size smaller
+            if pen <= .10:
+                pen = .1
+            x += 10 # this increments the g and b colors to make the spiral colors
 
-choose_sides()
+    t.exitonclick()
+
+def choose_program():
+    user_input = t.textinput("Choose your program", "Which program do you want to run? Type one of the following:\nHypnotic Octagon\nHypnotic Color Grade\nChange Pen Size\nColor Spiral\nChoose Sides\nCircle Spiral").lower()
+    if user_input == "hynotic octagon":
+        hynotic_octagon()
+    elif user_input == "hypnotic color grade":
+        hypnotic_color_grade()
+    elif user_input == "change pen size":
+        change_pen_size()
+    elif user_input == "color spiral":
+        color_spiral()
+    elif user_input == "choose sides":
+        choose_sides()
+    elif user_input == "circle spiral":
+        circle_spiral()
+        
+        
+
+choose_program()
+# circle_spiral()
