@@ -1,5 +1,9 @@
 import random
 
+
+
+
+
 width = 10  # the width of the board
 height = 10  # the height of the board
 
@@ -10,13 +14,13 @@ for i in range(height):  # loop over the rows
     board.append([])  # append an empty row
     for j in range(width):  # loop over the columns
         board[i].append(' ')  # append an empty space to the board
-
+# print(board)
 # define the player position
 player_i = 4
 player_j = 4
 
 # add 4 enemies in random locations
-for i in range(4):
+for i in range(1):
     enemy_i = random.randint(0, height - 1)
     enemy_j = random.randint(0, width - 1)
     board[enemy_i][enemy_j] = '§'
@@ -48,12 +52,12 @@ while True:
             print('you hestitated and were slain')
             break
 
-            # print out the board
+    # print out the board
     for i in range(height):
         for j in range(width):
             # if we're at the player location, print the player icon
             if i == player_i and j == player_j:
-                print('☺', end=' ')
+                print('☺', end='')
             else:
-                print(board[i][j], end=' ')  # otherwise print the board square
+                print(board[i][j], end='')  # otherwise print the board square
         print()

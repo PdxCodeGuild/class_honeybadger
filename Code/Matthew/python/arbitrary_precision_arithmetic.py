@@ -143,6 +143,10 @@ class BigInt:
             else:
                 calculation.append(result % 10)
                 remainder = 1
+        
+        if remainder == 1:
+            calculation.append(remainder)
+        
         calculation.reverse()
         calculation_str = "".join([str(calculation[i]) for i in range(len(calculation))])
         calculation_str = calculation_str.lstrip('0')
@@ -152,20 +156,31 @@ class BigInt:
     
 
 
-x = BigInt('3246234234243')
+# x = BigInt('3246234234243')
 # print(x.nums)
 # print(x)
 
 # print(type(x.nums))
-y = BigInt('9812342')
+# y = BigInt('9812342')
 # print(y.nums)
 # print(y)
+
+x = BigInt('87')
+y = BigInt('20')
 z = x + y # x is self and y is nums_2
 
 print(z) # 
 
 
 
+
+# a = 5
+# b = 6
+# print(5*6)
+# r = 0
+# for i in range(b):
+#     r += a
+# print(r)
 
 
 
