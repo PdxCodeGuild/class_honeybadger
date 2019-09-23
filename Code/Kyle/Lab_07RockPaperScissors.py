@@ -6,7 +6,7 @@ choices = ["rock", "paper", "scissors"]
 
 tie_outcomes = ["rock vs rock",  "scissors vs scissors", "paper vs paper"]
 
-user_wins = ["tiger vs scissors", "tiger vs rock", "tiger vs paper", "rock vs scissors", "paper vs rock", "scissors vs paper"]
+user_wins = ["rock vs scissors", "paper vs rock", "scissors vs paper"]
 cpu_win = ["rock vs paper", "scissors vs rock", "paper vs scissors"]
 
 play_again = "yes"
