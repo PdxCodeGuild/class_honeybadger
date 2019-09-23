@@ -10,6 +10,7 @@ import matplotlib.pyplot as plt
 def load_data(url):
     response = requests.get(url)
     response = response.text
+    # regex to get the date and rainfall in a readable format
     new_response = re.findall('(\d{2}-\w{3}-\d{4})\s+(\d+)', response)
     ourlist = []
     # print(new_response)
@@ -17,25 +18,31 @@ def load_data(url):
     for i in range(len(new_response)):
         date = new_response[i][0]
         rain = new_response[i][1]
+        # convert tips to inches to centimeters
         rain = int(rain)*.01*2.54
+        # create new variable with date formatted
         date2 = d.datetime.strptime(date, '%d-%b-%Y')
+        # create dict from date2 + rain
         ourlist.append({'year': date2.year, 'month': date2.month, 'day': date2.day, 'rain': rain})
     # print(ourlist)
     return ourlist
 
 
-# measure average rainfall
+# measure average rainfall with the dict data
 def find_average(data):
     total_days = 0
     total_rain = 0
+    # itirate through dicts to create variable rain
     for i in range(len(data)):
         rain = data[i]['rain']
+        # add all the rain toghether for accumulated rain.
         total_rain += rain
+        # count rows(rain days)
         total_days +=1
     return total_rain/total_days
 
 
-# standard deviation
+# standard deviation from data and average
 def find_standard_deviation(data, average):
     total_days = 0
     total_variance = 0
