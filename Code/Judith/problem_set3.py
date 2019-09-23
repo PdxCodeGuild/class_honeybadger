@@ -2,13 +2,15 @@
 
 import random
 
-# #problem 1
+# # problem 1
+# # Write a function using random.randint to generate an index, use that index to pick a random element of a list and return it.
 # def randelem():
 #     ulist = [1,2,3,4,5]
 #     return ulist[random.randint(0,4)]
 # #print(randelem())
 
-# #problem 2
+# # problem 2
+# # Write a REPL which asks users for a list of numbers, which they enter, until they say 'done'. Then print out the list.
 # def listmkr():
 #     lis = []
 #     ad = ''
@@ -19,7 +21,8 @@ import random
 #     return lis
 # #print(listmkr())
 
-# #problem 3
+# # problem 3
+# # Write a function that takes a list of numbers, and returns True if there is an even number of even numbers.
 # def evtru():
 #     lis = []
 #     elis = []
@@ -36,7 +39,8 @@ import random
 #         return True            
 # #print(evtru())
 
-# #problem 4
+# # problem 4
+# # Print out every other element of a list, first using a while loop, then using a for loop.
 # def bkbt():
 #     blis = []
 #     flis = []
@@ -58,9 +62,11 @@ import random
 #     print(wlis)
 # print(bkbt())
 
-# #problem 5
+# # problem 5
+# # Write a function that returns the reverse of a list.
 
-# #problem 6
+# # problem 6
+# # Write a function to move all the elements of a list with value less than 10 to a new list and return it.
 # def movelownums():
 #     lis = []
 #     elis = []
@@ -79,7 +85,8 @@ import random
 #     return elis
 # print(movelownums())
 
-# #problem 7
+# # problem 7
+# # Write a function to find all common elements between two lists.
 # def comel():
 #     lis = [random.randint(0,10) for i in range(10)]
 #     elis = [random.randint(0,10) for i in range(len(lis))]
@@ -92,7 +99,8 @@ import random
 #     return int(len(flis))
 # print(comel())
 
-# problem 8: combine two lists of equal length into one,alternating elements
+# # problem 8: 
+# # combine two lists of equal length into one,alternating elements
 # def combine():
 #     list_one = [random.randint(0,99) for x in range(5)]
 #     list_two = [random.randint(0,99) for x in range(5)]
@@ -105,7 +113,8 @@ import random
 #     return list_three
 # print(combine())
 
-# problem 9: Given a list of numbers, and a target number, find a pair of numbers from the list that sum to a target number
+# # problem 9: 
+# # Given a list of numbers, and a target number, find a pair of numbers from the list that sum to a target number
 # def p9():
 #     nums = [5,6,2,3]
 #     target = 8
@@ -119,7 +128,8 @@ import random
             
 # print(p9())
 
-# problem 10: Write a function that merges two lists into a single list, where each element of the output list is a list containing two elements, one from each of the input lists.
+# # problem 10: 
+# # Write a function that merges two lists into a single list, where each element of the output list is a list containing two elements, one from each of the input lists.
 # def p10():
 #     list_one = [random.randint(0,99) for x in range(5)]
 #     list_two = [random.randint(0,99) for x in range(5)]
@@ -131,7 +141,8 @@ import random
 #     return list_three
 # print(p10())
 
-# problem 11: Write a function combine_all that takes a list of lists, and returns a list containing each element from each of the lists.
+# # problem 11: 
+# # Write a function combine_all that takes a list of lists, and returns a list containing each element from each of the lists.
 # def combine_all():
 #     list_one = [[random.randint(0,99) for x in range(3)] for x in range(3)]
 #     list_two = []
@@ -142,15 +153,17 @@ import random
 #     return list_two
 # print(combine_all())
 
-# problem 12: Write a function that takes n as a parameter, and returns a list containing the first n Fibonacci Numbers.
-def p12(n):
-    list_two = [1,1]
-    for x in range(len(list_two),n):
-        list_two.append(list_two[x-1]+list_two[x-2])
-    return list_two
-print(p12(12))
+# # problem 12: 
+# # Write a function that takes n as a parameter, and returns a list containing the first n Fibonacci Numbers.
+# def p12(n):
+#     list_two = [1,1]
+#     for x in range(len(list_two),n):
+#         list_two.append(list_two[x-1]+list_two[x-2])
+#     return list_two
+# print(p12(12))
 
-# problem 13: Write functions to find the minimum, maximum, mean, and (optionally) mode of a list of numbers.
+# # problem 13: 
+# # Write functions to find the minimum, maximum, mean, and (optionally) mode of a list of numbers.
 # def minimum(nums):
 #     mini = nums[0]
 #     for num in nums:
@@ -185,7 +198,8 @@ print(p12(12))
 # nums = [0, 3, 3, 6, 9, 9, 9]
 # print(minimum(nums), maximum(nums), mean(nums), mode(nums))
         
-# problem 14: Write a function which takes a list as a parameter and returns a new list with any duplicates removed.
+# # problem 14: 
+# # Write a function which takes a list as a parameter and returns a new list with any duplicates removed.
 # def p14(nums):
 #     no_dupes = []
 #     for i in range(len(nums)):
