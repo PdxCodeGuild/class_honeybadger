@@ -40,3 +40,28 @@ teens = {11: 'eleven', 12: 'twelve', 13: 'thirteen', 14: 'fourteen', 15: 'fiftee
 user_input = int(input('give me a number between 1 and 999: '))
 # calling the function, passing user selected number to translate
 nums_to_phrase(user_input)
+
+
+# def translateIntoRoman(input):
+#     # start the result as empty list, appending after looping
+#     result = []
+#     # loop through the list of ints(arabic numerals) using the index
+#     for i in range(len(ints)):
+#     # set count to the integer result of inputted number divided by the index
+#         count = int(input / ints[i])
+#     # append the product of the index of roman numeral and count
+#         result.append(roman[i] * count)
+#     # decrement the input by the product of the ints index and count
+#         input -= ints[i] * count
+#     # return a string of result
+#     return ''.join(result)
+#
+# #  indexes of both lists
+# #          0   1    2     3     4   5   6   7    8    9    10   11   12
+# #  list of arabic numerals
+# ints =  [1000, 900, 500, 400, 100, 90,  50, 40,  10,  9,    5,   4,   1];
+# # list of roman numerals
+# roman = ['M', 'CM', 'D', 'CD', 'C','XC','L','XL','X', 'IX','V', 'IV','I']
+#
+# # call the function with a number to translate and print
+# print(translateIntoRoman(75))
