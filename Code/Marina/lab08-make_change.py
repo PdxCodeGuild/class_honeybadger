@@ -2,7 +2,7 @@
 
 user_input = float(input('Enter a dollar amount, please: '))
 total = int(user_input * 100)
-print(total)
+# print(total)
 quarters = total//25
 total -= quarters*25
 
@@ -14,9 +14,9 @@ total -= nickels*5
 
 pennies = total
 
-print(f"{quarters} quarters")
-print(f"{dimes} dimes")
-print(f"{nickels} nickels")
-print(f"{pennies} pennies")
+print(f"{quarters} in quarters")
+print(f"{dimes} in dimes")
+print(f"{nickels} in nickels")
+print(f"{pennies} in pennies")
 
-print(f"You have {quarters} quarters and {dimes} dimes and {nickels} nickels and {pennies} pennies")
+print(f"You have {quarters} in quarters and {dimes} in dimes and {nickels} in nickels and {pennies} in pennies")
