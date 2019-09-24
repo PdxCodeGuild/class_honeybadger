@@ -37,7 +37,7 @@ x = 10
 print(y)
 ```
 
-### Functional vs Object-Oriented
+### Procedural vs Object-Oriented
 
 
 
@@ -46,7 +46,7 @@ print(y)
 
 | type | language |
 | ----|-----|
-| Imperative | C, C++, C#, Java, Python |
+| Imperative and Procedural | C, C++, C#, Java, Python |
 | Object-Oriented | C++, C#, Java, Python |
 | Functional | Haskell, Lisp & Scheme, Scala, Python |
 | Declarative | Prolog |

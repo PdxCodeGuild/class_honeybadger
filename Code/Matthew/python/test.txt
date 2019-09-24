@@ -1,0 +1,8 @@
+hello world!
+
+
+# Create one instance, seeded from current time, and export its methods
+# as module-level functions.  The functions share state across all uses
+#(both in the user's code and in the Python libraries), but that's fine
+# for most programs and is easier for the casual user than making them
+# instantiate their own Random() instance.

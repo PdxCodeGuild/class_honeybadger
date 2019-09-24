@@ -32,5 +32,5 @@
 exponent = 0
 num = 2
 def powers_of_two(num, power):
-        print([num<<exponent for exponent in range(power)])
+    print([num<<exponent for exponent in range(power)])
 powers_of_two(2, 20)
