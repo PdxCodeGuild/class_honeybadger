@@ -28,19 +28,26 @@ def crime_chart(contents):
     crime_x = []
     crime_y = []
     
-    index = input("What do you want to view?\n\tType '1' to view crime by date\n\tType '2' to view crime by type\n\tType '3' to view crime by district\n-->  ")
+    index = input("What do you want to view?\n\tType '1' to view crime by date\n\tType '2' to view crime by type\n\tType '3' to view crime by district\n\tType '4' to view crime by time of day\n-->  ")
     if index == "1":
         index = 1
         x_string = "Date"
         y_string = "Number of incidents"
     elif index == "2":
         index = 3
-        x_string = ""
-        y_string = ""
+        x_string = "Type of crime"
+        y_string = "Number of incidents"
     elif index == "3":
         index = 5
-        x_string = ""
-        y_string = ""
+        x_string = "District"
+        y_string = "Number of incidents"
+    elif index == "4":
+        index = 2
+        x_string = "Tme of day"
+        y_string = "Number of incidents"
+    
+    # print(contents[1][index][:2])
+    # exit()
     
     # creates a temporary list to sort so the x values are in order
     for i in range(len(contents)):
