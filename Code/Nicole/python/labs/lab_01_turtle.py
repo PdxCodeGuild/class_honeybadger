@@ -5,7 +5,7 @@
 import turtle as t
 from random import randint
 
-t.screensize(2000,1000)
+t.screensize(5120,2880)
 t.colormode(255)
 # t.bgcolor(230, 230, 230)
 t.speed(0)
@@ -87,7 +87,7 @@ def choose_sides():
     t.hideturtle()
     sides = t.numinput("Create your design:", "How many sides do you want the shape to have?")
     sides = int(sides)
-    t.title(f"{side}-sided design")
+    t.title(f"{sides}-sided design")
     num = 200.0 # this is the length of each side
     pen = 4.0 # this is the starting pen size
     x = randint(0, 255)
@@ -132,21 +132,20 @@ def circle_spiral():
     t.exitonclick()
 
 def choose_program():
-    user_input = t.textinput("Choose your program", "Which program do you want to run? Type one of the following:\nHypnotic Octagon\nHypnotic Color Grade\nChange Pen Size\nColor Spiral\nChoose Sides\nCircle Spiral").lower()
-    if user_input == "hynotic octagon":
-        hynotic_octagon()
-    elif user_input == "hypnotic color grade":
+    user_input = t.textinput("Choose your program", "Which program do you want to run? \n    Type '1' for Hypnotic Octagon\n    Type '2' for Hypnotic Color Grade\n    Type '3' for Change Pen Size\n    Type '4' for Color Spiral\n    Type '5' for Choose Sides\n    Type '6' for Circle Spiral").lower()
+    if user_input == "1":
+        hypnotic_octagon()
+    elif user_input == "2":
         hypnotic_color_grade()
-    elif user_input == "change pen size":
+    elif user_input == "3":
         change_pen_size()
-    elif user_input == "color spiral":
+    elif user_input == "4":
         color_spiral()
-    elif user_input == "choose sides":
+    elif user_input == "5":
         choose_sides()
-    elif user_input == "circle spiral":
+    elif user_input == "6":
         circle_spiral()
         
         
 
 choose_program()
-# circle_spiral()
