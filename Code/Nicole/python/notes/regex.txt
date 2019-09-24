@@ -1,0 +1,13 @@
+# regex.txt
+
+{number} = This is the number of digits, letters, etc. of the thing you want to find
+[]  =   Character class, include anything in the brackets works
++   =   one or more
+*   =   zero or more
+?   =   makes it optional
+
+^   =   ensures the entire string is matched (beginning of line)
+$   =   ensures the entire string is matched (end of line)
+
+\d  =   any digit 0 – 9
+\w  =   any word character, number, or underscore

@@ -77,6 +77,7 @@ def most_rain_year(most_rain_year):
 
 
 def rain_plot(rain_plot_chart):
+    plt.title("Average rainfall")
     x_values = []
     y_values = []
     
@@ -98,6 +99,7 @@ def rain_plot(rain_plot_chart):
     return plt.show()
 
 def rain_plot_days(rain_plot_chart_days):
+    plt.title("Average rainfall in 2018")
     x_values = []
     y_values = []
     rain_count = 0
@@ -109,13 +111,14 @@ def rain_plot_days(rain_plot_chart_days):
         if rain_plot_chart_days[a][0].year == 2018:
             x_values.append(rain_plot_chart_days[a][0])
             y_values.append(rain_plot_chart_days[a][1])
-    print(x_values)
+    # print(x_values)
     
     # 
     plt.plot(x_values, y_values)
     return plt.show()
 
 def rain_plot_day_avg(rain_plot_day_avg):
+    plt.title("Average rainfall for each day of the week")
     x_values = []
     y_values = []
     d_values = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
@@ -155,11 +158,13 @@ data = rain_data(loc)
 # data_1998 = [row for row in data if row[0].year == 1998]
 # print(data_1998)
 
-# print(f"The average rain in this location: {rain_mean(data)}")
-# print(f"The variance of rain is: {rain_variance(data)}")
-# print(f"The day with the most rain: {most_rain_day(data)}")
-# print(f"The year with the most rain: {most_rain_year(data)}")
-print(rain_plot_day_avg(data))
+print(f"The average rain in this location: {rain_mean(data)}")
+print(f"The variance of rain is: {rain_variance(data)}")
+print(f"The day with the most rain: {most_rain_day(data)}")
+print(f"The year with the most rain: {most_rain_year(data)}")
+# print(rain_plot_day_avg(data))
+print(rain_plot_days(data))
+# print(rain_plot(data))
 
 
 

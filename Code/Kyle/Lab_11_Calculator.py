@@ -10,7 +10,7 @@
 # Stretch
 # allow to pay again
 # keep track of their "score"
-
+import math
 import random
 
 num1 = int(input("Enter a number: "))
@@ -18,21 +18,20 @@ num2 = int(input("Enter a second number: "))
 
 operators_list = ["+", "-", "*", "/"]
 
-chosen_operator = input("Enter an operator ")
+chosen_operator = int(input("Enter an operator "))
 
-print(chosen_operator)
-
-
-# if/else = 2 conditions
-# elif = more than 2 conditions
 
 if chosen_operator == "+":
     results = num1 + num2
+    print(results)
 elif chosen_operator == "-":
     results = num1 - num2
+    print(results)
 elif chosen_operator == "*":
     results = num1 * num2
+    print(results)
 else:
     results = num1 / num2
+    print(results)
 
 print(results)

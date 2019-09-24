@@ -1,6 +1,24 @@
 import random
 
 
+
+
+
+# class Enemy:
+#     def __init__(self, location_i, location_j, character):
+#         self.location_i = location_i
+#         self.location_j = location_j
+#         self.character = '§'
+# 
+# class Player:
+#     def __init__(self, location_i, location_j, character):
+#         self.location_i = location_i
+#         self.location_j = location_j
+#         self.character = '☺'
+
+
+
+
 class Entity:
     def __init__(self, location_i, location_j, character):
         self.location_i = location_i
@@ -26,8 +44,8 @@ class Board:
     def random_location(self):
         return random.randint(0, self.width - 1), random.randint(0, self.height - 1)
 
-    def __getitem__(self, j):
-        return self.board[j]
+    def __getitem__(self, i):
+        return self.board[i]
 
     def print(self, entities):
         for i in range(self.height):
@@ -88,11 +106,11 @@ while True:
                 exit()
 
 
-    # for enemy in enemies:
-    #     if random.randint(0, 1) == 0:
-    #         enemy.location_i += random.randint(-1, 1)
-    #     else:
-    #         enemy.location_j += random.randint(-1, 1)
+    for enemy in enemies:
+        if random.randint(0, 1) == 0:
+            enemy.location_i += random.randint(-1, 1)
+        else:
+            enemy.location_j += random.randint(-1, 1)
 
 
 

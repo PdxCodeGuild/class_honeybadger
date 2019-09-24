@@ -1,4 +1,4 @@
-
+import math
 Q = 10
 K = 10
 A = 1
@@ -10,14 +10,20 @@ user_hand1 = float(input("Whats your first card? "))
 user_hand2= float(input("Whats your second card? "))
 user_hand3 = float(input("Whats your third card? "))
 
-hand_sum = [user_hand1, user_hand2, user_hand3]
 
-def add_user_hand():
-    added = sum(hand_sum)
-    return added
-    print(added)
+added = [user_hand1, user_hand2, user_hand3]
 
-add_user_hand()
+added = sum(added)
+print(added)
+
+if added < 17:
+    print("Hit")
+elif added >= 17 and added < 21:
+    print("Stay")
+elif added == 21:
+    print("You won!")
+else:
+    print("Bust")
 
 
 # def card_value():
