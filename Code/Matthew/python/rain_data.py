@@ -1,5 +1,5 @@
 
-
+import matplotlib.pyplot as plt
 
 import requests
 import re
@@ -127,10 +127,6 @@ def find_year_most_rain(data):
     
     return max(year_averages, key=lambda x: x[1])
     
-    
-    
-    
-
 
 # def add(a, b=1):
 #     return a + b
@@ -139,12 +135,38 @@ def find_year_most_rain(data):
 # add(5)
 # add(5, b=2)
         
+
+def plot_all_data(data):
+    x_values = [d.datetime(row['year'], row['month'], row['day']) for row in data]
+    y_values = [row['rain'] for row in data]
+    plt.plot(x_values, y_values)
+    plt.show()
+
+
+def plot_daily_average(data):
+    days = list({(row['month'], row['day']) for row in data})
+    days.sort(key=lambda x: x[1])
+    days.sort(key=lambda x: x[0])
+    
+    totals = [0]*len(days)
+    counts = [0]*len(days)
+    
+    for row in data:
+        day_index = days.index((row['month'], row['day']))
+        totals[day_index] += row['rain']
+        counts[day_index] += 1
+    
+    averages = [totals[i]/counts[i] for i in range(len(days))]
+    # days = [i for i in range(len(days))]
+    # days = [f'{day[0]}/{day[1]}' for day in days]
+    days = [d.datetime(2000, day[0], day[1]) for day in days]
+    
+    plt.plot(days, averages)
+    plt.show()
         
     
-        
-        
-    
-    
+
+
     
 
 
@@ -154,6 +176,8 @@ average = find_average(data)
 standard_deviation = find_standard_deviation(data, average)
 day_most_rain = find_day_most_rain(data)
 year_most_rain = find_year_most_rain(data)
+# plot_all_data(data)
+plot_daily_average(data)
 
 print(f'{len(data)} records')
 print(f'Average rainfall: {average}cm')

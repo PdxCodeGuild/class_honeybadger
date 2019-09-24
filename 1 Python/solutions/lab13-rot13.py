@@ -76,6 +76,29 @@ def rotn_v3(text, offset):
 
     print(output)
 
+
+def min(a, b):
+    return a if a < b else b
+def max(a, b):
+    return a if a > b else b
+def clamp(a, b, v):
+    if v < a:
+        return a
+    elif v > b:
+        return b
+    else:
+        return v
+
+def clamp(a, b, v):
+    return a if v < a else b if v > b else v
+
+clamp(0.0, 1.0, 0.76)
+
+
+
+
+
+
 def rotn_v4(text, offset):
     return ''.join([chr(ord('a')+(ord(c)-ord('a')+offset)%26) if ord(c)>=ord('a') and ord(c)<=ord('z') else chr(ord('A')+(ord(c)-ord('A')+offset)%26) if ord(c)>=ord('A') and ord(c)<=ord('Z') else c for c in text])
 
