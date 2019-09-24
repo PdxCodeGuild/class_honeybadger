@@ -1,5 +1,10 @@
 import random
 
+import ascii_art
+import chalk
+
+
+
 
 
 
@@ -68,7 +73,7 @@ player = Player(pi, pj)
 entities = [player]
 enemies = []
 
-for i in range(10):
+for i in range(2):
     ei, ej = board.random_location()
     enemy = Enemy(ei, ej)
     entities.append(enemy)
@@ -100,6 +105,10 @@ while True:
                 print('you\'ve slain the enemy')
                 entities.remove(enemy)
                 enemies.remove(enemy)
+                if len(enemies) == 0:
+                    print('You survived.... this time....')
+                    print(chalk.red(ascii_art.grim_reaper))
+                    exit()
                 break
             else:
                 print('you hestitated and were slain')
@@ -111,6 +120,10 @@ while True:
             enemy.location_i += random.randint(-1, 1)
         else:
             enemy.location_j += random.randint(-1, 1)
+        
+        enemy.location_i %= board.height
+        enemy.location_j %= board.width
+        
 
 
 
