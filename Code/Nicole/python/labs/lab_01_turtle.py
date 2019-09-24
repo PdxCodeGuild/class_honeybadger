@@ -9,7 +9,7 @@ t.screensize(5120,2880)
 t.colormode(255)
 # t.bgcolor(230, 230, 230)
 t.speed(0)
-t.pensize(4)
+t.pensize(4) 
 
 # creates a never-ending colorful drawing of octagons stacked on top of each other
 
