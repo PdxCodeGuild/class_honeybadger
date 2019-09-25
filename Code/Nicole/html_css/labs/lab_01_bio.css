@@ -1,0 +1,73 @@
+body {
+    margin: 5% 15% 5% 15%;
+    background: rgb(181, 181, 181);
+    font-family: 'Raleway', sans-serif;
+}
+
+div.main {
+    align-content: center;
+    background: white;
+    padding: 20px;
+    margin: 50px 0 50px 0 ;
+}
+
+div.footer {
+    background: none;
+    text-align: center;
+    font-size: 10px;
+}
+
+h1 {
+    font-size: 42px;
+    text-align: center;
+    margin: 0;
+}
+
+h2 {
+    margin-top: 40px;
+}
+p {
+    font-size: 16px;
+}
+
+p.italics {
+    font-style: italic;
+    font-size: 12px;
+    text-align: center;
+}
+
+p.small {
+    font-size: 12px;
+}
+
+ul li {
+    margin-top: 10px;
+    list-style-image: url(paw.png);
+}
+
+img.bio {
+    float: right;
+    padding: 10px 10px 10px 10px;
+    width: 40%; 
+    margin: 0 10px;
+    border-radius: 10px;
+    background-color: white;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+blockquote {
+    font-style: italic;
+    background: gray;
+    padding: 25px;
+    color: white;
+    border-radius: 20px 0 20px 0;
+    text-align: center;
+    margin: 30px;
+}
+
+hr { 
+  margin: 50px 0 50px 0;
+  border : 0;
+  height: 1px; 
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0)); 
+}

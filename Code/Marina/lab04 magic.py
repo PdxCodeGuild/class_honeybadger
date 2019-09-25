@@ -1,6 +1,6 @@
 import random
 
-answers = ["Yes", "No", "Maybe", "Signs point to yes.", "Cannot predict now.", "My sources say no."]
+answers = ["Yes", "No", "Maybe", "Signs point to 'yes'.", "Cannot predict now.", "My sources say 'no'."]
 
 print("-" * 50)
 print("Ask the magic 8 ball anything!\n")

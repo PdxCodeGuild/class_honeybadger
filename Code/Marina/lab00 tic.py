@@ -30,8 +30,8 @@ class Game:
 # calculates winner by checking vertical, horisontal and diagonal wins
     def calc_winner(self):
         for i in range(3):
-        row = self.game[i]
-        if all(item == row[0]) and item != ' ' for item in row):
+            row = self.game[i]
+        if all(item == row[0]) and (item != ' ' for item in row):
             return row [0]
 
         col = [self.game[j][i] for j in range (3)]

@@ -1,4 +1,8 @@
+
 import random
+
+
+
 print("Welcome to Rock Paper Scissors!")
 user_score = 0
 cpu_score = 0
@@ -6,9 +10,10 @@ round = 1
 play_again = "yes"
 choices = ["rock", "paper", "scissors"]
 
-tie_outcomes = ["rock vs rock",  "scissors vs scissors", "paper vs paper"]
 
-user_wins = ["tiger vs scissors", "tiger vs rock", "tiger vs paper", "rock vs scissors", "paper vs rock", "scissors vs paper"]
+#puting all scenarios into three lists
+tie_outcomes = ["rock vs rock",  "scissors vs scissors", "paper vs paper"]
+user_wins = ["taco vs scissors", "taco vs rock", "taco vs paper", "rock vs scissors", "paper vs rock", "scissors vs paper"]
 cpu_win = ["rock vs paper", "scissors vs rock", "paper vs scissors"]
 
 while play_again == "yes":
@@ -24,17 +29,19 @@ while play_again == "yes":
         user_score += 0
         cpu_score += 0
     elif outcome in user_wins:
-        user_score += 1
+        user_score += 2
+        cpu_score -= 1
         print("You Won!!")
     elif outcome in cpu_win:
-        cpu_score += 1
+        cpu_score += 2
+        user_score -= 1
         print("Oof! you lost")
 
     else:
         print("Please enter rock, paper or scissors.")
     play_again = input("Would you like to play again? yes/no ").lower()
 
-    print(f"Results for this round: 'User Score: '{user_score} 'CPU Score: '{cpu_score}")
+    print(f"Current Score: User Score: {user_score}, CPU Score: {cpu_score}")
 
 
 
