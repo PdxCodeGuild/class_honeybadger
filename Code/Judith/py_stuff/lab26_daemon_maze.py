@@ -19,14 +19,28 @@ class Board:
         corridors = self.height + (self.height + 1)
         
         for i in range(corridors):
-            if i % 2 == 0:
+            if i == 0 or i == corridors: # top and bottom walls, always closed
                 labrynth.append([['X'] for i in range(passages)])
-            else:
+            elif i % 2 == 0: # walls inbetween floors
                 passage = []
                 for j in range(passages):
-                    if j % 2 == 0:
+                    if j == 0 or j == passages: # first and last column always closed
                         passage.append(['X'])
+                    elif j % 2 == 1: # walls to left, right, up, down of rooms may be open
+                        passage.append([random.choice(['I', 'I', 'X'])])
                     else:
+                        passage.append(['X'])
+                labrynth.append(passage)
+
+                    
+            else:   # corridor contains rooms
+                passage = []
+                for j in range(passages):
+                    if j == 0 or j == passages: # first and last column always closed
+                        passage.append(['X'])
+                    elif j % 2 == 0: # middle columns may be open
+                        passage.append([random.choice(['I', 'I', 'X'])])
+                    else: # rooms added here
                         passage.append(self.rooms[(i-1)//2][(j-1)//2])
                 labrynth.append(passage)
 
@@ -82,7 +96,7 @@ class Player(Entity):
         super().__init__('$', name)
 
     def move(self, command):
-        if command == 'done':
+        if command == 'done': # initial move into 'wall' space
             pass
         elif command in ['l', 'left', 'w', 'west']:
             self.loc_j -= 1  # move left
@@ -92,9 +106,19 @@ class Player(Entity):
             self.loc_i -= 1  # move up
         elif command in ['d', 'down', 's', 'south']:
             self.loc_i += 1 # move down
-        if not self.valid_move():
+        if not self.valid_move(): # check if wall is open
             print('you ran into a wall...')
-        
+        else: # push to space behind wall if open
+            if command in ['l', 'left', 'w', 'west']:
+                self.loc_j -= 1 
+            elif command in ['r', 'right', 'e', 'east']:
+                self.loc_j += 1  
+            elif command in ['u', 'up', 'n', 'north']:
+                self.loc_i -= 1  
+            elif command in ['d', 'down', 's', 'south']:
+                self.loc_i += 1 
+
+        self.current_loc = [self.loc_i, self.loc_j] #set current_loc at end of function to avoid missed encounter
         return (self.loc_i, self.loc_j)
 
     def valid_move(self):
@@ -128,9 +152,6 @@ class Demon(Entity):
 
 board = Board(3, 3)
 board.labrynth()
-print(board.height, board.width)
-m = board.random_loc()
-print(m)
 chara = Player(str(input("what's your name?..\n")))
 demon = Demon('Pazuzu')
 entities = [chara, demon]
