@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>materialize.css demo</title>
+    <!-- Materialize.css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <link rel="stylesheet" href="materialize_demo.css"/>
+    <style type="text/css">
+      .flex_container {
+        display:flex;
+        flex-direction:row;
+        justify-content:center;
+        align-items:center;
+        flex-wrap:wrap;
+        height:200px;
+        background-color:lightgreen;
+      }
+      .flex_container div {
+        width:100px;
+        height:100px;
+        background-color:blue;
+        margin:5px;
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="amber">
+      <div class="nav-wrapper">
+        <a href="#" class="brand-logo">Logo</a>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+          <li><a href="sass.html">Sass</a></li>
+          <li><a href="badges.html">Components</a></li>
+          <li><a href="collapsible.html">JavaScript</a></li>
+        </ul>
+      </div>
+    </nav>
+    <div class="flex_container">
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+  </body>
+</html>
