@@ -4,9 +4,31 @@ img {
     border: double
 }
 
-body{
-    background-color: rgb(238, 225, 200)}
-
-h2{
-    color: rgb(8, 2, 24)
+body, html {
+    height: 100%;
+    background-image: url("paper.gif") ;
+    background-color: #cccccc;
+    background-image: repeating-linear-gradient( white, wheat 10%, #bfbdba 15%);
+    
 }
+    
+img {
+    padding:1px;
+    border:1px solid #021a40;
+    background-color:#f2ac44;
+    border-style: solid;
+    border-width: 2px;
+ }
+  
+   
+h2{
+    color: rgb(8, 2, 24);
+    font-family: "Comic Sans MS", cursive, sans-serif}
+
+
+ul {list-style: none}
+
+li::before {content: "•"; color:#f59507;
+    display: inline-block; width:1em;
+    margin-left: -1em}
+    

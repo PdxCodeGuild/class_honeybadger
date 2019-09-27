@@ -1,0 +1,26 @@
+div {
+  color: #0FA0CE; /* a beautiful color */
+}
+table {
+  color:green;
+  color:blue;
+}
+.btn-primary {
+  background-color:orange !important;
+}
+
+.fancy_pre {
+  font-size:20px;
+  color:purple;
+}
+#sub4 {
+  color:LightCoral;
+}
+
+ul, ol {
+  color:green;
+}
+
+ul > li {
+  margin:10px;
+}
