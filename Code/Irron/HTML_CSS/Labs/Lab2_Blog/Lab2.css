@@ -1,0 +1,38 @@
+/* 1em = 10px */
+
+/*.main_image {
+    background-image: url("poverty.jpg")
+} */
+
+img {
+    
+    margin: 10px;
+    border: double;
+}
+
+.image_container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+
+}
+
+/*.puzzle_piece {
+    position: relative;
+  left: 30px;
+  border: 3px solid #73AD21;
+} */
+
+
+
+.climate_piece {
+    float: right;
+
+}
+
+.card-panel {
+    font-weight: bold !important;
+    text-align: center;
+    font-size: medium
+}

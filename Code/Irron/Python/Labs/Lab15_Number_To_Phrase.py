@@ -15,7 +15,7 @@ Version 2
 Handle numbers from 100-999.
 
 '''
-def calc_ones_place(number):
+def calc_ones_place(number): 
     
     oneslist = []
     tenslist = []
@@ -37,7 +37,19 @@ def calc_ones_place(number):
             7 : 'seven',
             8 : 'eight',
             9 : 'nine' ,   }  
-    
+
+    tens = {'': ' ',
+            0 :'zero',
+            1 : 'ten', 
+            2 : 'twenty', 
+            3 : 'thirty', 
+            4 : 'forty', 
+            5 : 'fifty', 
+            6 : 'sixty', 
+            7 : 'seventy',
+            8 : 'eighty',
+            9 : 'ninety' ,   } 
+ 
     hundreds = {1 : 'one-hundred',
                 2 : 'two-hundred',
                 3 : 'three-hundred',
@@ -54,9 +66,9 @@ def calc_ones_place(number):
     
     #Assigning values from dictionary ...REVIEW>>>
     ones_digit = ones[oneslist[0]] #---> retrieving values from dictionary by using values from list as keys 
-    tens_digit = ones[tenslist[0]]
+    tens_digit = tens[tenslist[0]]
     hundreds_digit = hundreds[hundredslist[0]]
-    print(ones_digit, tens_digit, hundreds_digit)
+    print(f'The text translation for number {number} = {hundreds_digit} {tens_digit} {ones_digit}')
 
     return 
 
