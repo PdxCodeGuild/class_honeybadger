@@ -1,5 +1,5 @@
 body {
-    margin: 5% 15% 5% 15%;
+    margin: 5% 0 5% 0;
     background: rgb(181, 181, 181);
     font-family: 'Raleway', sans-serif;
 }
@@ -7,7 +7,7 @@ body {
 div.main {
     align-content: center;
     background: white;
-    padding: 20px;
+    padding: 50px 100px 50px 100px;
     margin: 50px 0 50px 0 ;
 }
 
@@ -21,6 +21,7 @@ h1 {
     font-size: 42px;
     text-align: center;
     margin: 0;
+    text-transform: uppercase;
 }
 
 h2 {
@@ -28,6 +29,13 @@ h2 {
 }
 p {
     font-size: 16px;
+    line-height: 30px;
+}
+
+p a {
+    text-decoration: none;
+    font-weight: bold;
+    color: rgb(5, 161, 171);
 }
 
 p.italics {
@@ -47,9 +55,9 @@ ul li {
 
 img.bio {
     float: right;
-    padding: 10px 10px 10px 10px;
-    width: 40%; 
-    margin: 0 10px;
+    padding: 10px;
+    width: 30%; 
+    margin: 0 30px;
     border-radius: 10px;
     background-color: white;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
@@ -62,7 +70,8 @@ blockquote {
     color: white;
     border-radius: 20px 0 20px 0;
     text-align: center;
-    margin: 30px;
+    margin: 70px 10px -75px 10px;
+    float: none;
 }
 
 hr { 
@@ -70,4 +79,15 @@ hr {
   border : 0;
   height: 1px; 
   background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0)); 
+}
+
+.firstcharacter {
+  color: rgb(5, 161, 171);
+  float: left;
+  font-family: Georgia;
+  font-size: 75px;
+  line-height: 60px;
+  /* padding-top: 4px; */
+  padding-right: 8px;
+  /* padding-left: 3px; */
 }
