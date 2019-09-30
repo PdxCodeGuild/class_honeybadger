@@ -67,6 +67,44 @@ footer
         background-color:#EEEEEE;
         border-radius:5px;
       }
+      
+      .navbar-brand img {
+        width:50px;
+        margin-right:5px;
+      }
+      
+      #therapists {
+        background-color:#EEEEEE;
+        padding:40px;
+        margin-bottom:75px;
+      }
+      #therapists h2 {
+        margin-bottom:40px;
+      }
+      .blockquote {
+        padding-top:20px;
+      }
+      
+      /* .blockquote {
+        position:absolute;
+        top:50%;
+        transform:translate(0, -50%);
+      }
+      blockquote:before {
+        display: block;
+        padding-left: 10px;
+        content: "\201C";
+        font-size: 80px;
+        position: absolute;
+        left: -40px;
+        top: -40px;
+        color: #7a7a7a;
+      } */
+      
+      #therapists .container > div {
+        text-align:center;
+      }
+      
     </style>
     
     <title>HBAM International</title>
@@ -81,7 +119,10 @@ footer
     
     <!-- Nav bar -->
     <nav class="navbar sticky-top navbar-expand-lg navbar-light bg-light">
-      <a class="navbar-brand" href="/">HBAM</a>
+      <a class="navbar-brand" href="/">
+        <img src="images/hbam_logo.png"/>
+        HBAM
+      </a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -97,7 +138,7 @@ footer
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
               <a class="dropdown-item" href="#">Individual Therapy</a>
-              <a class="dropdown-item" href="#">Group Therapy</a>
+              <a class="dropdown-item" href="#group_therapy">Group Therapy</a>
               <div class="dropdown-divider"></div>
               <a class="dropdown-item" href="#">Prescription Refill</a>
             </div>
@@ -147,7 +188,6 @@ footer
     <!-- 3 features -->
     <div class="container marketing">
       <div class="row">
-        
         <div class="col-lg-4">
           <img class="rounded-circle" width="140" src="images/hbam_contact.jpg"/>
           <h2>Get in Touch</h2>
@@ -169,14 +209,56 @@ footer
       </div>
     </div>
     
+    <!-- therapists -->
+    <div id="therapists">
+      <div class="container">
+        <h2>Meet Our Therapists</h2>
+        <div class="row">
+          <div class="col-lg-2">
+            <img class="rounded-circle" width="140" src="images/freud.jpg"/>
+          </div>
+          <div class="col-lg-2">
+            <blockquote class="blockquote">
+              <p>Do not step on snek, my dude</p>
+              <footer class="blockquote-footer">Sigmund Freud</footer>
+            </blockquote>
+          </div>
+          <div class="col-lg-2">
+            <img class="rounded-circle" width="140" src="images/pavlov.jpg"/>
+          </div>
+          <div class="col-lg-2">
+            <blockquote class="blockquote">
+              <p>Ring that bell, dawg</p>
+              <footer class="blockquote-footer">Ivan Pavlov</footer>
+            </blockquote>
+          </div>
+          <div class="col-lg-2">
+            <img class="rounded-circle" width="140" src="images/jung.jpg"/>
+          </div>
+          <div class="col-lg-2">
+            <blockquote class="blockquote">
+              <p>Contemplate the collective unconscious, yo</p>
+              <footer class="blockquote-footer">Carl Jung</footer>
+            </blockquote>
+          </div>
+        </div>
+      </div>
+    </div>
+    
     <!-- group therapy -->
-    <div class="container">
+    <div id="group_therapy" class="container">
       <div class="row">
         
         <div class="col-md-7 order-md-2">
           <h1>Group Therapy</h1>
           <h2 class="featurette-heading">Oh yeah, it’s that good. <span class="text-muted">See for yourself.</span></h2>
           <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item"><span class="font-weight-bold">Lorem ipsum dolor sit amet</span>, consectetur adipiscing elit. Praesent ac mi eu orci posuere laoreet. Curabitur maximus ante quam, vitae consequat lacus fermentum a. Donec tincidunt augue fermentum enim mollis, at ultrices odio molestie.</li>
+            <li class="list-group-item"><span class="font-weight-bold">Nulla pulvinar ante tortor</span>, ut convallis augue consectetur eget. In eget dui id elit pulvinar mollis eget ac metus. Fusce pharetra scelerisque urna, ut malesuada elit feugiat sit amet.</li>
+            <li class="list-group-item"><span class="font-weight-bold">Vestibulum placerat</span>, leo at volutpat egestas, dolor nisl lacinia leo, a efficitur mauris lorem et diam. Morbi molestie dui et tristique maximus. Aliquam sit amet sapien ac nisl ornare eleifend ac sed sapien. Pellentesque ut porta mauris. Cras neque dolor, tincidunt interdum metus non, aliquet pharetra erat. Nunc et justo egestas, blandit turpis a, lacinia ex. </li>
+            <li class="list-group-item"><span class="font-weight-bold">Nullam ut venenatis massa</span>. Vivamus dictum metus tortor, et malesuada lacus auctor id. Nullam lobortis congue nisl lobortis lobortis. Phasellus justo arcu, laoreet et porta non, imperdiet eget lectus. Pellentesque nec massa diam. Donec pulvinar lobortis neque nec posuere.</li>
+          </ul>
         </div>
         <div class="col-md-5 order-md-1">
           <img src="images/group_therapy.jpg" width="100%"/>
