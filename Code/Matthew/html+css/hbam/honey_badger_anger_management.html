@@ -24,11 +24,19 @@ footer
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <style type="text/css">
+    
+      html {
+          scroll-behavior: smooth;
+      }
       .marketing {
         padding-top:75px;
       }
       body {
         padding-bottom:100px;
+      }
+      
+      .marketing {
+        margin-bottom:75px;
       }
       
       .marketing .col-lg-4 {
@@ -52,9 +60,12 @@ footer
       .navbar {
         border-bottom: 1px solid lightgrey;
       }
-      form {
-        width:500px;
-        margin: 0 auto;
+      #form_appointment {
+        max-width:500px;
+        margin: 75px auto;
+        padding:20px;
+        background-color:#EEEEEE;
+        border-radius:5px;
       }
     </style>
     
@@ -78,7 +89,7 @@ footer
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item">
-            <a class="nav-link" href="#">Appointments</a>
+            <a class="nav-link" href="#form_appointment">Appointments</a>
           </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -114,13 +125,13 @@ footer
       </ol>
       <div class="carousel-inner">
         <div class="carousel-item active">
-          <img src="https://via.placeholder.com/1000x400.png?text=HBAM" class="d-block w-100" alt="...">
+          <img src="images/hbam_slider_01.jpg" class="d-block w-100" alt="...">
         </div>
         <div class="carousel-item">
-          <img src="https://via.placeholder.com/1000x400.png?text=HBAM" class="d-block w-100" alt="...">
+          <img src="images/hbam_slider_02.jpg" class="d-block w-100" alt="...">
         </div>
         <div class="carousel-item">
-          <img src="https://via.placeholder.com/1000x400.png?text=HBAM" class="d-block w-100" alt="...">
+          <img src="images/hbam_slider_03.jpg" class="d-block w-100" alt="...">
         </div>
       </div>
       <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
@@ -133,31 +144,52 @@ footer
       </a>
     </div>
     
+    <!-- 3 features -->
     <div class="container marketing">
       <div class="row">
         
         <div class="col-lg-4">
-          <img class="rounded-circle" width="140" src="hbam_contact.jpg"/>
+          <img class="rounded-circle" width="140" src="images/hbam_contact.jpg"/>
           <h2>Get in Touch</h2>
-          <p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod.</p>
+          <p>Donec sed odio dui.</p>
           <p><a class="btn btn-secondary" href="#" role="button">View details »</a></p>
         </div><!-- /.col-lg-4 -->
         <div class="col-lg-4">
-          <img class="rounded-circle" width="140" src="snek.jpg"/>
-          <h2>Love Your Snake</h2>
+          <img class="rounded-circle" width="140" src="images/snek.jpg"/>
+          <h2>Love Your Snek</h2>
           <p>Sneks are frens, not füd</p>
           <p><a class="btn btn-secondary" href="#" role="button">View details »</a></p>
         </div><!-- /.col-lg-4 -->
         <div class="col-lg-4">
-          <img class="rounded-circle" width="140" src="self_care.jpg"/>
+          <img class="rounded-circle" width="140" src="images/self_care.jpg"/>
           <h2>Self-care</h2>
-          <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam.</p>
+          <p>Donec sed odio dui.</p>
           <p><a class="btn btn-secondary" href="#" role="button">View details »</a></p>
         </div><!-- /.col-lg-4 -->
       </div>
     </div>
     
-    <form>
+    <!-- group therapy -->
+    <div class="container">
+      <div class="row">
+        
+        <div class="col-md-7 order-md-2">
+          <h1>Group Therapy</h1>
+          <h2 class="featurette-heading">Oh yeah, it’s that good. <span class="text-muted">See for yourself.</span></h2>
+          <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+        </div>
+        <div class="col-md-5 order-md-1">
+          <img src="images/group_therapy.jpg" width="100%"/>
+        </div>
+            
+      </div>
+    </div>
+    
+    
+    
+    <!-- Appointment Form -->
+    <form id="form_appointment">
+      <h2>Book Your Appointment Today!</h2>
       <div class="form-group">
         <label for="input_name">Enter your name:</label>
         <input type="email" class="form-control" id="input_name" placeholder="Enter your name">
@@ -170,7 +202,7 @@ footer
         <label for="input_time">Time</label>
         <input type="time" class="form-control" id="input_time">
       </div>
-      <button type="submit" class="btn btn-primary">Submit</button>
+      <button type="submit" class="btn btn-info">Submit</button>
     </form>
     
     <footer class="footer fixed-bottom mt-auto py-3 bg-white d-none d-md-block">
