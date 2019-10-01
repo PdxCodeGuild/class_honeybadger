@@ -1,0 +1,19 @@
+
+@font-face {
+  font-family: "Sala de Fiestas";
+  src: url("./fonts/Sala de Fiestas.ttf") format("truetype");
+}
+
+body {
+  font-size:15px
+}
+
+nav {
+  color:white;
+  background-color: #af2600;
+  text-align:center;
+  font-size:4rem;
+  padding:1rem;
+  font-family: 'Sala de Fiestas', cursive;
+}
+

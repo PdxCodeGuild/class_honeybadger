@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <style>
+      ul {
+        list-style:none;
+      }
+    </style>
+    <title></title>
+  </head>
+  <body>
+    <form>
+      <input type="text" placeholder="enter some text" pattern="[a-z]{1,15}" title="username must be between 1 and 15 characters, all lowercase" required/>
+      <input type="password"/>
+      <input type="number"/>
+      <input type="date"/>
+      <input type="time"/>
+      
+      <ul>
+        <li><input type="radio" name="radio_set1" id="radio1"/><label for="radio1">Radio 1</label></li>
+        <li><input type="radio" name="radio_set1" id="radio2"/><label for="radio2">Radio 2</label></li>
+        <li><input type="radio" name="radio_set1" id="radio3"/><label for="radio3">Radio 3</label></li>
+      </ul>
+      <ul>
+        <li><input type="checkbox" id="checkbox1"/><label for="checkbox1">checkbox 1</label></li>
+        <li><input type="checkbox" id="checkbox2"/><label for="checkbox2">checkbox 2</label></li>
+        <li><input type="checkbox" id="checkbox3"/><label for="checkbox3">checkbox 3</label></li>
+      </ul>
+      <input type="range"/>
+      <select>
+        <option disabled>Option 1</option>
+        <option>Option 2</option>
+        <option selected>Option 3</option>
+      </select>
+      <button type="submit">Submit</button>
+    </form>
+  </body>
+</html>
