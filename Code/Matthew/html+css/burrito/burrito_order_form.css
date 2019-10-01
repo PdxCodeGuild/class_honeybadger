@@ -4,9 +4,33 @@
   src: url("./fonts/Sala de Fiestas.ttf") format("truetype");
 }
 
-body {
-  font-size:15px
+html, body {
+  font-size:15px;
+  font-family: 'Open Sans', sans-serif;
 }
+* {
+  transition: all 0.5s;
+}
+
+h1 {
+  margin:0;
+}
+hr {
+  border: 1px solid lightgrey;
+}
+button {
+  margin-top:1rem;
+  background-color:#af2600;
+  border:none;
+  color:white;
+  padding:0.5rem 1rem;
+  border-radius:5px;
+  cursor:pointer;
+}
+button:hover {
+  background-color:grey;
+}
+
 
 nav {
   color:white;
@@ -15,5 +39,95 @@ nav {
   font-size:4rem;
   padding:1rem;
   font-family: 'Sala de Fiestas', cursive;
+  /* text-shadow: 1px 1px 0px #ffaa00; */
+  text-shadow:
+   -2px -2px 0 #ffaa00,  
+    2px -2px 0 #ffaa00,
+    -2px 2px 0 #ffaa00,
+     2px 2px 0 #ffaa00;
+  box-shadow: 0 0 10px grey;
 }
+
+main {
+  display:flex;
+  flex-direction:row;
+  flex-wrap:wrap;
+  justify-content:space-between;
+  align-items:flex-start;
+  padding:50px;
+}
+
+/* LEFT ====================== */
+.left_panel {
+  box-shadow: 0 0 10px grey;
+  padding:1.5rem;
+  border-radius:0.5rem;
+}
+.left_panel img {
+  display:block;
+}
+.caption {
+  display:block;
+  font-size:0.88rem;
+  margin:0.5rem 0;
+  text-align:center;
+}
+
+/* CENTER ============================== */
+.center_panel {
+  flex-grow:1;
+  padding:0 2rem;
+}
+.form_section_title {
+  font-weight:700;
+}
+.form_section {
+  display:flex;
+  flex-direction:row;
+  justify-content:flex-start;
+  flex-wrap:wrap;
+}
+.form_section > * {
+  margin:10px;
+}
+
+form label {
+  user-select:none;
+  cursor:pointer;
+}
+
+.center_panel textarea {
+  width:100%;
+  height:100px;
+}
+
+
+
+/* RIGHT ============================== */
+.right_panel {
+  box-shadow: 0 0 10px grey;
+  padding:1.5rem;
+  border-radius:0.5rem;
+}
+
+.right_panel ul {
+  padding-left:0;
+  list-style:none;
+}
+.right_panel li {
+  margin:1rem 0;
+}
+.right_panel li::before {
+  content: '';
+  background-image:url('images/pepper.png');
+  width:20px;
+  height:20px;
+  display:inline-block;
+  position:relative;
+  background-size:cover;
+}
+
+
+
+
 

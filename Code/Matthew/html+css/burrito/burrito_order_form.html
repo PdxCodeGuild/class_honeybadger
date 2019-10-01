@@ -3,11 +3,97 @@
   <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" type="text/css"/>
-    <link href="https://fonts.googleapis.com/css?family=Mansalva&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i&display=swap&subset=cyrillic,cyrillic-ext,greek,greek-ext,latin-ext,vietnamese" rel="stylesheet"> 
     <link rel="stylesheet" href="burrito_order_form.css" type="text/css"/>
     <title></title>
   </head>
   <body>
     <nav>El Burrito Grande Order Form</nav>
+    <main>
+      <div class="left_panel">
+        <img src="images/burrito.jpg" width="200px"/>
+        <span class="caption">Would you like chips with that‽</span>
+        <img src="images/chips.jpg" width="200px"/>
+      </div>
+      <div class="center_panel">
+        <h1>Customize Your Burrito</h1>
+        <hr/>
+        <form>
+          <div class="form_section">
+            <span class="form_section_title">Tortilla:</span>
+            <div>
+              <input type="radio" id="white" name="tortilla"/>
+              <label for="white">White Flour</label>
+            </div>
+            <div>
+              <input type="radio" id="wheat" name="tortilla"/>
+              <label for="wheat">Whole Wheat Flour</label>
+            </div>
+            <div>
+              <input type="radio" id="spinach" name="tortilla"/>
+              <label for="spinach">Spinach</label>
+            </div>
+            <div>
+              <input type="radio" id="quinoa" name="tortilla"/>
+              <label for="quinoa">Quinoa</label>
+            </div>
+            <div>
+              <input type="radio" id="no_tortilla" name="tortilla"/>
+              <label for="no_tortilla">None</label>
+            </div>
+          </div>
+          <div class="form_section">
+            <span class="form_section_title">Protein:</span>
+            <div>
+              <input type="checkbox" id="carnitas"/>
+              <label for="carnitas">Carnitas</label>
+            </div>
+            <div>
+              <input type="checkbox" id="chicken"/>
+              <label for="chicken">Chicken</label>
+            </div>
+            <div>
+              <input type="checkbox" id="seitan"/>
+              <label for="seitan">Seitan</label>
+            </div>
+          </div>
+          <div class="form_section">
+            <span class="form_section_title">Extras:</span>
+            <div>
+              <input type="checkbox" id="guacamole"/>
+              <label for="guacamole">Guacamole</label>
+            </div>
+            <div>
+              <input type="checkbox" id="extra_guacamole"/>
+              <label for="extra_guacamole">Extra Guacamole</label>
+            </div>
+            <div>
+              <input type="checkbox" id="sour_cream"/>
+              <label for="sour_cream">Sour Cream</label>
+            </div>
+            <div>
+              <input type="checkbox" id="roasted_veggies"/>
+              <label for="roasted_veggies">Roasted Veggies</label>
+            </div>
+          </div>
+          <div>
+            <h2>Notes</h2>
+            <textarea></textarea>
+          </div>
+          <button type="submit">Submit</button>
+        </form>
+      </div>
+      <div class="right_panel">
+        <h1>Your Order</h1>
+        <ul>
+          <li>Quinoa Tortilla</li>
+          <li>Guacamole</li>
+          <li>Extra Guacamole</li>
+          <li>Seitan 🤘</li>
+        </ul>
+        <hr/>
+        <span>Total: $6.00</span>
+      </div>
+    </main>
   </body>
 </html>
