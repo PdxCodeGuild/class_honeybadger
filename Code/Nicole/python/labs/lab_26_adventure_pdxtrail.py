@@ -21,6 +21,8 @@ def print_ascii(text):
         print(char, end = "", flush = True)
         time.sleep(.001)
 
+
+# Main game, starts out with default settings for health/money/etc
 class Adventure:
     def __init__(self, player, health = 30, money = 50, distance = 10, time = 25, sleep = 2):
         self.player = player
@@ -204,7 +206,7 @@ class Adventure:
                     print_fast(f"\n\n{ascii_art.game_over}\n\n")
                     exit()
                 # else:
-                    # print_fast(status)
+                #     print_fast(status)
                 keep_playing = input("Would you like to continue to your destination?\t").lower()
                 if keep_playing == "no":
                     print_ascii(ascii_art.tent)
@@ -231,3 +233,4 @@ p.challenge(player_name)
 # -- Add difficulty levels (add inputs to time, distance, etc that would make winning more difficult)
 # -- Add choices (where would you like to travel to/from? if something happens, what would you like to do?)
 # -- Add options if you run low on something. For example, if HEALTH is low, you can go through a drive-through, but would lose money. Or, if you are low on time, you can choose to drive faster, at the risk of getting pulled over (and would lose MONEY and TIME, or go to jail and lose the game)
+# -- Add the option for more players, and whoever gets there first wins
