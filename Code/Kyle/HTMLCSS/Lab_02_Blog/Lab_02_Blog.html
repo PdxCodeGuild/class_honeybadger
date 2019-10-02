@@ -10,10 +10,22 @@
       }
       h2 {
         float:left;
-        margin: 1px;
+        margin: 0px;
         color:white;
         text-align:center;
         font-size: 18px
+      }
+      .flex_container {
+        display:flex;
+        flex-direction: row;
+
+      }
+      .flex_container > div {
+        width:100px
+        height:100px
+        background-color:red;
+        margin:100px
+        color:white;
       }
 
 
@@ -39,41 +51,50 @@
 
       }
 
-      ul {
+      ul  {
         list-style-type: none;
         margin: 0;
         padding: 0;
         border: 1px solid grey;
-        background-color: black;
+        background-color: white;
         position: sticky;
-        width: 100%;
+        width: 95%;
         background-color: grey;
         overflow: hidden;
         border-radius: 3%;
       }
+
+      nav:a {
+        text-color: black;
+      }
       li {
         display: inline;
         float: left;
-        text-color: white;
+        text-color: black;
         text-align: center;
 
       }
-      a {
+      li a {
         display: block;
         padding: 12px;
         background-color: grey;
+        text-color: white;
 
       }
       a:link {
         color: white;
         font-family:sans-serif;
         text-decoration: none;
+        text-color: white;
       }
       a:hover {
         background-color: black;
       }
-      nav {
-        width: 100%;
+      a:visited {
+        color:white;
+      }
+      /* nav {
+        width: 100%; */
       }
 
 
@@ -83,16 +104,27 @@
 
     <h1>Hiking the Pacific Northwest<h1>
 
-  <nav>
+  <div>
     <ul>
       <li><a href="./Lab_02_Blog.html">Home</a></li>
       <li><a href="./news.html">News</a></li>
       <li><a href="contact.html">Contact</a></li>
       <li><a href="about.html">About</a></li>
     </ul>
-  <nav>
+  <div>
+  </body>
     <!-- <center>
       <img src="rainier.jpg" height=300, width= 500>
     <center> -->
+  <!-- <div>
+    <div class="row">
+  <div class="leftcolumn">
+    <div class="card">
+      <h2>TITLE HEADING</h2>
+      <h5>Title description, Dec 7, 2017</h5>
+      <div class="fakeimg" style="height:200px;">Image</div>
+      <p>Some text..</p>
+    <!-- </div class="flex_container"
 
-    <h2>Latest Stories<h2>
+
+    <!-- <body> -->
