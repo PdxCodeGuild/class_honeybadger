@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style>
+    
+      @keyframes rainbow {
+        0%   {
+          background-color: red;
+          transform:rotate(0deg);
+        }
+        10% {
+          background-color: orange;
+        }
+        20%  {
+          background-color: yellow;
+        }
+        30% {
+          background-color: green;
+        }
+        40% {
+          background-color:aqua;
+        }
+        50%  {
+          background-color: blue;
+        }
+        60% {
+          background-color: indigo;
+        }
+        70% {
+          background-color: violet;
+        }
+        100% {
+          background-color:black;
+          transform:rotate(360deg);
+        }
+      }
+    
+    
+      * {
+        transition: all 200ms;
+      }
+      .btn {
+        display:inline-block;
+        background-color:blue;
+        color:white;
+        padding:10px;
+        border-radius:4px;
+        margin:20px;
+        box-shadow: 0 0 4px grey;
+        cursor:pointer;
+        
+        
+      }
+      .btn:hover {
+        /* background-color:lightblue; */
+        /* transform:rotate(360deg); */
+        
+        
+        animation-name: rainbow;
+        animation-duration: 1s;
+        animation-delay: 0s;
+        animation-iteration-count: infinite;
+        animation-direction: normal;
+        animation-timing-function: linear;
+        animation-fill-mode: both;
+        
+        
+      }
+      .btn:active {
+        transform:rotate(-360deg);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="btn">click!</div>
+  </body>
+</html>
