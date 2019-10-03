@@ -8,7 +8,7 @@ Unlike other languages, JavaScript doesn't have a special 'int' type, only a 64-
 5 + 1 // 6
 5 - 1 // 4
 2 * 3 // 6
-2 / 3 // 1.5
+3 / 2 // 1.5
 2 % 3 // 2
 ```
 
