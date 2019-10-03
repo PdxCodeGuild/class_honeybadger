@@ -1,0 +1,314 @@
+@import url('https://fonts.googleapis.com/css?family=Dosis:400,600');
+
+body, html {
+	height: 100%;
+	font-family: 'Dosis', sans-serif;
+	color: #fff;
+	margin: 0;
+}
+
+
+
+.btn {
+	font-size:20px;
+	background-color:#fff;
+	padding:20px;
+	color:#333;
+	border-radius: 20px;
+}
+
+.wrapper:not(.main) {
+	width: 24%;
+}
+
+h1 {
+	margin:0;
+}
+
+.wrapper {
+	height: 50vh;
+	display: flex;
+    flex-grow: 1;
+	align-items: center;
+	justify-content: center;
+	min-height: 250px;
+	flex-direction: column;
+	background: #00A5CF;
+}
+
+section {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	margin:0 0;
+}
+
+.main {
+	background-color: #497B5C;
+	padding-top: 20px;
+}
+
+/* Button 1 ================================================ */
+
+.btn-1Wrapper {
+    background-color: #791E25;
+}
+
+.btn-1Wrapper .btn {
+    color: #791E25;
+    transition: 1s;
+}
+
+
+.btn-1Wrapper .btn:hover {
+    transition: 1s;
+    border: 2px solid white;
+    box-shadow: inset 0 0 0 4px #791E25;
+}
+
+/* Button 2 ================================================ */
+
+.btn-2Wrapper {
+    background-color: #B95E36;
+}
+
+.btn-2Wrapper .btn {
+    color: #B95E36;
+    transition: 1s;
+}
+
+.btn-2Wrapper .btn:hover {
+    border-radius: 0;
+}
+
+
+/* Button 3 ================================================ */
+
+@keyframes btn-3 {
+    0% {transform: scale(1.0);}
+    50% {transform: scale(1.3);}
+    100% {transform: scale(1.0);}
+}
+
+.btn-3Wrapper {
+    background-color: #BFB13E;
+}
+
+.btn-3Wrapper .btn {
+    color: #BFB13E;
+}
+
+.btn-3Wrapper .btn:hover {
+    animation-name: btn-3;
+    animation-duration: 1s;
+}
+
+
+/* Button 4 ================================================ */
+
+.btn-4Wrapper {
+    background-color: #215F7D;
+}
+
+.btn-4Wrapper .btn {
+    color: #215F7D;
+    box-shadow: 0px 5px grey;
+}
+
+.btn-4Wrapper .btn:active {
+    position: relative;
+    top: 2px;
+    box-shadow: 0px 3px grey;
+}
+
+
+/* Button 5 ================================================ */
+
+@keyframes btn-5 {
+    0% {position: relative; left: 0;}
+    25% {position: relative; left: 10px;}
+    50% {position: relative; left: -10px;}
+    100% {position: relative; left: 0;}
+}
+
+.btn-5Wrapper {
+    background-color: #497B5C;
+}
+
+.btn-5Wrapper .btn {
+    color: #497B5C;
+}
+
+.btn-5Wrapper .btn:hover {
+    animation-name: btn-5;
+    animation-duration: 500ms;
+    animation-fill-mode: both;
+}
+
+
+/* Button 6 ================================================ */
+
+
+.btn-6Wrapper {
+    background-color: #791E25;
+}
+
+.btn-6Wrapper .btn {
+    color: #791E25;
+    box-shadow: 0px 5px 10px black;
+    transition: 1s;
+}
+
+.btn-6Wrapper .btn:active {
+    box-shadow: 0px 0px 10px black;
+}
+
+
+/* Button 7 ================================================ */
+
+.btn-7Wrapper {
+    background-color: #B95E36;
+}
+
+.btn-7Wrapper .btn {
+    color: #B95E36;
+    border-radius: 0;
+    transition: 500ms;
+    position: relative;
+    top: 0;
+    left: 0;
+    box-shadow: 0px 0px 0px black;
+    
+}
+
+.btn-7Wrapper .btn:hover {    
+    position: relative;
+    top: 5px;
+    left: -5px;
+    transition: 500ms;
+    box-shadow: 5px -5px 0px black;
+}
+
+
+
+
+/* Button 8 ================================================ */
+
+.btn-8Wrapper {
+    background-color: #BFB13E;
+    perspective: 400px;
+}
+
+.btn-8Wrapper .btn {
+    color: #BFB13E;
+    transition: 500ms;
+    position: relative;
+    perspective: 900px;
+    transform: rotateX(45deg);
+    border-width: 4px;
+    border-bottom-style: inset;
+    box-shadow: 0 0 10px grey;
+}
+
+.btn-8Wrapper .btn:hover {
+    position: relative;
+    perspective: 0;
+    transform: rotateX(0);
+    border-width: 4px;
+    border-bottom-style: inset;
+}
+
+
+/* Button 9 ================================================ */
+
+.btn-9Wrapper {
+    background-color: #215F7D;
+}
+
+.btn-9Wrapper .btn {
+    color: #215F7D;
+    transition: 1s;
+}
+
+.btn-9Wrapper .btn:hover {
+    opacity: 0.6;
+}
+
+
+/* Button 10 ================================================ */
+
+@keyframes btn-10 {
+    0% {padding: 20px;}
+    75% {padding: 30px 10px;}
+    80% {padding: 15px 40px;}
+    100% {padding: 20px;}
+}
+
+.btn-10Wrapper {
+    background-color: #497B5C;
+}
+
+.btn-10Wrapper .btn {
+    color: #497B5C;
+}
+
+.btn-10Wrapper .btn:hover {
+    animation-name: btn-10;
+    animation-timing-function: ease-out;
+    animation-duration: 2s;
+    
+    
+}
+
+
+/* Button 11 ================================================ */
+
+@keyframes btn-11 {
+    0% {background-color: #B800F2}
+    20% {background-color: #9636B5}
+    40% {background-color: #7E00A6}
+    60% {background-color: #CA49F2}
+    80% {background-color: #570073}
+    100% {background-color: #7E00A6}
+}
+
+.btn-11Wrapper {
+    background-color: #791E25;
+}
+
+.btn-11Wrapper .btn {
+    color: #791E25;
+}
+
+.btn-11Wrapper .btn:hover {
+    animation-name: btn-11;
+    animation-duration: 1.5s;
+    animation-iteration-count: infinite;
+}
+
+
+/* Button 12 ================================================ */
+
+@keyframes btn-12 {
+    0% {border-radius: 0 0 0 20px;}
+    25% {border-radius: 0 0 20px 0;}
+    50% {border-radius: 0 20px 0 0;}
+    100% {border-radius: 20px 0 0 0;}
+}
+
+.btn-12Wrapper {
+    background-color: #B95E36;
+}
+
+
+.btn-12Wrapper .btn {
+    color: #B95E36;
+    animation-name: btn-12;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+.btn-12Wrapper .btn:hover {
+    animation-play-state: paused;
+}
