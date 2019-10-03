@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script>
+
+    </script>
+  </head>
+  <body>
+    <div id="mydiv"></div>
+    <button id="mybutton">bt</button>
+    <script type="text/javascript">
+      
+      let mybutton = document.querySelector('#mybutton')
+      mybutton.setAttribute('disabled', 'disabled')
+      
+    
+    
+      let mydiv = document.querySelector('#mydiv')
+      mydiv.innerText = 'hello world!'
+      mydiv.style.color = 'red'
+      
+      
+      let person = {
+          firstName:"John",
+          lastName:"Doe",
+          age:46
+      }
+      person.age += 1;
+      
+      
+      // weirder way to declare an object
+      // let person = {
+      //     'firstName':"John",
+      //     'lastName':"Doe",
+      //     'age':46
+      // }
+      // person['age'] += 1
+      
+      
+      let x = parseInt(prompt('enter a value'))
+      alert(x + 32)
+      
+      
+      console.log(`Your value is ${x + 32}`)
+      
+      let pi3 = Math.PI*3
+      
+      console.log('hello world'.split(' '))
+      
+      
+      console.log('apples, bananas, pears'.match(/\w+/))
+      
+      
+      
+      
+      
+      let i = 0
+      while (i < 10) {
+        //console.log('hello')
+        i++
+      }
+      
+      for (let i=0; i<10; i++) {
+        // console.log('hello')
+      }
+      
+      let fruits = ['apples', 'bananas', 'pears']
+      for (let i=0; i<fruits.length; ++i) {
+        console.log(fruits[i])
+      }
+      
+      
+      function add(a, b) {
+        return a + b;
+      }
+      let x = parseInt(prompt('whatever'))
+      let y = 2
+      let z = add(x, y)
+      console.log(z)
+      
+      
+      
+      
+      
+      
+      
+      
+      let fruits = ['apple', 'bananana', 'pear'];
+      fruits.push('cherry');
+      for (let i=0, k=0; i<fruits.length && k == 0; ++i, k += 1) {
+          console.log(fruits[i]);
+      }
+      console.log(fruits.indexOf('bananana')); // 1
+      
+      
+      
+      
+      
+      
+    </script>
+  </body>
+</html>

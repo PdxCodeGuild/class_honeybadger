@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <div id="test_div"></div>
+    <script>
+      let s = '<ul>'
+      for (let i=0; i<100; ++i) {
+        s += '<li>' + Math.random() + '</li>'
+      }
+      s += '</ul>'
+      let test_div = document.querySelector('#test_div')
+      test_div.innerHTML = s
+    </script>
+  </body>
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script type="text/javascript" src="utilities.js"></script>
+    <style type="text/css">
+      input[type="text"] {
+        width:200px;
+      }
+      #div_winner {
+        font-size:100px;
+        color:magenta;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Rock, Paper, Scissors</h1>
+    <div id="test_div"></div>
+    <div>
+      <input id="input_rps" type="text" value="" placeholder="rock, paper, or scissors"/>
+      <button id="button_play">play</button>
+    </div>
+    <div id="div_output"></div>
+    <div id="div_winner"></div>
+    <script type="text/javascript">
+      let input_rps = document.querySelector('#input_rps')
+      let button_play = document.querySelector('#button_play')
+      let div_output = document.querySelector('#div_output')
+      let div_winner = document.querySelector('#div_winner')
+      
+      
+      function play_rps() {
+        
+      }
+      
+      input_rps.addEventListener('keydown', function(event) {
+        if (event.key === 'Enter') {
+          button_play.dispatchEvent(new Event('click'))
+        }
+      })
+      
+      
+      // input_rps.value = 'rock!'
+      button_play.addEventListener('click', function() {
+        let rps = ['rock', 'paper', 'scissors']
+        let computer_choice = random_element(rps)
+        let human_choice = input_rps.value.toLowerCase().trim()
+        input_rps.value = ''
+        
+        
+        // if (human_choice != rps[0] && human_choice != rps[1] && human_choice != rps[2]) {
+        //   alert('INVALID VALUE, HUMAN')
+        // }
+        
+        div_output.innerText = `Computer chose '${computer_choice}', human chose '${human_choice}'`
+        
+        // let r = Math.floor(Math.random()*256)
+        // let g = Math.floor(Math.random()*256)
+        // let b = Math.floor(Math.random()*256)
+        // div_winner.style.color = `rgb(${r},${g},${b})`
+        
+        let h = Math.floor(Math.random()*360)
+        div_winner.style.color = `hsl(${h},100%,50%)`
+        
+        if (computer_choice === human_choice) {
+          div_winner.innerText = 'Tie'
+        } else if (computer_choice == 'rock' && human_choice == 'paper') {
+          div_winner.innerText = 'Human wins!'
+        } else if (computer_choice == 'rock' && human_choice == 'scissors') {
+          div_winner.innerText = 'Computer wins!'
+        } else if (computer_choice == 'paper' && human_choice == 'rock') {
+          div_winner.innerText = 'Computer wins!'
+        } else if (computer_choice == 'paper' && human_choice == 'scissors') {
+          div_winner.innerText = 'Human wins!'
+        } else if (computer_choice == 'scissors' && human_choice == 'rock') {
+          div_winner.innerText = 'Human wins!'
+        } else if (computer_choice == 'scissors' && human_choice == 'paper') {
+          div_winner.innerText = 'Computer wins!'
+        } else {
+          div_winner.innerText = 'INVALID VALUE, HUMAN'
+        }
+        
+      });
+      
+    </script>
+  </body>
+</html>
