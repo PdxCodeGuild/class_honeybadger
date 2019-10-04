@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script type="text/javascript">
+
+      function random_element(arr) {
+        let index = Math.floor(Math.random()*arr.length)
+        return arr[index]
+      }
+      function random_integer(a, b) {
+        return Math.floor(a + Math.random()*(b-a+1))
+      }
+
+      let rps = ['rock', 'paper', 'scissors']
+      let computer_choice = random_element(rps)
+      let human_choice = prompt('Rock, paper, or scissors?').toLowerCase().trim()
+      // if (human_choice != rps[0] && human_choice != rps[1] && human_choice != rps[2]) {
+      //   alert('INVALID VALUE, HUMAN')
+      // }
+
+      alert(`Computer chose '${computer_choice}', human chose '${human_choice}'`)
+
+      if (computer_choice === human_choice) {
+        alert('Tie')
+      } else if (computer_choice == rps[0] && human_choice == rps[1]) {
+        alert('Human wins!')
+      } else if (computer_choice == rps[0] && human_choice == rps[2]) {
+        alert('Computer wins!')
+      } else if (computer_choice == rps[1] && human_choice == rps[0]) {
+        alert('Computer wins!')
+      } else if (computer_choice == rps[1] && human_choice == rps[2]) {
+        alert('Human wins!')
+      } else if (computer_choice == rps[2] && human_choice == rps[0]) {
+        alert('Computer wins!')
+      } else if (computer_choice == rps[2] && human_choice == rps[1]) {
+        alert('Human wins!')
+      } else {
+        alert('INVALID VALUE, HUMAN')
+      }
+
+    </script>
+  </head>
+  <body>
+
+  </body>
+</html>
