@@ -27,7 +27,7 @@ class Board:
                     if j == 0 or j == passages: # first and last column always closed
                         passage.append(['X'])
                     elif j % 2 == 1: # walls to left, right, up, down of rooms may be open
-                        passage.append([random.choice(['I', 'I', 'X'])])
+                        passage.append([random.choice(['I', 'I', 'I' 'X'])])
                     else:
                         passage.append(['X'])
                 labrynth.append(passage)
@@ -39,7 +39,7 @@ class Board:
                     if j == 0 or j == passages: # first and last column always closed
                         passage.append(['X'])
                     elif j % 2 == 0: # middle columns may be open
-                        passage.append([random.choice(['I', 'I', 'X'])])
+                        passage.append([random.choice(['I', 'I', 'I', 'X'])])
                     else: # rooms added here
                         passage.append(self.rooms[(i-1)//2][(j-1)//2])
                 labrynth.append(passage)
