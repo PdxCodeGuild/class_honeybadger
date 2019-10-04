@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>rot13 cipher</title>
+    <script type="text/javascript">
+
+        function rotate(phrase,degree) {
+
+            degree = parseInt(degree)
+            
+            let alphabet = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"]
+
+            let alpLength = alphabet.length
+        
+            let splitPhrase = phrase.split("")
+
+            console.log(splitPhrase)
+
+            modPhrase = []
+
+            for (let i = 0; i < splitPhrase.length; i++) {
+                let index = alphabet.indexOf(splitPhrase[i])
+
+                console.log(index,degree,alpLength)
+                console.log(index+degree)
+                console.log((index + degree) % alpLength)
+
+                if (splitPhrase[i] === " ") {
+                    modPhrase.push(splitPhrase[i])
+                } else {
+                    modPhrase.push(alphabet[(index + degree) % alpLength])
+                }
+                
+            }
+
+            console.log(modPhrase)
+        
+            modPhrase = modPhrase.join("")
+
+            document.querySelector("#result").innerHTML = modPhrase
+        
+        
+        }
+
+    </script>
+</head>
+<body>
+    <h1>rot cipher</h1>
+    <div>
+        <input type="text" id="phrase">phrase for rotation</input>
+        <input type="number" id="degree">degree of rotation</input>
+        <p id="result">result here</p>
+    </div>
+    <div>
+        <button id="butt">encode</button>
+    </div>
+
+    <script type="text/javascript">
+    
+        butt.addEventListener("click", function(event) {
+
+            const phrase = document.querySelector("#phrase").value
+            const degree = document.querySelector("#degree").value
+
+            rotate(phrase,degree)
+
+        })
+    
+    </script>
+    
+</body>
+</html>

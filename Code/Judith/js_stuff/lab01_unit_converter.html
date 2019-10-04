@@ -7,28 +7,84 @@
     <title>Unit Converter</title>
     <script type="text/javascript">
         
-        function feetToMeters() {
-            let feet = document.getElementById("inputNum").value
-            let conversionFactor = 0.3048
-            let meters = feet * conversionFactor
-            document.getElementById("result").innerHTML = meters
+        function toMeters(inputType,inputValue) {
+
+            let conversionFactors = {
+                feet : 0.3048,
+                meters : 1,
+                miles : 1609.34,
+                inches : 0.0254
+            }
+
+            let meters = inputValue * conversionFactors[inputType]
+
+            return meters
+        }
+
+        function toAll(meters) {
+            
+            let conversionFactors = {
+                feet : 1/0.3048,
+                miles : 1/1609.34,
+                inches : 1/0.0254
+            }
+
+            let toFeet = meters * conversionFactors["feet"]
+            let toMiles = meters * conversionFactors["miles"]
+            let toInches = meters * conversionFactors["inches"]
+
+            toFeet = toFeet.toFixed(2)
+            toMiles = toMiles.toFixed(2)
+            toInches = toInches.toFixed(2)
+            meters = meters.toFixed(2)
+
+            document.querySelector("#resultMeters").innerHTML = meters
+            document.querySelector("#resultFeet").innerHTML = toFeet
+            document.querySelector("#resultInches").innerHTML = toInches
+            document.querySelector("#resultMiles").innerHTML = toMiles
+
         }
         
     </script>    
 </head>
 <body>
     <div>
-        <h1>ftm</h1>
-        <form>
-            <input id="inputNum" type="number">feet</input>
-        </form>
+        <h1>to meters</h1>
+
+        <input id="inputNum" type="number"></input>
+        <select id="selectUnits">
+            <option value="feet">Feet</option>
+            <option value="meters">Meters</option>
+            <option value="miles">Miles</option>
+            <option value="inches">Inches</option>
+        </select>
+
+        <button id="convert">convert</button>
+
     </div>
     <div>
-        <button class="btn" onclick="feetToMeters()">convert to meters</button>
-        <p id="result">result here</p>
+        <p id="resultMeters"></p><p>m</p>
+        <p id="resultFeet"></p><p>ft</p>
+        <p id="resultInches"></p><p>in</p>
+        <p id="resultMiles"></p><p>mi</p>
     </div>
 
     <script type="text/javascript">
+
+        convert.addEventListener("click", function(event) {
+            const inputValueField = document.querySelector("#inputNum");
+
+            const inputValue = inputValueField.value;
+
+            const inputTypeSelector = document.querySelector("#selectUnits");
+
+            const inputType = inputTypeSelector.value;
+
+            toAll(toMeters(inputType,inputValue))
+
+        })
+
+
 
     </script>
 
