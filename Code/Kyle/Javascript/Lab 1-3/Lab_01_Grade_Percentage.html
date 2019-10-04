@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script type="text/javascript">
+
+      function calcgrade() {
+      let x = prompt("What is your grade percentage?")
+      if (x < 59) {
+        alert("Your Grade is an F")
+      } else if (x < 70 && x > 59) {
+        alert("Your Grade is a D")
+      } else if (x < 80 && x > 69) {
+        alert("Your Grade is C")
+      } else if (x < 90 && x > 79) {
+        alert("Your Grade is a B")
+      } else if (x < 100 && x > 89) {
+        alert("Your Grade is a A")
+      }
+    }
+    </script>
+  </head>
+  <body>
+
+   <h1>Grade Percentage Calculator!<h1>
+     <button onclick="calcgrade()">Calculate Grade</button>
+
+
+  </body>
+</html>
