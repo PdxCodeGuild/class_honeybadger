@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Unit Converter</title>
+    <script type="text/javascript">
+        
+        function feetToMeters() {
+            let feet = document.getElementById("inputNum").value
+            let conversionFactor = 0.3048
+            let meters = feet * conversionFactor
+            document.getElementById("result").innerHTML = meters
+        }
+        
+    </script>    
+</head>
+<body>
+    <div>
+        <h1>ftm</h1>
+        <form>
+            <input id="inputNum" type="number">feet</input>
+        </form>
+    </div>
+    <div>
+        <button class="btn" onclick="feetToMeters()">convert to meters</button>
+        <p id="result">result here</p>
+    </div>
+
+    <script type="text/javascript">
+
+    </script>
+
+</body>
+</html>
