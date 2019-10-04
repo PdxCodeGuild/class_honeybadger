@@ -42,7 +42,7 @@ import string
     
 # marina's solution:
 
-alpha = string.ascii_lowercase*2
+alpha = string.ascii_lowercase*2 
 
 def rot13(word, number):
    cipher = ""
