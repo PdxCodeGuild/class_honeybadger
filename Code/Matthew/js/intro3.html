@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script type="text/javascript">
+      window.addEventListener('load', function() {
+        // your code here
+      })
+    </script>
+  </head>
+  <body>
+    <div id="mydiv" style="display:none">nah</div>
+    <input type="text" id="myinput"/>
+    <script type="text/javascript" src="sort.js"></script>
+    <script type="text/javascript">
+      let nums = [10, 20, 30, 60, 100, 20]
+      nums.sort()
+      console.log(nums)
+      
+      nums = quicksort(nums)
+      console.log(nums)
+      
+      
+      setTimeout(function() {
+          document.querySelector('#mydiv').style.display = 'block'
+      }, 3000);
+
+    </script>
+  </body>
+</html>
