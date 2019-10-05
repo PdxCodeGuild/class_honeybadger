@@ -1,0 +1,60 @@
+
+
+input {
+    width: 350px;
+    height: 20px;
+    margin: 5px 0;
+    padding: 5px;
+    display: block;
+}
+
+body {
+    margin: 40% 0 60% 0;
+    text-align: center;
+}
+
+
+.container {
+    display: flex;
+    flex-direction: column;
+    height: 100px;
+    
+}
+
+.center {
+    margin: auto;
+    height: 500px;
+}
+
+@keyframes btn {
+    0% {position: relative; left: 0;}
+    25% {position: relative; left: 10px;}
+    50% {position: relative; left: -10px;}
+    100% {position: relative; left: 0;}
+}
+
+.btn {
+    font-size:20px;
+	padding:15px;
+	border-radius: 20px;
+    margin: 10px 0;
+    width: 200px;
+    transition: 1s;
+}
+
+.btn:hover {
+    animation-name: btn;
+    animation-duration: 400ms;
+    animation-fill-mode: both;
+    background-color: gray;
+    color: white;
+    transition: 200ms;
+}
+
+.btn:active {
+    background-color: blue;
+}
+
+.btn:focus {
+    outline: 0;
+}
