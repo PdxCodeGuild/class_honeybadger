@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+
+    <style type="text/css">
+        #completed_madlib{
+            font-size: 32px;
+            border-style: dashed;
+        }
+    </style>
+    </head>
+    <body>
+        <h1>Madlibs</h1>
+        adjective:<br>
+        <input id="input_adj" type="text" name="adjective"><br>
+        noun:<br>
+        <input id="input_noun" type="text" name="noun">
+        <button id="button_madlib">make madlib</button>
+        <div id='completed_madlib'><div>
+        <script type="text/javascript">
+            let input_adj = document.querySelector('#input_adj')
+            let input_noun = document.querySelector('#input_noun')
+            let button_madlib = document.querySelector('#button_madlib')
+            let completed_madlib = document.querySelector('#completed_madlib')
+
+            button_madlib.addEventListener('click', function() {
+                completed_madlib.innerText = 'The fat '+input_adj.value+' '+input_noun.value+' jumped over the '+input_adj.value+' '+input_noun.value+'.'
+            })
+
+
+
+
+        </script>
+    </body>
+
+
+
+</html>
