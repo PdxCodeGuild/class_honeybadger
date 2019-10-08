@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" type="text/css" href="lab_adventure.css">
+        <title>PDX Trail</title>
+    </head>
+
+    <body>
+        <div id="status" class="status">
+            <h1>Status</h1>
+            <div class="status_flex">
+                <p>Health:<br><span id="health" class="status_text"></p>
+                <p>Money:<br><span id="money" class="status_text"></p>
+                <p>Distance:<br><span id="distance" class="status_text"></p>
+                <p>Time:<br><span id="time" class="status_text"></p>
+            </div>
+        </div>
+        <div class="game">
+            <div id="welcome" class="welcome">
+                <p>Welcome to <span class="bold">The Portland Trail</span>! Let's see if you can drive your way through Portland to your destination before you run out of money, time, or you die.</p>
+                <p>Each round you will lose both time and distance (unless you gain more during your drive).</p>
+                <button id="button_play" class="button_play">Play game</button>
+            </div>
+            
+            <div id="game" style="display: none">
+                <h1>This is the game area</h1>
+            </div>
+            
+            
+        </div>
+        
+        <!-- javascript -->
+        <script type="text/javascript" src="lab_adventure.js"></script>
+        
+    </body>
+</html>
