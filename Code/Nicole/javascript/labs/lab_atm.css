@@ -1,0 +1,41 @@
+
+
+html, body {
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+h1  {
+    margin: 0;
+}
+
+.nav {
+    background-color: LemonChiffon;
+    padding: 30px 0 0 0 ;
+}
+
+.balance {
+    font-size: 30px;
+    padding: 20px;
+}
+
+.main {
+    display:flex;
+    flex-direction:column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.input {
+    
+}
+
+.log {
+    
+}
+
+#reset {
+    
+}

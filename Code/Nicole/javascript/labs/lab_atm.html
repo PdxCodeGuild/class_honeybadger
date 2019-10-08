@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" type="text/css" href="lab_atm.css">
+        <title>ATM</title>
+    </head>
+    <body>
+        <div class="nav">
+            <h1>Your current balance:</h1>
+            <div id="div_balance" class="balance"></div>
+        </div>
+        <div class="main">
+            <div>
+                <h2>Deposit amount</h2>
+                <input id="deposit_input" class="input" type="text" placeholder="Deposit amount">
+                <button id="submit_deposit">Submit</button>
+
+                <h2>Withdraw amount</h2>
+                <input id="withdraw_input" class="input" type="text" placeholder="Withdraw amount">
+                <button id="submit_withdraw">Submit</button>
+
+            </div>
+            <div class="log">
+                <h2>ATM log:</h2>
+                <ul id="log"></ul>
+            </div>
+            
+            <div>
+                <button id="reset">Reset</button>
+            </div>
+        </div>
+        
+        <!-- javascript -->
+        <script type="text/javascript" src="lab_atm.js"></script>
+        
+    </body>
+</html>
