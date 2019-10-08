@@ -1,0 +1,54 @@
+@keyframes btn-3 {
+    0% {transform: scale(1.0);}
+    50% {transform: scale(1.3);}
+    100% {transform: scale(1.0);}
+}
+
+
+#main_header {
+    display: flex;
+    justify-content: center;
+    font-size: 80px;
+    font-family: 'Mansalva', cursive;
+    background-color:#C5C5C5;
+    padding: 30px;
+    flex-grow:
+
+}
+
+#input_elements{
+    display: flex;
+    justify-content: center;
+    margin: 20px;
+
+}
+#input_elements input, #input_elements select {
+    font-size: 35px;
+
+}
+#number_button{
+    margin: 10px;
+    padding: 15px 25px;
+    font-size: 24px;
+    text-align: center;
+    cursor: pointer;
+    outline: none;
+    color: #fff;
+    background-color:#B2B2B2;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 9px #999;
+}
+#number_button:active {
+  background-color:#3D3D3D;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+
+
+#converted_distance{
+    display: flex;
+    justify-content: center;
+    font-size: 25px;
+    margin: 15px;
+}

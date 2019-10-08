@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>rps with buttons</title>
+    <link href="https://fonts.googleapis.com/css?family=Mansalva&display=swap" rel="stylesheet"> 
+    <script type="text/javascript" src="utilities.js"></script>
+    <style type="text/css">
+      * {
+        transition: 250ms;
+      }
+      html, body {
+        margin:0;
+        padding:0;
+      }
+      body {
+        font-family: 'Mansalva', cursive;
+        position: relative;
+        min-height: 100vh;
+      }
+      
+      main {
+        display:flex;
+        flex-direction:row;
+        justify-content: space-around;
+        align-items:stretch;
+        font-size:40px;
+        text-align:center;
+        flex-wrap:wrap;
+      }
+      header {
+        font-size:40px;
+        text-align:center;
+        background-color:AliceBlue;
+        margin-bottom:30px;
+        padding:10px 0;
+      }
+      footer {
+        background-color:AliceBlue;
+        text-align:center;
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        user-select:none;
+        cursor:pointer;
+      }
+      footer:hover {
+        color:#EC3A17;
+      }
+      #div_score {
+        flex-grow:1;
+      }
+      .rps_button {
+        font-size:60px;
+        margin:20px;
+
+        user-select:none;
+      }
+      .rps_human_button {
+        cursor:pointer;
+      }
+      .rps_human_button:hover {
+        text-shadow:
+         -2px -2px 0 blue,  
+          2px -2px 0 blue,
+          -2px 2px 0 blue,
+           2px 2px 0 blue;
+      }
+      .rps_human_button:active {
+        transform:translateY(2px);
+      }
+      #div_winner {
+        
+        font-size:40px;
+        text-align:center;
+      }
+      #human_choices, #computer_choices {
+        font-size:40px;
+        text-align:center;
+        margin:0 60px;
+      }
+      #center_div {
+        flex-grow:1;
+        display:flex;
+        flex-direction:column;
+        justify-content:center;
+        align-items:center;
+        opacity:0;
+      }
+      #div_hvc {
+        display:flex;
+        flex-direction:row;
+        justify-content:center;
+        align-items:center;
+      }
+      #bt_reset {
+        font-family: 'Mansalva', cursive;
+        font-size:40px;
+        cursor:pointer;
+        user-select:none;
+        
+      }
+      #bt_reset:hover {
+        transform:rotate(-360deg) scale(2)
+      }
+      #bt_reset:active {
+        
+      }
+      .large_text {
+        font-size:40px;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div id="div_score">Rock, Paper, Skissors</div>
+      <div id="score_div">0 - 0</div>
+    </header>
+    <main>
+      <div id="human_choices">
+        <div id="div_human_text">Human</div>
+        <div id="bt_human_rock" class="rps_button rps_human_button">🗿</div>
+        <div id="bt_human_paper" class="rps_button rps_human_button">📃</div>
+        <div id="bt_human_scissors" class="rps_button rps_human_button">✂️</div>
+      </div>
+      
+      <div id="center_div">
+        <div id="div_winner"></div>
+        <div id="div_hvc">
+          <div id="div_hvc_human" class="rps_button">🗿</div>
+          <div class="large_text">vs</div>
+          <div id="div_hvc_computer" class="rps_button">🗿</div>
+        </div>
+        <div id="bt_reset">↺</div>
+      </div>
+      <div id="computer_choices">
+        <div id="div_computer_text">Computer</div>
+        <div id="bt_computer_rock" class="rps_button">🗿</div>
+        <div id="bt_computer_paper" class="rps_button">📃</div>
+        <div id="bt_computer_scissors" class="rps_button">✂️</div>
+      </div>
+    </main>
+    <footer>new game</footer>
+    <script type="text/javascript">
+      // bt_rock.innerText = 'hello world!'
+      let bt_human_rock = document.querySelector('#bt_human_rock')
+      let bt_human_paper = document.querySelector('#bt_human_paper')
+      let bt_human_scissors = document.querySelector('#bt_human_scissors')
+      let div_winner = document.querySelector('#div_winner')
+      
+      let center_div = document.querySelector('#center_div')
+      let div_hvc_human = document.querySelector('#div_hvc_human')
+      let div_hvc_computer = document.querySelector('#div_hvc_computer')
+      let bt_reset = document.querySelector('#bt_reset')
+      let score_div = document.querySelector('#score_div')
+      let footer = document.querySelector('footer')
+      
+      let game_played = false
+      let score_human = 0
+      let score_computer = 0
+      
+      
+      function play_rps(human_choice) {
+        
+        if (human_choice == 'rock') {
+          div_hvc_human.innerText = '🗿'
+        } else if (human_choice == 'paper') {
+          div_hvc_human.innerText = '📃'
+        } else if (human_choice == 'scissors') {
+          div_hvc_human.innerText = '✂️'
+        }
+        
+        let computer_choice = random_element(['rock', 'paper', 'scissors'])
+        if (computer_choice == 'rock') {
+          div_hvc_computer.innerText = '🗿'
+        } else if (computer_choice == 'paper') {
+          div_hvc_computer.innerText = '📃'
+        } else if (computer_choice == 'scissors') {
+          div_hvc_computer.innerText = '✂️'
+        }
+        
+        if (computer_choice === human_choice) {
+          div_winner.innerText = 'Tie'
+        } else if (computer_choice == 'rock' && human_choice == 'paper') {
+          div_winner.innerText = 'Human wins!'
+          score_human++
+        } else if (computer_choice == 'rock' && human_choice == 'scissors') {
+          div_winner.innerText = 'Computer wins!'
+          score_computer++
+        } else if (computer_choice == 'paper' && human_choice == 'rock') {
+          div_winner.innerText = 'Computer wins!'
+          score_computer++
+        } else if (computer_choice == 'paper' && human_choice == 'scissors') {
+          div_winner.innerText = 'Human wins!'
+          score_human++
+        } else if (computer_choice == 'scissors' && human_choice == 'rock') {
+          div_winner.innerText = 'Human wins!'
+          score_human++
+        } else if (computer_choice == 'scissors' && human_choice == 'paper') {
+          div_winner.innerText = 'Computer wins!'
+          score_computer++
+        } else {
+          div_winner.innerText = 'INVALID VALUE, HUMAN'
+        }
+        score_div.innerText = score_human + ' - ' + score_computer
+      }
+      
+      bt_human_rock.addEventListener('click', function() {
+        if (!game_played) {
+          game_played = true
+          bt_human_rock.style.opacity = 0.2
+          center_div.style.opacity = 1.0
+          play_rps('rock')
+        }
+          
+        
+      })
+      
+      bt_human_paper.addEventListener('click', function() {
+        if (!game_played) {
+          game_played = true
+          bt_human_paper.style.opacity = 0.2
+          center_div.style.opacity = 1.0
+          play_rps('paper')
+        }
+      })
+      
+      bt_human_scissors.addEventListener('click', function() {
+        if (!game_played) {
+          game_played = true
+          bt_human_scissors.style.opacity = 0.2
+          center_div.style.opacity = 1.0
+          play_rps('scissors')
+        }
+      })
+      
+      function resetGame() {
+        game_played = false
+        bt_human_rock.style.opacity = 1.0
+        bt_human_paper.style.opacity = 1.0
+        bt_human_scissors.style.opacity = 1.0
+        center_div.style.opacity = 0.0
+      }
+      function newGame() {
+        resetGame()
+        score_human = 0
+        score_computer = 0
+        score_div.innerText = score_human + ' - ' + score_computer
+      }
+      
+      bt_reset.addEventListener('click', function() {
+        resetGame()
+      })
+      
+      footer.addEventListener('click', function(event) {
+        // console.log(event.x + ', ' + event.y)
+        // window.location.reload()
+        newGame()
+      })
+      
+    </script>
+  </body>
+</html>
