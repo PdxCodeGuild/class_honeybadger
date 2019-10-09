@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>ToDo</title>
+    <style>
+        body {
+            display: grid;
+            grid-template-rows: [header] 1fr [body] 8fr;
+            grid-template-columns: [left-gutter] 1fr [display] 5fr [interface] 3fr [right-gutter] 1fr ;
+            grid-gap: 20px;
+            font-family: "Press Start 2P","Yoshi's Story game text BRK";
+            background: linear-gradient(to bottom right, #bebaff, #febaff) fixed;
+            color:#d2691e;
+        }
+
+        header {
+            grid-row: header;
+            grid-column: display/right-gutter;
+            background-color: yellow;
+            text-align: center;
+        }
+
+        li {
+            color: #d2691e !important;
+        }
+
+        .display {
+            grid-row: body;
+            grid-column: display;
+            background-color: red;
+            display: grid;
+            grid-template-rows: [unfinished] 1fr [completed] 1fr;
+            grid-template-columns: 1fr;
+        }
+
+        .interface {
+            grid-row: body;
+            grid-column: interface;
+            background-color: blue;
+        }
+
+        #finished li {
+            text-decoration: line-through;
+        }
+
+        .btn {
+            margin: 5px;
+        }
+
+        .rmBtn {
+            background-color: purple;
+        }
+
+        .finBtn {
+            background-color: gold;
+        }
+
+        body > * {
+            border-radius: 10px;
+            background-color: #fffacd !important;
+        }
+
+        #unfinished {
+            grid-row: unfinished;
+        }
+
+        #completed {
+            grid-row: completed;
+        }
+
+        .wrapper {
+            padding: 10px;
+        }
+        
+
+    </style>
+</head>
+
+<body>
+    <header class="header">
+        <h1>To Do list</h1>
+    </header>
+    <section class="display wrapper">
+        <div id="unfinished">
+            <h3>list items</h3>
+            <ul id="list"></ul>
+        </div>
+        <div id="complete">
+            <h3>completed items</h3>
+            <ul id="finished"></ul>
+        </div>
+    </section>
+    <section class="interface wrapper">
+        <h3>interface</h3>
+        <input type="text" id="inputItem">write item here</input>
+        <button id="submitItem">submit</button>
+    </section>
+
+    <script>
+
+        let input = document.querySelector("#inputItem")
+
+        
+
+        inputItem.addEventListener("submit", function(event) {
+            
+            let element = document.createElement("li")
+            element.innerText = input.value
+            element.className = "elements"
+
+            let rmBtn = document.createElement("input")
+            rmBtn.type = "button"
+            rmBtn.classList.add("rmBtn", "btn")
+
+            let finBtn = document.createElement("input")
+            finBtn.type = "button"
+            finBtn.classList.add("finBtn", "btn")
+            
+            finBtn.addEventListener("click", function(event) { 
+                element.removeChild(finBtn)
+                finished.appendChild(element)
+
+                rmBtn.addEventListener("click", function(event) {
+                    finished.removeChild(element)
+                })
+            })
+
+            rmBtn.addEventListener("click", function(event) {
+                list.removeChild(element)
+            })
+
+            element.appendChild(rmBtn)
+            element.appendChild(finBtn)
+
+            list.appendChild(element)
+        })
+
+    </script>
+</body>
+</html>

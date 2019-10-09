@@ -12,6 +12,7 @@ class Board:
         self.width = width
         self.height = height
         self.rooms = [[['0']for j in range(self.width)] for i in range(self.height)]
+        self.entities = []
         
     def labrynth(self):
         labrynth = []
@@ -19,7 +20,7 @@ class Board:
         corridors = self.height + (self.height + 1)
         
         for i in range(corridors):
-            if i == 0 or i == corridors: # top and bottom walls, always closed
+            if i == 0 or i == corridors - 1: # top and bottom walls, always closed
                 labrynth.append([['X'] for i in range(passages)])
             elif i % 2 == 0: # walls inbetween floors
                 passage = []
@@ -27,7 +28,7 @@ class Board:
                     if j == 0 or j == passages: # first and last column always closed
                         passage.append(['X'])
                     elif j % 2 == 1: # walls to left, right, up, down of rooms may be open
-                        passage.append([random.choice(['I', 'I', 'I' 'X'])])
+                        passage.append([random.choice(['I', 'I', 'I', 'X'])])
                     else:
                         passage.append(['X'])
                 labrynth.append(passage)
@@ -55,16 +56,16 @@ class Board:
 
 
 
-    def print(self, entities):
+    def print(self):
         printable = ''
         
         for i in range(self.height): # sets entities
             for j in range(self.width):
-                for k in range(len(entities)):
-                    if entities[k].character in self.rooms[i][j] and (entities[k].loc_i != i or entities[k].loc_j != j):
-                        self.rooms[i][j].remove(entities[k].character)
-                    if entities[k].loc_i == i and entities[k].loc_j == j and entities[k].character not in self.rooms[i][j]:
-                        self.rooms[i][j].append(entities[k].character)
+                for k in range(len(self.entities)):
+                    if self.entities[k].character in self.rooms[i][j] and (self.entities[k].loc_i != i or self.entities[k].loc_j != j):
+                        self.rooms[i][j].remove(self.entities[k].character)
+                    if self.entities[k].loc_i == i and self.entities[k].loc_j == j and self.entities[k].character not in self.rooms[i][j]:
+                        self.rooms[i][j].append(self.entities[k].character)
                     
                         
         
@@ -89,11 +90,15 @@ class Entity:
         self.loc_j = (self.loc_j * 2) + 1
         self.name = name
         self.current_loc = [self.loc_i, self.loc_j]
+        board.entities.append(self)
+
+
         
 
 class Player(Entity):
     def __init__(self, name):
         super().__init__('$', name)
+        self.inventory = []
 
     def move(self, command):
         if command == 'done': # initial move into 'wall' space
@@ -129,13 +134,12 @@ class Player(Entity):
         else:
             self.current_loc = [self.loc_i, self.loc_j]
             return True
-        
-
 
 class Demon(Entity):
     def __init__(self, name):
         super().__init__('@', name)
-    
+        self.patience = 3
+
     def move(self):
         move = board.random_loc()
         self.loc_i = move['i']
@@ -143,27 +147,39 @@ class Demon(Entity):
         self.current_loc = [self.loc_i, self.loc_j]
     
     def greeting(self):
-        print('Foolish mortal!')
-        exit()
+        print('Foolish mortal! Retrieve your weapon if you wish to face me...')
     
 
 
-        
+    
 
-board = Board(3, 3)
+class Item(Entity):
+    def init(self, name):
+        super().__init__(name)
+
+
+board = Board(5,5)
 board.labrynth()
+print(board.entities)
 chara = Player(str(input("what's your name?..\n")))
 demon = Demon('Pazuzu')
-entities = [chara, demon]
+sword = Item('t', 'sword')
+print(board.entities)
 print(chara.current_loc, demon.current_loc)
-board.print(entities)
+board.print()
 
 while True:
     chara.move(input(f'make a move, {chara.name}...'))
     print(chara.current_loc, demon.current_loc)
+    if chara.current_loc == sword.current_loc:
+        chara.inventory.append(sword)
     if chara.current_loc == demon.current_loc:
-        demon.greeting()
-    board.print(entities)
+        if sword in chara.inventory:
+            print('youwin')
+            exit()
+        else:
+            demon.greeting()
+    board.print()
 
     
                 

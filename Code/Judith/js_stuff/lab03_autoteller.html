@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Automatic Teller Machine</title>
+    <script>
+        
+
+    </script>
+</head>
+<body>
+    <h1>Online Bank</h1>
+    <div>
+        <p id="balance"></p>
+    </div>
+    <div>
+        <button id="deposit">Deposit</button>
+        <button id="withdrawal">Withdrawal</button>
+    </div>
+    <div>
+        <h5>Transaction History</h5>
+        <p id="transactions"></p>
+    </div>
+    <div>
+        <h5>Interest Calculator</h5>
+        <p id="interestDisplay"></p>
+        <input type="number" id="time">Enter the time</input>
+        <button id="interestSubmit">Calculate interest</button>
+    </div>
+    <script>
+
+        let p_interest = document.querySelector("#interestDisplay")
+        
+        let p_transactions  = document.querySelector("#transactions")
+
+        let p_balance = document.querySelector('#balance')
+
+        let balance = 100
+
+        let translist = []
+
+        transcount = 0
+
+        function loadTransactions() {
+            p_transactions.innerHTML = translist
+        }
+
+        function loadBalance() {
+            p_balance.innerText = balance
+        }
+
+        function loadDeposit(deposit) {
+            transcount ++
+            balance += deposit
+            translist.push(`Deposited ${deposit}`)
+            loadBalance()
+            loadTransactions()
+        }
+
+        function loadWithdrawal(withdrawal) {
+            transcount++
+            balance -= withdrawal
+            if (checkAction()) {
+                translist.push(`Withdrew ${withdrawal}`)
+                loadBalance()
+                loadTransactions()
+            } else {
+                alert("You may not overdraw your account")
+                balance += withdrawal
+                translist.push(`Withdrawal of ${withdrawal} denied`)
+                loadBalance()
+                loadTransactions()
+            }
+            
+        }
+
+        function checkAction() {
+            if (balance >= 0) {
+                return true
+            }
+        }
+
+        function calcInterest(time) {
+            let interest = balance * 0.01 * time
+            p_interest.innerText = interest
+            
+        }
+
+        loadBalance()
+
+        deposit.addEventListener("click", function(event) {
+            let userDeposit = parseInt(prompt("Enter your deposit amount"))
+            loadDeposit(userDeposit)
+        })
+
+        withdrawal.addEventListener("click", function(event) {
+            let userWithdrawal = parseInt(prompt("Enter your withdrawal amount"))
+            loadWithdrawal(userWithdrawal)
+        })
+
+        interestSubmit.addEventListener("click", function(event) {
+            let time = document.querySelector("#time").value
+            calcInterest(time)
+        })
+
+    </script>    
+</body>
+</html>
