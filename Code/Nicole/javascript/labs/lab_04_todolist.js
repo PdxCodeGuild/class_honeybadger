@@ -10,7 +10,7 @@ user_input.addEventListener("keyup", function(event) {
   // Number 13 is the "Enter" key on the keyboard
   if (event.keyCode === 13) {
     // Trigger the button element with a click
-    btn_user_input.click() //puts focus on the input field on loading
+    btn_user_input.click() 
   }
 })
 
@@ -62,9 +62,6 @@ btn_print.addEventListener("click", function() {
                 ul {
                     list-style: none;
                     font-family: 'Roboto Mono', monospace;
-                }
-                input::checkbox {
-                    display: none;
                 }
             </style>
         </head>
