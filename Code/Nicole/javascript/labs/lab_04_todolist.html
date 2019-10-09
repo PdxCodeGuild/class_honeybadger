@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>To-Do List</title>
+        <link rel="stylesheet" type="text/css" href="lab_04_todolist.css">
+        
+        <!-- Google fonts -->
+        <link href="https://fonts.googleapis.com/css?family=Roboto+Mono|Source+Sans+Pro&display=swap" rel="stylesheet">
+
+
+    </head>
+    <body>
+        <div class="header">
+            <div>
+                <h1>To-Do List</h1>
+            </div>
+            <div class="cursor">
+                <input id="user_input" type="text" placeholder="Type and press ENTER"/>
+                <div id="btn_user_input" class="btn_user_input btn"></div>
+            </div>
+        </div>
+        <div class="main">
+            <div class="main_left">
+                <h2>Your list:</h2>
+                <ul id="list"></ul>
+            </div>
+            <div class="list main_right">
+                <h2>Completed items:</h2>
+                <ul id="completed"></ul>
+            </div>
+        </div>
+        <div class="main_buttons">
+            <div class="btn_left">
+                <button id="btn_print" class="btn_print btn" >Print list</button>
+            </div>
+            <div class="btn_right">
+                <button id="btn_clear" class="btn_clear btn" >Clear completed</button>
+            </div>
+        </div>
+        
+        <script type="text/javascript" src="lab_04_todolist.js"></script>
+    </body>
+</html>
