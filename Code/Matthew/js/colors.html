@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/tone/14.4.9/Tone.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Mansalva&display=swap" rel="stylesheet"> 
+    <style type="text/css">
+      body {
+        color:white;
+        background-color:black;
+        font-family: 'Mansalva', cursive;
+      }
+      #container {
+        display:flex;
+        flex-direction:row;
+        flex-wrap:wrap;
+        justify-content:center;
+      }
+      #container > div {
+        margin:10px;
+        border: 2px solid black;
+        text-align:center;
+        font-size:50px;
+        line-height:1.5em;
+        width:1.5em;
+        height:1.5em;
+        user-select:none;
+      }
+      #container > div:hover {
+        border:2px solid white;
+      }
+      .btn {
+        color:black;
+        background-color:white;
+        border-radius:50%;
+        font-size:50px;
+        line-height:1.5em;
+        width:1.5em;
+        height:1.5em;
+        text-align:center;
+        user-select:none;
+        cursor:pointer;
+        margin:20px;
+      }
+      .btn:hover {
+        background-color:whitesmoke;
+      }
+      .btn:active {
+        color:blue;
+        background-color:white;
+      }
+      #div_buttons {
+        display:flex;
+        flex-direction:row;
+        justify-content:center;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="container"></div>
+    <div id="div_buttons">
+      <div id="bt_play" class="btn">&nbsp;▷</div>
+      <div id="bt_reset" class="btn">↺</div>
+      <div id="bt_rest" class="btn">𝄽</div>
+    </div>
+    <script type="text/javascript">
+      let container = document.querySelector('#container')
+      let bt_play = document.querySelector('#bt_play')
+      let bt_reset = document.querySelector('#bt_reset')
+      let bt_rest = document.querySelector('#bt_rest')
+    
+      let synth = new Tone.Synth().toDestination()
+      let notes = ["C3","D3","E3","F3","G3","A3","B3","C4"]
+      // let notes = ["D#2","F2","G2","G#2","A#2","C3","D3","D#3"]
+      let hues = []
+      for (let i=0; i<notes.length; ++i) {
+        hues.push(Math.floor(i*360/notes.length))
+      }
+      
+      let output_notes = []
+      let note_bts = []
+      
+      
+      for (let i=0; i<notes.length; ++i) {
+        let div = document.createElement('div')
+        div.style.borderRadius = '50%'
+        div.style.cursor = 'pointer'
+        div.style.backgroundColor = `hsl(${hues[i]},100%,50%)`
+        div.dataset.note = notes[i]
+        div.innerText = notes[i]
+        
+        
+        div.addEventListener('click', function(event) {
+          synth.triggerAttackRelease(this.dataset.note, '8n')
+          output_notes.push(this.dataset.note)
+          console.log(output_notes)
+          
+        })
+        note_bts.push(div)
+        container.appendChild(div)
+      }
+      
+      bt_play.addEventListener('click', function() {
+        let counter = 0;
+        let interval = setInterval(function() {
+            if (output_notes[counter] != null) {
+              
+              // add white border to the note currently played
+              for (let i=0; i<note_bts.length; ++i) {
+                if (output_notes[counter] == note_bts[i].dataset.note) {
+                  note_bts[i].style.border = '2px solid white'
+                } else {
+                  note_bts[i].style.border = '2px solid black'
+                }
+              }
+              
+              
+              synth.triggerAttackRelease(output_notes[counter], '8n')
+            }
+            counter += 1;
+            if (counter >= output_notes.length) {
+                clearInterval(interval);
+            }
+        }, 400);
+      })
+      
+      bt_reset.addEventListener('click', function() {
+        output_notes = []
+      })
+      
+      bt_rest.addEventListener('click', function() {
+        output_notes.push(null)
+      })
+      
+      
+    </script>
+  </body>
+</html>
