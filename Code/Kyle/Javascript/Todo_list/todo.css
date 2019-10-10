@@ -1,0 +1,40 @@
+p {
+      font-size: 15px;
+      font-family: "Mansalva", cursive;
+      color: darkblue;
+    }
+    h2 {
+      font-family: "Mansalva", cursive;
+      color: yellow;
+      font-size: 40px
+    }
+    body {
+      background-color: black;
+
+    }
+    button {
+      padding: 7px;
+      font-family: "Mansalva", cursive;
+      cursor: pointer;
+      outline: none;
+      color: white;
+      background-color: lightblue;
+      border: none;
+      border-radius: 15px;
+      box-shadow: 0 4px #999
+    }
+    button:active {
+    box-shadow: 0 2px;
+    transform: translateY(4px);
+    }
+
+    input {
+      padding: 7px
+
+    }
+    ul {
+      font-family: "Mansalva", cursive;
+    }
+    li {
+      color: white;
+    }

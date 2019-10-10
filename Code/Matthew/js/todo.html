@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <!-- Materialize -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <style type="text/css">
+      main {
+        max-width:800px;
+        margin: 0 auto;
+        padding:10px;
+      }
+      .collection-item {
+        display:flex;
+        flex-direction:row;
+        justify-content:space-between;
+        align-items:center;
+        padding:20px !important;
+        font-size:20px;
+      }
+      #ul_todos .btn-floating {
+        margin-left:10px;
+      }
+      #ul_completed {
+        text-decoration: line-through;
+        color:grey;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>Todo</h1>
+      <div class="row">
+        <div class="input-field col s6">
+          <input id="input_todo" type="text">
+          <label for="input_todo">Todo Item</label>
+        </div>
+        <div class="input-field col s3">
+          <button id="bt_add" class="btn">add</button>
+        </div>
+      </div>
+      <h3>Shit To Do</h3>
+      <ul id="ul_todos" class="collection">
+      </ul>
+      <h3>Shit Got Done</h3>
+      <ul id="ul_completed" class="collection">
+      </ul>
+    </main>
+    <script type="text/javascript">
+      
+      let input_todo = document.querySelector('#input_todo')
+      let bt_add = document.querySelector('#bt_add')
+      let ul_todos = document.querySelector('#ul_todos')
+      let ul_completed = document.querySelector('#ul_completed')
+      
+      
+      bt_add.addEventListener('click', function() {
+        
+        if (input_todo.value == '') {
+          return
+        }
+        
+        let li = document.createElement('li')
+        // li.innerText = input_todo.value
+        // li.class = 'collection-item' // good
+        // li.setAttribute('class', 'collection-item') // better
+        li.classList.add('collection-item') // best
+        
+        let div_text = document.createElement('span')
+        div_text.innerText = input_todo.value
+        
+        // create a div to contain the buttons
+        let div_buttons = document.createElement('div')
+        div_buttons.classList.add('secondary-content')
+        
+        // completed button
+        let bt_complete = document.createElement('button')
+        bt_complete.classList.add('btn-floating')
+        bt_complete.innerHTML = '<i class="material-icons">check</i>'
+        bt_complete.addEventListener('click', function() {
+          let li_completed = document.createElement('li')
+          li_completed.innerText = div_text.innerText
+          li_completed.classList.add('collection-item')
+          ul_completed.appendChild(li_completed)
+          ul_todos.removeChild(li)
+        })
+        
+        // remove button
+        let bt_remove = document.createElement('button')
+        bt_remove.classList.add('btn-floating')
+        bt_remove.innerHTML = '<i class="material-icons">clear</i>'
+        bt_remove.addEventListener('click', function() {
+          ul_todos.removeChild(li)
+        })
+        
+        
+        div_buttons.appendChild(bt_complete)
+        div_buttons.appendChild(bt_remove)
+        
+        li.appendChild(div_text)
+        li.appendChild(div_buttons)
+        
+        ul_todos.appendChild(li)
+      })
+    </script>
+  </body>
+</html>

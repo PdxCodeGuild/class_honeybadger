@@ -55,11 +55,50 @@ function count_hi(s) {
   // return count
   
 }
+
+
 // console.log(count_hi('hihihey34hiHI'))
-console.log(count_hi('h    iello'))
+// console.log(count_hi('h    iello'))
+
+function count_occurrances(text, word) {
+  let re = new RegExp(word, 'g')
+  let matches = text.match(re)
+  return (matches != null)? matches.length: 0
+}
+// function count_hi(text) {
+//   return count_occurrances(text, 'hi')
+// }
+// console.log(count_occurrances('hihi  hi hi', 'hellooo')) // 4
+
+
+function cat_dog(text) {
+  let cat_count = count_occurrances(text, 'cat')
+  let dog_count = count_occurrances(text, 'dog')
+  return cat_count == dog_count
+}
+
+// console.log(cat_dog('catdog')) // True
+// console.log(cat_dog('catcat')) // False
+// console.log(cat_dog('catdogcatdog')) // True
 
 
 
+function count_letter(letter, word) {
+  // return count_occurrances(word, letter)
+  let count = 0
+  for (let i=0; i<word.length; ++i) {
+    if (word[i] == letter) {
+      ++count
+    }
+  }
+  return count
+}
+console.log(count_letter('i', 'antidisestablishmentterianism')) // 5
+console.log(count_letter('p', 'pneumonoultramicroscopicsilicovolcanoconiosis')) // 2
 
 
-
+function clean_text(text) {
+  return text.toLowerCase().trim()
+}
+console.log(clean_text("SUPER!")) // 'super!'
+console.log(clean_text("        NANNANANANA BATMAN        ")) // 'nannananana batman'
