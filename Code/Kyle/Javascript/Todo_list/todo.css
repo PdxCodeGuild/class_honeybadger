@@ -17,7 +17,7 @@ p {
       font-family: "Mansalva", cursive;
       cursor: pointer;
       outline: none;
-      color: black;
+      color: white;
       background-color: lightblue;
       border: none;
       border-radius: 15px;
@@ -34,4 +34,7 @@ p {
     }
     ul {
       font-family: "Mansalva", cursive;
+    }
+    li {
+      color: white;
     }
