@@ -41,11 +41,14 @@ btn_password.addEventListener("click", function() {
     copyText()
     // setTimeout(alert_copy.innerText = "", 3000)
     
-    
+    alert_copy.innerText = "Your password has been copied to the clipboard"
+    alert_copy.style.color = "red"
+    delay()
+    // delay()
     // copyText(password)
     
     input_number.focus()
-    input_number.value = ""
+    // input_number.value = "&nbsp"
 })
 
 // function copyText(pw_copy){
@@ -61,5 +64,5 @@ function copyText() {
 }
 
 function delay() {
-    setTimeout(function(){ alert("Your password is copied to the llama"); }, 3000);
+  setTimeout(function(){ alert_copy.innerText = ""; }, 2000);
 }
