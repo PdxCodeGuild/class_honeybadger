@@ -1,0 +1,72 @@
+
+body {
+    display:grid;
+    grid-template-columns: 1fr 4fr 1fr;
+    grid-template-rows: 1fr 3fr 1fr 1fr;
+    grid-template-areas: "l-gutter header r-gutter"
+                         "l-gutter interface r-gutter"
+                         "l-gutter display r-gutter"
+                         "l-gutter b-gutter r-gutter";
+    grid-gap: 20px;
+    margin:20px;
+}
+
+section {
+    background-color: gray;
+    padding: 1rem;
+    min-height: 25px;
+}
+
+#interface {
+    grid-area: interface;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 2fr 2fr 2fr 2fr 2fr 1fr 1fr;
+    grid-template-areas: "l-gutter t-gutter r-gutter"
+                         "l-gutter upper r-gutter"
+                         "l-gutter lower r-gutter"
+                         "l-gutter numeral r-gutter"
+                         "l-gutter special r-gutter"
+                         "l-gutter keyword r-gutter"
+                         "l-gutter submit r-gutter"
+                         "l-gutter b-gutter r-gutter";
+    
+}
+
+.wpr > input[type="number"] {
+    background: transparent;
+    border: none;
+    max-width: 50px;
+}
+
+.up-wpr {
+    grid-area: upper;
+}
+
+.lo-wpr {
+    grid-area: lower;
+}
+
+.num-wpr {
+    grid-area: numeral;
+}
+
+.spc-wpr {
+    grid-area: special;
+}
+
+.key-wpr {
+    grid-area: keyword;
+}
+
+.sub-btn {
+    grid-area: submit;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+#displayBox {
+    grid-area: display;
+    text-align: center;
+}
