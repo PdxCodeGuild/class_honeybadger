@@ -1,0 +1,51 @@
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <title></title>
+</head>
+  <body>
+    <h1>Ask the Magic 8 Ball!</h1>
+    <div id="test_div"></div>
+    <div>
+      <input id="input_question" type="text" value="" placeholder="ask the magic 8 ball: "/>
+      <button id="button_ask">ask!</button>
+    </div>
+    <div id="div_answer"></div>
+    <script type="text/javascript">
+      let answers = ["Yes","No", "Maybe", "Signs point to 'yes'.", "Cannot predict now.", "My sources say 'no'."]
+      let input_ask = document.querySelector('#input_question')
+      let button_ask = document.querySelector('#button_ask')
+        // alert("Ask the magic 8 ball anything!\n")
+      let div_output = document.querySelector('#div_answer')
+      // let user_question = prompt("Ask your question: ")
+
+        // alert(`You asked: ${user_question}\n`)
+
+        let answer = random_answer(answers)
+// <!--
+//         alert(`\nMagic 8 Ball Knows All, Your answer is: ${answer}`) -->
+// <!--
+//         let second_question = prompt(`Would you like a chance to ask another question? `) -->
+// <!--
+//         prompt(`Your second question is ${second_question}\n`) -->
+  
+
+        function random_answer(arr) {
+          let answer = Math.floor(Math.random()*arr.length)
+          return arr[answer]
+        }
+        input_question.addEventListener('keydown', function(event) {
+          if (event.key === 'Enter') {
+            button_play.dispatchEvent(new Event('click'))
+          }
+        })
+
+        button_ask.addEventListener('click', function(){
+          let answer = random_answer(answers)
+        })
+
+      </script>
+    </body>
+  </html>

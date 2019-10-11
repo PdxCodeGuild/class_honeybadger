@@ -11,7 +11,7 @@
             grid-template-rows: [header] 1fr [body] 8fr;
             grid-template-columns: [left-gutter] 1fr [display] 5fr [interface] 3fr [right-gutter] 1fr ;
             grid-gap: 20px;
-            font-family: "Press Start 2P","Yoshi's Story game text BRK";
+            font-family: "Press Start 2P","Yoshi's Story game text BRK", "Trebuchet MS";
             background: linear-gradient(to bottom right, #bebaff, #febaff) fixed;
             color:#d2691e;
         }
@@ -48,6 +48,7 @@
 
         .btn {
             margin: 5px;
+            border: none;
         }
 
         .rmBtn {
@@ -73,6 +74,16 @@
 
         .wrapper {
             padding: 10px;
+            text-align: center;
+        }
+
+        #inputItem {
+            background: transparent;
+            font-family: "Press Start 2P";
+            text-align: center;
+            border: none;
+            color: #d2691e;
+            font-size: 2em;
         }
         
 
@@ -94,18 +105,33 @@
         </div>
     </section>
     <section class="interface wrapper">
-        <h3>interface</h3>
-        <input type="text" id="inputItem">write item here</input>
-        <button id="submitItem">submit</button>
+        <h3>enter</h3>
+        <input type="text" id="inputItem"></input>
+        <div id="submitItem"></div>
+        <p style="color: purple">press to remove</p>
+        <br>
+        <p style="color: gold">press to complete</p>
     </section>
 
     <script>
 
+
+        let submitItem = document.querySelector("#submitItem")
+
         let input = document.querySelector("#inputItem")
 
-        
+        input.focus()
 
-        inputItem.addEventListener("submit", function(event) {
+        inputItem.addEventListener("keydown", function(event) {
+            console.log(event.keyCode)
+            if (event.keyCode === 13) {
+                submitItem.click()
+            }
+            
+        })
+            
+            
+        submitItem.addEventListener("click", function(event) {
             
             let element = document.createElement("li")
             element.innerText = input.value
@@ -137,7 +163,8 @@
 
             list.appendChild(element)
         })
-
+        
+        
     </script>
 </body>
 </html>

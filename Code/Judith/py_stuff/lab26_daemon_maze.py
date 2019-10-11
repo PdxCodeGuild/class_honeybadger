@@ -101,30 +101,37 @@ class Player(Entity):
         self.inventory = []
 
     def move(self, command):
-        if command == 'done': # initial move into 'wall' space
-            pass
-        elif command in ['l', 'left', 'w', 'west']:
-            self.loc_j -= 1  # move left
-        elif command in ['r', 'right', 'e', 'east']:
-            self.loc_j += 1  # move right
-        elif command in ['u', 'up', 'n', 'north']:
-            self.loc_i -= 1  # move up
-        elif command in ['d', 'down', 's', 'south']:
-            self.loc_i += 1 # move down
-        if not self.valid_move(): # check if wall is open
-            print('you ran into a wall...')
-        else: # push to space behind wall if open
-            if command in ['l', 'left', 'w', 'west']:
-                self.loc_j -= 1 
-            elif command in ['r', 'right', 'e', 'east']:
-                self.loc_j += 1  
-            elif command in ['u', 'up', 'n', 'north']:
-                self.loc_i -= 1  
-            elif command in ['d', 'down', 's', 'south']:
-                self.loc_i += 1 
 
-        self.current_loc = [self.loc_i, self.loc_j] #set current_loc at end of function to avoid missed encounter
-        return (self.loc_i, self.loc_j)
+        try:  
+            if command == 'done': # initial move into 'wall' space
+                pass
+            elif command in ['l', 'left', 'w', 'west']:
+                self.loc_j -= 1  # move left
+            elif command in ['r', 'right', 'e', 'east']:
+                self.loc_j += 1  # move right
+            elif command in ['u', 'up', 'n', 'north']:
+                self.loc_i -= 1  # move up
+            elif command in ['d', 'down', 's', 'south']:
+                self.loc_i += 1 # move down
+            if not self.valid_move(): # check if wall is open
+                print('you ran into a wall...')
+            else: # push to space behind wall if open
+                if command in ['l', 'left', 'w', 'west']:
+                    self.loc_j -= 1 
+                elif command in ['r', 'right', 'e', 'east']:
+                    self.loc_j += 1  
+                elif command in ['u', 'up', 'n', 'north']:
+                    self.loc_i -= 1  
+                elif command in ['d', 'down', 's', 'south']:
+                    self.loc_i += 1 
+
+            self.current_loc = [self.loc_i, self.loc_j] #set current_loc at end of function to avoid missed encounter
+            return (self.loc_i, self.loc_j)
+
+        except (IndexError):
+            print("you step into the darkened room before you \n fear grips you as you realize there is no floor \n you have fallen in a bottomless pit...")
+            print("Game over...")
+            exit()
 
     def valid_move(self):
         if 'X' in board.rooms[self.loc_i][self.loc_j]:
@@ -148,6 +155,17 @@ class Demon(Entity):
     
     def greeting(self):
         print('Foolish mortal! Retrieve your weapon if you wish to face me...')
+        self.patience -= 1
+    
+    def die(self):
+        print(f"You may slay me, {chara.name}, but you will NEVER ESCAPE haHaHA...")
+        print(f"You have slain the demon {demon.name} \n Game over...")
+        exit()
+
+    def kill(self):
+        print("I grow tired of these games...\n I think I will eat your soul!")
+        print(f"The demon {demon.name} devours you whole \n Game over...")
+        exit()
     
 
 
@@ -172,13 +190,17 @@ while True:
     chara.move(input(f'make a move, {chara.name}...'))
     print(chara.current_loc, demon.current_loc)
     if chara.current_loc == sword.current_loc:
+        print("you picked up the sword!")
         chara.inventory.append(sword)
+        board.entities.remove(sword)
     if chara.current_loc == demon.current_loc:
         if sword in chara.inventory:
-            print('youwin')
+            demon.die()
             exit()
-        else:
+        elif demon.patience > 0:
             demon.greeting()
+        else:
+            demon.kill()
     board.print()
 
     
