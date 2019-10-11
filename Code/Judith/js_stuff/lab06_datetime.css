@@ -1,0 +1,24 @@
+* {
+    font-family: "Press Start 2P"
+}
+
+body {
+    display: grid;
+    grid-template-columns: 1fr 4fr 1fr;
+    grid-template-rows: 1fr 4fr 1fr;
+    grid-gap: 20px;
+    grid-template-areas: "l-gutter header r-gutter"
+                         "l-gutter main r-gutter"
+                         "l-gutter footer r-gutter"
+}
+
+header {
+    grid-area: header;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+#stopWatch {
+    grid-area: main;
+}
