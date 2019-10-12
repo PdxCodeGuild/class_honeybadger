@@ -21,7 +21,7 @@ def anagram_check():
 
     print(second_word)
     if first_word == second_word:
-      print(f'{name}, Our journey continues')
+      print('Our journey continues')
     else:
         print("The traveler failed the challenge and was executed.")
         exit()

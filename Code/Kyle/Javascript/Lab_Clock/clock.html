@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>
+    Keep Track
+  </title>
+  <style>
+  button {
+    color: blue;
+    padding: 8px;
+    border-radius: 20px
+
+
+  }
+  h1 {
+    text-align: center;
+    font-style: italic;
+    color: blue;
+  }
+  </style>
+</head>
+
+<body>
+  <h1>Keep Track!<h1>
+    <button id="clock">Check the Time!</button>
+
+
+
+
+<script>
+// check time
+  let clock = document.querySelector ('#clock')
+  clock.addEventListener('click', function() {
+    setInterval(function() {
+      let time = new Date()
+      let sec = time.getSeconds()
+      let min = time.getMinutes()
+      let hours = time.getHours()
+      let millisec = time.getMilliseconds()
+
+        document.getElementById("clock").innerHTML = hours + ":" + min + ":" + sec + "." + millisec
+      },50)
+    })
+
+
+</script>
+
+</body>
+</html>
