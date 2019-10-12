@@ -1,0 +1,61 @@
+
+.main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+body {
+    text-align: center;
+}
+
+h1 {
+    font-size: 6rem;
+    margin: 40px;
+}
+
+h2 {
+    font-size: 8rem;
+    margin: 32px;
+}
+
+span {
+    color: black;
+    display: inline-block;
+}
+
+#ms {
+    min-width: 15rem;
+}
+
+#hour, #second, #minute {
+    min-width: 10rem;
+}
+
+button {
+    min-width: 200px;
+}
+
+.lap_list {
+    margin: 40px 0 0 0;
+    text-align: left !important;
+}
+
+li {
+    margin: 10px 30px;
+    padding: 5px 20px;
+    font-size: 24px;
+}
+
+li:nth-child(even) {
+  background-color: lightgray;
+}
+
+#clock {
+    margin: 0 0 50px 0;
+}
+
+#stopwatch_icon {
+    font-size: 200px;
+}
