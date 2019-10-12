@@ -59,3 +59,7 @@ li:nth-child(even) {
 #stopwatch_icon {
     font-size: 200px;
 }
+
+#btn_reset {
+    cursor: pointer;
+}

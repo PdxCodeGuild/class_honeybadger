@@ -6,6 +6,7 @@ let ms = document.querySelector("#ms")
 let btn_start = document.querySelector("#btn_start")
 let ul_lap = document.querySelector("#ul_lap")
 let stopwatch_icon = document.querySelector("#stopwatch_icon")
+let btn_reset = document.querySelector("#btn_reset")
 
 let stopwatch_off = '<span><i class="fad fa-stopwatch"></i></span>'
 let stopwatch_on = '<span style="color: green;"><i class="fad fa-stopwatch"></i></span>'
@@ -66,4 +67,16 @@ btn_lap.addEventListener("click", function() {
     let li = document.createElement("li")
     li.innerText = addZero(date.getHours()) + " : " + addZero(date.getMinutes()) + " : " + addZero(date.getSeconds()) + " : " + addZero(date.getMilliseconds())
     ul_lap.appendChild(li)
+})
+
+btn_reset.addEventListener("click", function() {
+    stopwatch_icon.innerHTML = stopwatch_off
+    toggle = "START TIMER"
+    date.setHours(0, 0, 0, 0)
+    hour.innerHTML = "00"
+    minute.innerHTML = "00"
+    second.innerHTML = "00"
+    ms.innerHTML = "00"
+    clearInterval(myInt)
+    ul_lap.innerText = ""
 })
