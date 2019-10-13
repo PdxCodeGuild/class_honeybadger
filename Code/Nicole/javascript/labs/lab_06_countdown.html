@@ -56,14 +56,14 @@
         <!-- </div> -->
     </div>
 
-    <div class="row main_input">
+    <div id="app" class="row main_input">
         <form class="col s12">
             <div class="input-field col s6 main2">
-                <input id="input_hour" type="number" min="0" max="12">
+                <input id="input_hour" v-model="input_hour_app" type="number" min="0" max="12">
                 <label for="input_hour">Time: Hour</label>
             </div>
             <div class="input-field col s6 main2">
-                <input id="input_minute" type="number" min="0" max="59" >
+                <input id="input_minute" v-model="input_minute_app" type="number" min="0" max="59" >
                 <label for="input_minute">Time: Minute</label>
             </div>
             <div class="input-field col s12 main2">

@@ -10,8 +10,11 @@ let btn_reset = document.querySelector("#btn_reset")
 let input_hour = document.querySelector("#input_hour")
 let input_minute = document.querySelector("#input_minute")
 
+let app_hour = 0
+let app_minute = 0
+
 let date = new Date()
-date.setHours(0, 0, 0, 0)
+date.setHours(app_hour, app_minute, 0, 0)
 
 function addZero(num) {
     return (num < 10) ? "0" + num : num
@@ -42,3 +45,24 @@ window.addEventListener("load", function() {
 })
 
 // btn_reset.addEventListener("click", function() {}
+
+var app = new Vue({
+    el: "#app"
+    // data: {}
+    method: {
+        addHour() {
+            if (this.input_hour_app != "") {
+                app_hour = input_hour
+            } else {
+                app_hour = 0
+            }
+        }
+        addMinute() {
+            if (this.input_minute_app != "") {
+                    app_minute = input_minute
+                } else {
+                    input_minute = 0
+                }
+        }
+    }
+})
