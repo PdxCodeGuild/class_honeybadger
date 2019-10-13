@@ -1,7 +1,7 @@
 #Anagram
 
 
-user_input = print("Welcome to Anagram Checker")
+welcome = print("Welcome to Anagram Checker")
 
 first_word = input("First Word:").lower()
 second_word = input("Second Word:").lower()

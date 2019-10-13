@@ -1,4 +1,3 @@
-
 let btn_password = document.querySelector("#btn_password")
 let password_output = document.querySelector("#password_output")
 let input_number = document.querySelector("#input_number")
@@ -17,17 +16,17 @@ input_number.focus() //sets focus on the input box
 updatePasswordStrength()
 // randomize function
 function randomizer(array) {
-    let rando = Math.floor(Math.random()*array.length)
+    let rando = Math.floor(Math.random() * array.length)
     return array[rando]
 }
 
 // allow enter/return key to work
 input_number.addEventListener("keyup", function(event) {
-  // Number 13 is the "Enter" key on the keyboard
-  if (event.keyCode === 13) {
-    // Trigger the button element with a click
-    btn_password.click() 
-  }
+    // Number 13 is the "Enter" key on the keyboard
+    if (event.keyCode === 13) {
+        // Trigger the button element with a click
+        btn_password.click()
+    }
 })
 
 
@@ -37,38 +36,38 @@ function updatePasswordStrength() {
     let progress = ""
     if (v < 10) {
         score += 10
-    } 
+    }
     if (v >= 10 && v < 20) {
         score += 30
-    } 
+    }
     if (v >= 20 && v <= 32) {
         score += 50
     }
-    
+
     if (uppercase.checked) {
         score += 10
     } else {
         score -= 10
     }
-    
+
     if (lowercase.checked) {
         score += 10
     } else {
         score -= 10
     }
-    
+
     if (spec_char.checked) {
         score += 10
     } else {
         score -= 10
     }
-    
+
     if (digits.checked) {
         score += 10
     } else {
         score -= 10
     }
-    
+
     if (score <= 10) {
         progress = '<div class="determinate deep-orange" style="width: 10%"></div>'
         strength_text.innerText = "Meh"
@@ -124,66 +123,78 @@ input_number.addEventListener("input", function() {
 
 
 btn_password.addEventListener("click", function() {
-    let special = [",", ".", "'","\"", "(", ")", "!", "@", "#", "$", "%", "^", "&", "*"]
+    let special = [",", ".", "'", "\"", "(", ")", "!", "@", "#", "$", "%", "^", "&", "*"]
     let alpha = "abcdefghijklmnopqrstuvwxyz"
     let abc_lower = alpha.toLowerCase().split("")
     let abc_upper = alpha.toUpperCase().split("")
     let dig_num = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
     let all_chars = []
     let password = []
-    
+
     if (spec_char.checked) {
         all_chars.push(special)
         password.push(randomizer(special)) // adds a special character to the password
     }
-    
+
     if (lowercase.checked) {
         all_chars.push(abc_lower)
         password.push(randomizer(abc_lower)) // adds a lowercase character to the password
     }
-    
-    if (uppercase.checked) { 
+
+    if (uppercase.checked) {
         all_chars.push(abc_upper)
         password.push(randomizer(abc_upper)) // adds an uppercase character to the password
     }
-    
-    if (digits.checked) { 
+
+    if (digits.checked) {
         all_chars.push(dig_num)
         password.push(randomizer(dig_num)) // adds an uppercase character to the password
     }
-    
+
     if (all_chars.length == 0) { // checks to make sure that at least one box is checked
         alert("Please check at least one option")
         spec_char.checked = true
         lowercase.checked = true
-        uppercase.checked = true   
-        digits.checked = true   
-        return  
+        uppercase.checked = true
+        digits.checked = true
+        return
     }
-    
+
     for (let i = 0; i < input_number.value - all_chars.length; ++i) { // adds items to the password
         let rando_array = randomizer(all_chars)
         let rando_item = randomizer(rando_array)
         password.push(rando_item)
     }
-    
+
     shuffle(password) // shuffles the password
     let pw_string = password.join("") // turn it into a string
-    
-    
-    password_output.innerText = pw_string // show the password on the page
-    
-    copyText()
-    
-    // materialize toast
-    M.toast({html: 'Copied!', classes: 'rounded toast red accent-2 ', inDuration: 500, outDuration: 1000, displayLength: 2000,});
 
-    input_number.focus()  //sets focus back on the input box
+
+    password_output.innerText = pw_string // show the password on the page
+
+    copyText()
+
+    // materialize toast
+    M.toast({
+        html: 'Copied!',
+        classes: 'rounded toast red accent-2 ',
+        inDuration: 500,
+        outDuration: 1000,
+        displayLength: 2000,
+    });
+
+    input_number.focus() //sets focus back on the input box
 })
 
 password_output.addEventListener("click", function() {
     copyText()
-    M.toast({html: 'Copied!', classes: 'rounded toast red accent-2 ', inDuration: 500, outDuration: 1000, displayLength: 2000,});
+    M.toast({
+        html: 'Copied!',
+        classes: 'rounded toast red accent-2 ',
+        inDuration: 500,
+        outDuration: 1000,
+        displayLength: 2000,
+    });
     input_number.focus()
 })
 

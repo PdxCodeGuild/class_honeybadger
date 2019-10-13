@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+</head>
+
+<body>
+<button id="stopwatch">stopwatch</button>
+
+<script>
+  let stopwatch = document.querySelector ('#stopwatch')
+  stopwatch.addEventListener('click', function() {
+    setInterval(function() {
+      let set_hours = new Date()
+      set_hours.setHours(0,0,0,0)
+      let sec = set_hours.getSeconds()
+      let min = set_hours.getMinutes()
+      let hours = set_hours.getHours()
+      let millisec = set_hours.getMilliseconds()
+
+
+        document.getElementById("stopwatch").innerHTML = hours + ":" + min + ":" + sec + ":" + millisec
+      },50)
+    })
+
+
+
+
+
+
+</script>
+
+</body>
+</html>

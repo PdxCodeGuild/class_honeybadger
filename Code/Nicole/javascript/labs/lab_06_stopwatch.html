@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <title>Stopwatch</title>
+
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+    <!-- fontawesome -->
+    <script src="https://kit.fontawesome.com/6647af21dd.js" crossorigin="anonymous"></script>
+
+    <!-- custom css -->
+    <link rel="stylesheet" type="text/css" href="lab_06_stopwatch.css">
+</head>
+
+<body>
+    <div class="main">
+        <h1 id="stopwatch_icon"></h1>
+        <div id="clock">
+            <h2>
+                <span id="hour"></span><span>&nbsp:&nbsp</span><span id="minute"></span><span>&nbsp:&nbsp</span><span id="second"></span><span>&nbsp:&nbsp</span><span id="ms"></span>
+            </h2>
+        </div>
+        <div>
+            <button id="btn_start" class="btn-large cyan">Start Timer</button>
+            <button id="btn_lap" class="btn-large grey">Lap</button>
+        </div>
+        <div>
+            <p id="btn_reset">RESET</p>
+        </div>
+        <div class="lap_list">
+            <ul id="ul_lap"></ul>
+        </div>
+
+    </div>
+
+
+    <script type="text/javascript" src="lab_06_stopwatch.js"></script>
+</body>
+
+</html>

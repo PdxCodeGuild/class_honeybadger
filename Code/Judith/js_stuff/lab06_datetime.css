@@ -1,0 +1,45 @@
+* {
+    font-family: "Press Start 2P";
+    box-sizing: border-box;
+}
+html {
+    background-color: blue;
+
+}
+
+body {
+    display: grid;
+    grid-template-columns: 1fr 4fr 1fr;
+    grid-template-rows: 1fr 4fr 1fr;
+    grid-gap: 20px;
+    grid-template-areas: "stopcontrol header r-gutter1"
+                         "stoplist main r-gutter2"
+                         "l-gutter3 footer r-gutter3";
+    background-color: blue;
+}
+
+body > * {
+    background-color: white;
+    border-radius: 10px;
+    font-size: 14px;
+    padding: 0.5rem;
+}
+
+header {
+    grid-area: header;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+#stopWatch {
+    grid-area: stopcontrol;
+}
+
+#saveListWrapper {
+    grid-area: stoplist;
+}
+
+.filler {
+    grid-area: auto;
+}
