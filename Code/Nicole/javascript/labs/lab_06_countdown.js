@@ -10,59 +10,56 @@ let btn_reset = document.querySelector("#btn_reset")
 let input_hour = document.querySelector("#input_hour")
 let input_minute = document.querySelector("#input_minute")
 
-let app_hour = 0
-let app_minute = 0
-
 let date = new Date()
-date.setHours(app_hour, app_minute, 0, 0)
 
+// adds leading zeros to two digit numbers
 function addZero(num) {
-    return (num < 10) ? "0" + num : num
+  return (num < 10) ? "0" + num : num
 }
 
+// adds leading zeros to three digit numbers
 function addZeroZero(num) {
-    if (num < 10) {
-        return "00" + num
-    } else if (num >= 10 && num < 100) {
-        return "0" + num
-    } else
-        return num
+  if (num < 10) {
+    return "00" + num
+  } else if (num >= 10 && num < 100) {
+    return "0" + num
+  } else
+    return num
 }
+
+date.setHours(0, 0, 0, 0)
 
 function getTime() {
-    hour.innerHTML = addZero(date.getHours())
-    minute.innerHTML = addZero(date.getMinutes())
-    second.innerHTML = addZero(date.getSeconds())
-    ms.innerHTML = addZeroZero(date.getMilliseconds())
-    date.setMilliseconds(date.getMilliseconds() - 10)
+  hour.innerHTML = addZero(date.getHours())
+  minute.innerHTML = addZero(date.getMinutes())
+  second.innerHTML = addZero(date.getSeconds())
+  ms.innerHTML = addZeroZero(date.getMilliseconds())
+  date.setMilliseconds(date.getMilliseconds() - 10)
 }
+
 
 let myInt = null
 
 window.addEventListener("load", function() {
-    getTime()
-    myInt = setInterval(getTime, 10)
+  getTime()
+  myInt = setInterval(getTime, 10)
 })
+
+
 
 // btn_reset.addEventListener("click", function() {}
 
 var app = new Vue({
-    el: "#app"
-    // data: {}
-    method: {
-        addHour() {
-            if (this.input_hour_app != "") {
-                app_hour = input_hour
-            } else {
-                app_hour = 0
-            }
-        }
-        addMinute() {
-            if (this.input_minute_app != "") {
-                    app_minute = input_minute
-                } else {
-                    input_minute = 0
-                }
-        }
-    }
-})
+      el: "#app",
+      data: {
+        hour: input_hour.value,
+        minute: input_minute.value
+      },
+
+      methods: {
+        addTime() {
+          date.setHours(this.hour, this.minute, 0, 0)
+        },
+      }
+
+      })

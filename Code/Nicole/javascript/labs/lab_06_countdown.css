@@ -39,6 +39,11 @@ h2 {
     text-align: right;
 }
 
+h4 {
+  text-align: center;
+  font-size: 2rem;
+}
+
 span {
     color: black;
     display: inline-block;
@@ -61,6 +66,6 @@ button {
     min-width: 250px;
 }
 
-/* .time_label {
-    text-align: left !important;
-} */
+.countdown_date {
+  
+}

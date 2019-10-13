@@ -2,78 +2,84 @@
 <html lang="en" dir="ltr">
 
 <head>
-    <meta charset="utf-8">
-    <title>Countdown</title>
+  <meta charset="utf-8">
+  <title>Countdown</title>
 
-    <!-- Compiled and minified CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 
-    <!-- Compiled and minified JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <!-- Compiled and minified JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 
-    <!-- fontawesome -->
-    <script src="https://kit.fontawesome.com/6647af21dd.js" crossorigin="anonymous"></script>
+  <!-- fontawesome -->
+  <script src="https://kit.fontawesome.com/6647af21dd.js" crossorigin="anonymous"></script>
 
-    <!-- custom css -->
-    <link rel="stylesheet" type="text/css" href="lab_06_countdown.css">
+  <!-- custom css -->
+  <link rel="stylesheet" type="text/css" href="lab_06_countdown.css">
+
+  <!-- vue -->
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 </head>
 
 <body>
+  <div id="app">
     <h1 id="countdown_icon"><i class="fad fa-alarm-clock"></i></h1>
+    <h4>Countdown to {{ hour }} : {{ minute }}</h4>
     <div class="main">
 
-        <!-- <div id="clock"> -->
-        <!-- <div class="main2 dig2">
+      <!-- <div id="clock"> -->
+      <!-- <div class="main2 dig2">
             <h2>
                 <span id="day"></span><span>&nbsp:&nbsp</span>
             </h2>
             <div class="time_label">Days</div>
         </div> -->
-        <div class="main2 dig2">
-            <h2>
-                <span id="hour"></span><span>&nbsp:&nbsp</span>
-            </h2>
-            <div class="time_label">Hours</div>
-        </div>
-        <div class="main2 dig2">
-            <h2>
-                <span id="minute"></span><span>&nbsp:&nbsp</span>
-            </h2>
-            <div class=" time_label">Minutes</div>
-        </div>
-        <div class="main2 dig2">
-            <h2>
-                <span id="second"></span><span>&nbsp:&nbsp</span>
-            </h2>
-            <div class=" time_label">Seconds</div>
-        </div>
-        <div class="main2 dig3">
-            <h2>
-                <span id="ms"></span>
-            </h2>
-            <div class="time_label">Milliseconds</div>
-        </div>
-        <!-- </div> -->
+      <div class="main2 dig2">
+        <h2>
+          <span id="hour"></span><span>&nbsp:&nbsp</span>
+        </h2>
+        <div class="time_label">Hours</div>
+      </div>
+      <div class="main2 dig2">
+        <h2>
+          <span id="minute"></span><span>&nbsp:&nbsp</span>
+        </h2>
+        <div class=" time_label">Minutes</div>
+      </div>
+      <div class="main2 dig2">
+        <h2>
+          <span id="second"></span><span>&nbsp:&nbsp</span>
+        </h2>
+        <div class=" time_label">Seconds</div>
+      </div>
+      <div class="main2 dig3">
+        <h2>
+          <span id="ms"></span>
+        </h2>
+        <div class="time_label">Milliseconds</div>
+      </div>
+      <!-- </div> -->
     </div>
 
-    <div id="app" class="row main_input">
-        <form class="col s12">
-            <div class="input-field col s6 main2">
-                <input id="input_hour" v-model="input_hour_app" type="number" min="0" max="12">
-                <label for="input_hour">Time: Hour</label>
-            </div>
-            <div class="input-field col s6 main2">
-                <input id="input_minute" v-model="input_minute_app" type="number" min="0" max="59" >
-                <label for="input_minute">Time: Minute</label>
-            </div>
-            <div class="input-field col s12 main2">
-                <button id="btn_input" class="btn">Go</button>
-            </div>
-        </form>
+    <div class="row main_input">
+      <form class="col s12">
+        <div class="input-field col s6 main2">
+          <input id="input_hour" v-model="hour" type="number" min="00" max="12">
+          <label for="input_hour">Time: Hour</label>
+        </div>
+        <div class="input-field col s6 main2">
+          <input id="input_minute" v-model="minute" type="number" min="00" max="59">
+          <label for="input_minute">Time: Minute</label>
+        </div>
+        <div class="input-field col s12 main2">
+          <button id="btn_input" class="btn">Go</button>
+        </div>
+      </form>
     </div>
+  </div>
 
 
-    <script type="text/javascript" src="lab_06_countdown.js"></script>
+  <script type="text/javascript" src="lab_06_countdown.js"></script>
 
 </body>
 
