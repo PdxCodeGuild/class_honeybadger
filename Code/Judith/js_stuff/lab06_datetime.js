@@ -23,10 +23,10 @@ const saveList = document.querySelector("#saveList")
 
 function keyWatch() {
     const total = Date.now() // milliseconds since Jan. 1st, 1970 in UST
-    const milliseconds = total
+    const milliseconds = total % 1000
     const seconds = Math.floor(total/1000) % 60
     const minutes = Math.floor(total/60000) % 60
-    const hours = (Math.floor(total/3600000) % 24) -7 //set to PST
+    const hours = (Math.floor(total/3600000) + 17) % 24 //set to PST
     const days = Math.floor(total/86400000) % 365
     const years = Math.floor(total/31536000000) + 1970
 
@@ -92,15 +92,15 @@ stopBtn.addEventListener("click", function() {
 let count = 0
 
 saveBtn.addEventListener("click", function() {
+    if (stopDisplay.innerText) {
     ++count
     const savedItem = document.createElement("li")
     let time = `${stopDisplay.innerText}`
-    let lap = `Time #${count} - `
+    let lap = `Time #${count} `
     savedItem.innerText = lap.concat(time)
     saveList.appendChild(savedItem)
-})
+}})
 
 clearBtn.addEventListener("click", function() {
     saveList.innerHTML = ''
 })
-

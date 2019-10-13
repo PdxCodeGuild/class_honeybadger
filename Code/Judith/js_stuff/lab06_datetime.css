@@ -1,5 +1,10 @@
 * {
-    font-family: "Press Start 2P"
+    font-family: "Press Start 2P";
+    box-sizing: border-box;
+}
+html {
+    background-color: blue;
+
 }
 
 body {
@@ -7,9 +12,17 @@ body {
     grid-template-columns: 1fr 4fr 1fr;
     grid-template-rows: 1fr 4fr 1fr;
     grid-gap: 20px;
-    grid-template-areas: "l-gutter header r-gutter"
-                         "l-gutter main r-gutter"
-                         "l-gutter footer r-gutter"
+    grid-template-areas: "stopcontrol header r-gutter1"
+                         "stoplist main r-gutter2"
+                         "l-gutter3 footer r-gutter3";
+    background-color: blue;
+}
+
+body > * {
+    background-color: white;
+    border-radius: 10px;
+    font-size: 14px;
+    padding: 0.5rem;
 }
 
 header {
@@ -20,5 +33,13 @@ header {
 }
 
 #stopWatch {
-    grid-area: main;
+    grid-area: stopcontrol;
+}
+
+#saveListWrapper {
+    grid-area: stoplist;
+}
+
+.filler {
+    grid-area: auto;
 }
