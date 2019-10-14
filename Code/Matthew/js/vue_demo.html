@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <!-- Materialize -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Vue -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <style type="text/css">
+      #app {
+        padding:10px;
+        max-width:600px;
+        margin: 0 auto;
+      }
+      .btn-floating {
+        user-select:none;
+      }
+      .completed {
+        color:grey;
+        text-decoration:line-through;
+      }
+      
+      .todos li {
+        display:flex;
+        flex-direction:row;
+        justify-content: space-between;
+        margin:20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <h1 title="enter your todos, dude!">Todo List</h1>
+      <div class="row">
+        <div class="input-field col s6">
+          <input id="todo_text" type="text" v-model="input_todo"/>
+          <label for="todo_text">Todo Text</label>
+        </div>
+        <div class="input-field col s2">
+          <button v-on:click="addTodo" class="btn">click</button>
+        </div>
+      </div>
+      <ul class="todos">
+        <li v-for="(todo,i) in todos" v-bind:class="{completed: todo.completed_timestamp}">
+          <span v-bind:title="todo.created_timestamp">{{todo.text}}</span>
+          <a v-if="!todo.completed_timestamp" class="btn-floating" v-on:click="removeTodo(i)"><i class="material-icons">close</i></a>
+        </li>
+      </ul>
+    </div>
+    <script type="text/javascript">
+      var app = new Vue({
+        el: '#app',
+        data: {
+          input_todo: '',
+          todos: [],
+          completed_todos: []
+        },
+        methods: {
+          addTodo() {
+            if (this.input_todo != '') {
+              this.todos.unshift({
+                text: this.input_todo,
+                created_timestamp: new Date(),
+                completed_timestamp: null
+              })
+              this.input_todo = ''
+            }
+          },
+          removeTodo(i) {
+            let todo = this.todos.splice(i,1)[0] // remove todo object from array
+            todo.completed_timestamp = new Date()
+            this.todos.push(todo)
+          }
+        },
+        created() {
+           let todos = ['apples', 'bananas', 'cucumber', 'durian', 'eggplant', 'fomato']
+           for (let i=0; i<todos.length; ++i) {
+             this.input_todo = todos[i]
+             this.addTodo()
+           }
+        }
+      })
+    </script>
+  </body>
+</html>

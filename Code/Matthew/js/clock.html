@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+
+  <!-- Materialize -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <style type="text/css">
+    #div_clock {
+      text-align: center;
+      font-size: 40px;
+    }
+
+    #div_stopwatch_container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+    }
+
+    #div_stopwatch {
+      font-size: 40px;
+    }
+
+    h2 {
+      text-align: center;
+    }
+
+    #div_stopwatch_buttons {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+    }
+
+    #div_stopwatch_buttons>button {
+      margin: 10px;
+    }
+    main {
+      max-width:800px;
+      margin: 0 auto;
+    }
+    .tabs {
+      margin-bottom: 40px;
+    }
+  </style>
+</head>
+
+<body>
+  <main>
+    <div class="row">
+      <div class="col s12">
+        <ul class="tabs">
+          <li class="tab col s4"><a href="#div_clock">Clock</a></li>
+          <li class="tab col s4"><a href="#test2">Stopwatch</a></li>
+          <li class="tab col s4"><a class="active" href="#test3">Countdown</a></li>
+        </ul>
+      </div>
+      <div id="div_clock" class="col s12"></div>
+      <div id="test2" class="col s12">
+        <div id="div_stopwatch_container">
+          <div id="div_stopwatch">00:00:00</div>
+          <div id="div_stopwatch_buttons">
+            <button id="bt_start_stopwatch" class="btn"><i class="material-icons">play_arrow</i></button>
+            <button id="bt_pause_stopwatch" class="btn disabled"><i class="material-icons">pause</i></button>
+            <button id="bt_stop_stopwatch" class="btn disabled"><i class="material-icons">stop</i></button>
+            <button id="bt_lap_stopwatch" class="btn disabled"><i class="material-icons">restore</i></button>
+          </div>
+          <ol id="ol_stopwatch_laps">
+          </ol>
+        </div>
+      </div>
+      <div id="test3" class="col s12">
+        <!-- <input  type="date" value=""/> -->
+        
+        
+
+        <div class="row">
+          <div class="input-field col s6">
+            <input id="input_countdown_date" type="text" class="datepicker" />
+            <label for="input_countdown_date">Date</label>
+          </div>
+          <div class="input-field col s6">
+            <input id="input_countdown_time" type="text" class="timepicker" />
+            <label for="input_countdown_time">Time</label>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+
+
+
+  <script type="text/javascript">
+    let div_clock = document.querySelector('#div_clock')
+    let div_stopwatch = document.querySelector('#div_stopwatch')
+    let bt_start_stopwatch = document.querySelector('#bt_start_stopwatch')
+    let bt_pause_stopwatch = document.querySelector('#bt_pause_stopwatch')
+    let bt_stop_stopwatch = document.querySelector('#bt_stop_stopwatch')
+    let bt_lap_stopwatch = document.querySelector('#bt_lap_stopwatch')
+    let ol_stopwatch_laps = document.querySelector('#ol_stopwatch_laps')
+
+    var instance = M.Tabs.init(document.querySelector('.tabs'), {
+      swipeable: true
+    });
+    document.addEventListener('DOMContentLoaded', function() {
+      var elems = document.querySelectorAll('.datepicker');
+      var instances = M.Datepicker.init(elems, {
+        defaultDate: new Date(2019, 9, 31, 0, 0, 0, 0),
+        setDefaultDate: true,
+        format: 'mm/dd/yyyy'
+      });
+
+      var timepicker_elems = document.querySelectorAll('.timepicker');
+      var timepicker_instances = M.Timepicker.init(timepicker_elems, {});
+
+
+    });
+
+    input_countdown_time.value = '00:00 AM'
+
+    function add0(num) {
+      return (num < 10) ? '0' + num : num
+
+      // if (num < 10) {
+      //   return '0'+num
+      // } else {
+      //   return num
+      // }
+
+    }
+
+    function add00(num) {
+      return (num < 10) ? '00' + num : (num < 100) ? '0' + num : num
+    }
+
+    function add0s(num, digits) {
+      num = num.toString()
+      return '0'.repeat(digits - num.length) + num
+
+      // num = num.toString()
+      // while (num.length < digits) {
+      //   num = '0' + num
+      // }
+      // return num
+
+
+
+    }
+    console.log(add0s(52, 4)) // 0052
+
+    // function min(a, b) {
+    //   return (a < b)? a: b
+    // }
+    // function clamp(min, max, value) {
+    //   return (value < min)? min: (value > max)? max: value
+    // 
+    //   if (value < min) {
+    //     return min
+    //   } else if (value > max) {
+    //     return max
+    //   } else {
+    //     return value
+    //   }
+    // }
+
+    function updateClock() {
+      let d = new Date()
+      let year = d.getFullYear()
+      let month = d.getMonth() + 1
+      let day = d.getDate()
+      let hours = d.getHours()
+      let minutes = d.getMinutes()
+      let seconds = d.getSeconds()
+      div_clock.innerText = `${year}:${add0(month)}:${add0(day)} ${add0(hours)}:${add0(minutes)}:${add0(seconds)}`
+    }
+    updateClock()
+    setInterval(updateClock, 1000)
+
+
+
+    // function animation_step(timestamp) {
+    //   window.requestAnimationFrame(animation_step)
+    // 
+    //   let d = new Date()
+    //   let year = d.getFullYear()
+    //   let month = d.getMonth()+1
+    //   let day = d.getDate()
+    //   let hours = d.getHours()
+    //   let minutes = d.getMinutes()
+    //   let seconds = d.getSeconds()
+    //   let millis = d.getMilliseconds()
+    //   div_clock.innerText = `${year}:${add0(month)}:${add0(day)} ${add0(hours)}:${add0(minutes)}:${add0(seconds)}:${add00(millis)}`
+    // }
+    // window.requestAnimationFrame(animation_step)
+
+    let stopwatch_date = new Date()
+    stopwatch_date.setHours(0, 0, 0, 0)
+    let stopwatch_interval = null
+
+    function stopwatchDateToString() {
+      let hours = stopwatch_date.getHours()
+      let minutes = stopwatch_date.getMinutes()
+      let seconds = stopwatch_date.getSeconds()
+      return `${add0(hours)}:${add0(minutes)}:${add0(seconds)}`
+    }
+
+    bt_start_stopwatch.addEventListener('click', function() {
+
+      bt_start_stopwatch.classList.add('disabled')
+      bt_pause_stopwatch.classList.remove('disabled')
+      bt_stop_stopwatch.classList.remove('disabled')
+      bt_lap_stopwatch.classList.remove('disabled')
+
+
+      stopwatch_interval = setInterval(function() {
+        stopwatch_date.setSeconds(stopwatch_date.getSeconds() + 1)
+
+
+        div_stopwatch.innerText = stopwatchDateToString()
+      }, 1000)
+
+    })
+    bt_pause_stopwatch.addEventListener('click', function() {
+      clearInterval(stopwatch_interval)
+      bt_start_stopwatch.classList.remove('disabled')
+      bt_pause_stopwatch.classList.add('disabled')
+      bt_lap_stopwatch.classList.add('disabled')
+    })
+    bt_stop_stopwatch.addEventListener('click', function() {
+
+      bt_start_stopwatch.classList.remove('disabled')
+      bt_pause_stopwatch.classList.add('disabled')
+      bt_stop_stopwatch.classList.add('disabled')
+      bt_lap_stopwatch.classList.add('disabled')
+      ol_stopwatch_laps.innerHTML = ''
+
+      clearInterval(stopwatch_interval)
+      stopwatch_date = new Date()
+      stopwatch_date.setHours(0, 0, 0, 0)
+      div_stopwatch.innerText = stopwatchDateToString()
+
+    })
+
+    bt_lap_stopwatch.addEventListener('click', function() {
+      let li = document.createElement('li')
+      li.innerText = stopwatchDateToString()
+      ol_stopwatch_laps.appendChild(li)
+    })
+  </script>
+</body>
+
+</html>
