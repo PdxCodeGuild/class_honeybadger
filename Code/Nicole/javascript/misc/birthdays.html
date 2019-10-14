@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <title>Birthday Calculator</title>
+
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+    <!-- vue -->
+    <!-- development version, includes helpful console warnings -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    
+    <!-- custom css -->
+    <link rel="stylesheet" type="text/css" href="birthdays.css">
+
+</head>
+
+<body>
+    <div class="main">
+        <div>
+            <h1>Birthdays</h1>
+        </div>
+        <div id="date">
+            <span id="day_of_week"></span><span>&nbsp,&nbsp</span><span id="month"></span><span>&nbsp;</span><span id="day"></span><span>,&nbsp</span><span id="year"></span>
+        </div>
+        <div id="clock">
+            <span id="hour"></span><span>&nbsp:&nbsp</span><span id="minute"></span><span>&nbsp:&nbsp</span><span id="second"></span>
+        </div>
+    </div>
+    
+    
+    <div class="main_bd">
+        <div class="birthdays">
+            <h5>Christian</h5>
+            <div>October 21, 2001</div>
+            <div>
+                <span>Current age: </span><span id="christian_now"></span>
+            </div>
+            <div>
+                <span>Age on next birthday: </span><span id="christian_next"></span>
+            </div>
+            
+            <div>
+                <span id="christian_days"></span><span> days until Christian's birthday</span>
+            </div>
+        </div>
+        <div class="birthdays">
+            <h5>Hunter</h5>
+            <div>May 24, 2006</div>
+            <div>
+                <span>Current age: </span><span id="hunter_now"></span>
+            </div>
+            <div>
+                <span>Age on next birthday: </span><span id="hunter_next"></span>
+            </div>
+            <div>
+                <span id="hunter_days"></span><span> days until Hunter's birthday</span>
+            </div>
+        </div>
+    </div>
+    <div class="main_bd">
+        <div class="birthdays">
+            <h5>Lily</h5>
+            <div>September 27, 2007</div>
+            <div>
+                <span>Current age: </span><span id="lily_now"></span>
+            </div>
+            <div>
+                <span>Age on next birthday: </span><span id="lily_next"></span>
+            </div>
+            <div>
+                <span id="lily_days"></span><span> days until Lily's birthday</span>
+            </div>
+        </div>
+        <div class="birthdays">
+            <h5>Ashlyn</h5>
+            <div>November 28, 2008</div>
+            <div>
+                <span>Current age: </span><span id="ashlyn_now"></span>
+            </div>
+            <div>
+                <span>Age on next birthday: </span><span id="ashlyn_next"></span>
+            </div>
+            <div>
+                <span id="ashlyn_days"></span><span> days until Ashlyn's birthday</span>
+            </div>
+        </div>
+        
+    </div>
+    <script type="text/javascript" src="birthdays.js"></script>
+</body>
+
+</html>

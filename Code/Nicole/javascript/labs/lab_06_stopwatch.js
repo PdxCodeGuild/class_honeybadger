@@ -69,9 +69,12 @@ btn_lap.addEventListener("click", function() {
     ul_lap.appendChild(li)
 })
 
+
+// adds reset functionality
 btn_reset.addEventListener("click", function() {
     stopwatch_icon.innerHTML = stopwatch_off
-    toggle = "START TIMER"
+    btn_start.innerText = "START TIMER"
+    btn_start.className = "btn-large cyan"
     date.setHours(0, 0, 0, 0)
     hour.innerHTML = "00"
     minute.innerHTML = "00"

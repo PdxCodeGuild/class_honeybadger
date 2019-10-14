@@ -1,0 +1,33 @@
+
+html, body {
+    font-size: 18px;
+    padding: 0;
+    min-height: 100vh;
+    margin: 0 0 50px 0;
+}
+
+.main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin: 0 0 50px 0;
+}
+
+.main_bd {
+    margin: 0 100px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.birthdays {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    margin: 20px;
+    
+}

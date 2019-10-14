@@ -70,16 +70,16 @@ function updatePasswordStrength() {
 
     if (score <= 10) {
         progress = '<div class="determinate deep-orange" style="width: 10%"></div>'
-        strength_text.innerText = "Meh"
+        strength_text.innerText = "Too easy to guess"
     } else if (score > 10 && score < 20) {
         progress = '<div class="determinate deep-orange lighten-1" style="width: 20%"></div>'
-        strength_text.innerText = "Meh"
+        strength_text.innerText = "Too easy to guess"
     } else if (score >= 20 && score < 30) {
         progress = '<div class="determinate deep-orange lighten-2" style="width: 30%"></div>'
-        strength_text.innerText = "Too easy to guess"
+        strength_text.innerText = "Meh"
     } else if (score >= 30 && score < 40) {
         progress = '<div class="determinate deep-orange lighten-3" style="width: 40%"></div>'
-        strength_text.innerText = "Too easy to guess"
+        strength_text.innerText = "Meh"
     } else if (score >= 40 && score < 50) {
         progress = '<div class="determinate amber accent-3" style="width: 50%"></div>'
         strength_text.innerText = "Keep going..."
