@@ -20,16 +20,26 @@
         <h1>bluMage</h1>
     </header>
     <section id="stopWatch">
+        <h4>stopwatch</h4>
         <button id="stopBtn">stop/start</button>
         <div id="stopDisplay"></div>
         <button id="saveBtn">save time</button>
         <button id="clearBtn">clear list</button>
     </section>
-    <div id="saveListWrapper">
+    <section id="saveListWrapper">
         <h3>Times</h3>
         <ul id="saveList"></ul>
-    </div>
-    <div class="filler"></div>
+    </section>
+    <section id="countDownWrapper">
+        <h4>countdown</h4>
+        <div id="countDownInputsWrapper">
+            <input class="countDownInputs" id="countDownInputsHrs" value="00"><p>:</p>
+            <input class="countDownInputs" id="countDownInputsMins" value="00"><p>:</p>
+            <input class="countDownInputs" id="countDownInputsSecs" value="00">
+        </div>
+        <button id="countDownStartBtn">start countdown</button>
+        <div id="countDownDisplay"></div>
+    </section>
     <div class="filler"></div>
     <div class="filler"></div>
     <div class="filler"></div>

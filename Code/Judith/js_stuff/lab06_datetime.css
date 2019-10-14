@@ -12,7 +12,7 @@ body {
     grid-template-columns: 1fr 4fr 1fr;
     grid-template-rows: 1fr 4fr 1fr;
     grid-gap: 20px;
-    grid-template-areas: "stopcontrol header r-gutter1"
+    grid-template-areas: "stopcontrol header countDown"
                          "stoplist main r-gutter2"
                          "l-gutter3 footer r-gutter3";
     background-color: blue;
@@ -34,10 +34,32 @@ header {
 
 #stopWatch {
     grid-area: stopcontrol;
+    min-height:130px;
+}
+
+h4 {
+    margin:0px;
+    padding:0px;
 }
 
 #saveListWrapper {
     grid-area: stoplist;
+}
+
+#countDownWrapper {
+    grid-area: countDown;
+}
+
+#countDownInputsWrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    max-height: 1.5rem;
+}
+
+.countDownInputs {
+    max-width: 2.5rem;
+    
 }
 
 .filler {
