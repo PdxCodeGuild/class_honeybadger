@@ -1,0 +1,6 @@
+Javascript:
+
+- did you RETURN your function?
+- are there EXTRA brackets?
+- did you forget a BRACKET?
+- did you link your JS file in the HTML?
