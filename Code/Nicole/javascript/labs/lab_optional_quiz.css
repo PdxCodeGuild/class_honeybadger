@@ -1,0 +1,29 @@
+.main {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.main_question {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    /* text-align: center; */
+}
+
+label {
+    display: block;
+    color: black;
+    margin-bottom: 5px;
+}
+
+.btn {
+    margin: 10px;
+}
+
+#question {
+    font-size: 30px;
+    margin: 25px;
+}
