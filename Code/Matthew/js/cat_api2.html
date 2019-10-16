@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.min.js" type="text/javascript"></script>
+  </head>
+  <body>
+    <div id="app">
+      <img v-bind:src="cat_img_url"/>
+    </div>
+    <script type="text/javascript">
+      let url = 'https://api.thecatapi.com/v1/images/search'
+      
+      // let add = function(a, b) {
+      //   return a + b
+      // }
+      // let add = (a, b) => {
+      //   return a + b
+      // }
+      
+      let app = new Vue({
+        el: '#app',
+        data: {
+          cat_img_url: ''
+        },
+        created() {
+          axios.get(url).then(response => { // arrow notation to preserve 'this'
+            this.cat_img_url = response.data[0].url
+          })
+        }
+      })
+      
+    </script>
+  </body>
+</html>

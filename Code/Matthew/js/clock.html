@@ -9,6 +9,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
   <style type="text/css">
     #div_clock {
       text-align: center;
@@ -39,12 +40,16 @@
     #div_stopwatch_buttons>button {
       margin: 10px;
     }
-    main {
+    /* main {
       max-width:800px;
       margin: 0 auto;
-    }
+    } */
     .tabs {
       margin-bottom: 40px;
+    }
+    #div_countdown_time {
+      text-align:center;
+      font-size:40px;
     }
   </style>
 </head>
@@ -74,10 +79,6 @@
         </div>
       </div>
       <div id="test3" class="col s12">
-        <!-- <input  type="date" value=""/> -->
-        
-        
-
         <div class="row">
           <div class="input-field col s6">
             <input id="input_countdown_date" type="text" class="datepicker" />
@@ -88,7 +89,7 @@
             <label for="input_countdown_time">Time</label>
           </div>
         </div>
-
+        <div id="div_countdown_time" class="row"></div>
       </div>
     </div>
   </main>
@@ -97,17 +98,27 @@
 
 
   <script type="text/javascript">
+  
+    // clock
     let div_clock = document.querySelector('#div_clock')
+    
+    // stopwatch
     let div_stopwatch = document.querySelector('#div_stopwatch')
     let bt_start_stopwatch = document.querySelector('#bt_start_stopwatch')
     let bt_pause_stopwatch = document.querySelector('#bt_pause_stopwatch')
     let bt_stop_stopwatch = document.querySelector('#bt_stop_stopwatch')
     let bt_lap_stopwatch = document.querySelector('#bt_lap_stopwatch')
     let ol_stopwatch_laps = document.querySelector('#ol_stopwatch_laps')
+    
+    // countdown
+    let input_countdown_date = document.querySelector('#input_countdown_date')
+    let input_countdown_time = document.querySelector('#input_countdown_time')
+    let div_countdown_time = document.querySelector('#div_countdown_time')
 
     var instance = M.Tabs.init(document.querySelector('.tabs'), {
       swipeable: true
     });
+    
     document.addEventListener('DOMContentLoaded', function() {
       var elems = document.querySelectorAll('.datepicker');
       var instances = M.Datepicker.init(elems, {
@@ -252,6 +263,48 @@
       li.innerText = stopwatchDateToString()
       ol_stopwatch_laps.appendChild(li)
     })
+    
+    function updateCountdown() {
+      let date = input_countdown_date.value
+      let time = input_countdown_time.value
+      let datetime = date + ' ' + time
+      // let matches = datetime.match(/(\d+)\/(\d+)\/(\d+)\s+(\d+):(\d+)\s+(\w+)/)
+      // let month = parseInt(matches[1])-1
+      // let day = parseInt(matches[2])
+      // let year = parseInt(matches[3])
+      // let hours = parseInt(matches[4])
+      // let minutes = parseInt(matches[5])
+      // let am_pm = matches[6]
+      // if (am_pm == 'AM') {
+      //   hours += 12
+      // }
+      // let end_date = new Date(year, month, day, hours, minutes, 0, 0)
+      
+      let datetime_countdown = moment(datetime, 'MM/DD/YYYY h:mm a')
+      let now = moment()
+      
+      
+      
+      
+      // div_countdown_time.innerText = moment(datetime_countdown - now).format('MM/DD/YYYY h:mm a')
+      let duration = moment.duration(datetime_countdown.diff(now), 'milliseconds')
+      
+      let days = duration.days()
+      days += duration.months()*Math.floor(28+Math.random()*3)
+      days += duration.years()*365
+      
+      div_countdown_time.innerText = '~' + days + ' days, '
+                                    + duration.hours() + ' hours, '
+                                    + duration.minutes() + ' minutes, '
+                                    + duration.seconds() + ' seconds'
+      
+    }
+    setInterval(updateCountdown, 1000)
+    input_countdown_date.addEventListener('change', updateCountdown)
+    input_countdown_time.addEventListener('change', updateCountdown)
+    
+    
+    
   </script>
 </body>
 
