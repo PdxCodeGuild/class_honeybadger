@@ -5,18 +5,17 @@
   align-items: flex-start;
 }
 
-.main_question {
+.main_question, #question_area {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  /* text-align: center; */
 }
 
-.answer_choice {
+#answer_label {
   color: black;
-  margin-bottom: 5px;
-  font-size: 50px;
+  margin-bottom: 15px;
+  display: block;
 }
 
 .btn {
@@ -26,4 +25,11 @@
 #question {
   font-size: 30px;
   margin: 25px;
+}
+
+.main_rows {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
 }
