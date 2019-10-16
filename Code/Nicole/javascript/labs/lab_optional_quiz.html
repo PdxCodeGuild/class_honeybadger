@@ -16,17 +16,19 @@
 <body>
   <div id="main">
     <h1 id="title" class="main_question"></h1>
-    <div class="main_question">
+    <div id="question_area" class="main_question">
       <div id="question"></div>
       <div id="answers"></div>
     </div>
     <div class="main_question">
-      <div id="btn_submit" class="btn">Submit</div>
-      <span id="btn_paginate_next" class="btn btn_paginate">Next</span>
-      <span id="btn_paginate_previous" class="btn btn_paginate">Previous</span>
+      <div class="main_rows">
+        <div id="btn_submit" class="btn">Submit</div>
+        <span id="btn_paginate_next" class="btn btn_paginate" onclick="nextQuestion()">Next</span>
+        <span id="btn_view_score" class="btn">View Score</span>
+      </div>
     </div>
     <div id="btn_begin" class="main_question">
-      <div class="btn">Begin Quiz</div>
+      <div class="btn" onclick="nextQuestion()">Begin Quiz</div>
     </div>
   </div>
 
