@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.min.js" type="text/javascript"></script>
+    <style type="text/css">
+      #img_dog {
+        width:400px;
+      }
+    </style>
+  </head>
+  <body>
+    <select id="select_dog_breed">
+      <option selected value="">Select a breed</option>
+    </select>
+    <button id="bt_get_pics">view pictures</button>
+    <div id="image_container">
+    </div>
+    <script type="text/javascript">
+      let image_container = document.querySelector('#image_container')
+      let select_dog_breed = document.querySelector('#select_dog_breed')
+      let bt_get_pics = document.querySelector('#bt_get_pics')
+      
+      function capitalizeFirstLetter(word) {
+        return word[0].toUpperCase() + word.slice(1)
+      }
+      
+      let breed_url = 'https://dog.ceo/api/breeds/list/all'
+      axios.get(breed_url).then(function(response) {
+        let breeds = []
+        for (breed in response.data.message) {
+          breeds.push(breed)
+        }
+        console.log(breeds)
+        // for (prop in {name: 'joe', age: 34}) {
+        //   console.log(prop)
+        // }
+        
+        for (let i=0; i<breeds.length; ++i) {
+          let option = document.createElement('option')
+          option.innerText = capitalizeFirstLetter(breeds[i])
+          option.setAttribute('value', breeds[i])
+          select_dog_breed.appendChild(option)
+        }
+        
+      })
+      
+      bt_get_pics.addEventListener('click', function() {
+        let selected_breed = select_dog_breed.value
+        if (selected_breed == '') {
+          return
+        }
+        image_container.innerHTML = ''
+        let url = 'https://dog.ceo/api/breed/'+selected_breed+'/images/random'
+        console.log(url)
+        for (let i=0; i<Math.floor(5+Math.random()*5); ++i) {
+          axios.get(url).then(function(response) {
+            let img_url = response.data.message
+            let img = document.createElement('img')
+            img.setAttribute('src', response.data.message)
+            img.style.width = '200px'
+            image_container.appendChild(img)
+          })
+        }
+      })
+      
+      
+      
+      
+      // for (let i=0; i<10; ++i) {
+      // 
+      //   let url = 'https://dog.ceo/api/breeds/image/random'
+      //   let data = null
+
+      // }
+      // JSON.parse('{"message":"hello world!"}')
+      // JSON.stringify({message:'hello world!'})
+      
+      
+    </script>
+  </body>
+</html>

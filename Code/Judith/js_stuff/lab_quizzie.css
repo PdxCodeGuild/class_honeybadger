@@ -1,0 +1,10 @@
+/*lab_quizzie.css*/
+
+body * {
+    font-family: "Trebuchet MS";
+}
+
+div[id$="answers"] {
+    display: flex;
+    flex-direction: column;
+}

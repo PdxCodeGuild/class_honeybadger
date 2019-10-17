@@ -40,10 +40,32 @@ function keyWatch() {
     const days = Math.floor(total/86400000) % 365
     const years = Math.floor(total/31536000000)
 
+    const obj = { milliseconds,seconds,minutes,hours,days,years };
+
+
     let timeArray = [milliseconds,seconds,minutes,hours,days,years]
     return timeArray
 
 }
+
+
+function keyWatchObject() {
+    const total = Date.now() // milliseconds since Jan. 1st, 1970 in UST
+    const milliseconds = total
+    const seconds = Math.floor(total/1000)
+    const minutes = Math.floor(total/60000)
+    const hours = (Math.floor(total/3600000) + 17) //set to PST
+    const days = Math.floor(total/86400000) % 365
+    const years = Math.floor(total/31536000000)
+
+    return { milliseconds,seconds,minutes,hours,days,years };
+}
+
+const obj = keyWatchObject();
+
+const { seconds } = obj;
+
+console.dir({ seconds });
 
 function displayUpdate(timeArray) {
     
@@ -80,7 +102,22 @@ function stopWatch() {
    
 }
 
+let counterInterval
+
+function clampDisplayTime(value) {
+    return Math.max(value, 0);
+}
+
+function clamp(value, min, max) {
+    return Math.max(Math.min(value, max), min);
+}
+
 function countDown() {
+    if (counterInterval) {
+        clearInterval(counterInterval)
+        counterInterval = null
+    }
+
     const runHrs = countDownInputsHrs.value * 3600
     const runMins = countDownInputsMins.value * 60
     const runSecs = countDownInputsSecs.value
@@ -88,41 +125,36 @@ function countDown() {
     runTime = runHrs + runMins + runSecs
 
     let timeStart = masterTime[1]
+ 
+    counterInterval = setInterval(function() {
+        let diff = masterTime[1]-timeStart
+        
+        let curTime = runTime - diff 
 
-    let runFlag = true
+        const seconds = clampDisplayTime(Math.floor(curTime))
+        const minutes = clampDisplayTime(Math.floor(curTime/60))
+        const hours = clampDisplayTime(Math.floor(curTime/3600))
 
-    while (runFlag) {   
-        interval = setInterval(function() {
-            let diff = masterTime[1]-timeStart
-            
-            let curTime = runTime - diff 
+        countDownDisplay.innerText = `${hours}:${minutes}:${seconds}`
+        
+        if (curTime <= 0) {
+            clearInterval(counterInterval)
+            alert("time up pardner!")
+        }
 
-            const seconds = Math.floor(diff/1000)
-            const minutes = Math.floor(diff/60000)
-            const hours = Math.floor(diff/3600000)
-
-            const endSecs = (runSecs - seconds)
-            const endMins = (runMins - minutes)
-            const endHrs = runHrs - hours
-            countDownDisplay.innerText = `${endHrs}:${endMins}:${endSecs}`
-            
-            if (curTime == 0) {
-                runFlag = false
-            }
-
-        }, 1000)
-    }
+    }, 500)
+  
 
 }
 
 let masterTime
 setInterval(function() {
     masterTime = keyWatch()
-},1)
+},100)
 
 setInterval(function() {
     displayUpdate(masterTime)
-},1)
+},100)
 
 stopBtn.addEventListener("click", function() {
     stopWatch()

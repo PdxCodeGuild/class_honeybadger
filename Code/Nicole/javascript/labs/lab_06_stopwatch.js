@@ -36,6 +36,7 @@ function addZeroZero(num) {
         return num
 }
 
+
 function getTime() {
     hour.innerHTML = addZero(date.getHours())
     minute.innerHTML = addZero(date.getMinutes())
@@ -45,6 +46,7 @@ function getTime() {
 }
 
 let myInt = null
+
 
 btn_start.addEventListener("click", function() {
     let toggle = ""
@@ -63,6 +65,7 @@ btn_start.addEventListener("click", function() {
     btn_start.innerText = toggle
 })
 
+// adds laps
 btn_lap.addEventListener("click", function() {
     let li = document.createElement("li")
     li.innerText = addZero(date.getHours()) + " : " + addZero(date.getMinutes()) + " : " + addZero(date.getSeconds()) + " : " + addZero(date.getMilliseconds())

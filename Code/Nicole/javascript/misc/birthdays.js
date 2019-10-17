@@ -81,8 +81,9 @@ function monthName(num) {
 }
 
 
-let myTime = setInterval(myClock, 1000);
+let myTime = setInterval(myClock, 1000)
 
+// sets the current date and time
 function myClock() {
     let date = new Date()
     day_of_week.innerText = dayName(date.getDay())
@@ -95,25 +96,27 @@ function myClock() {
 }
 
 
-
+// calculates the difference of today's date and the birthday, returns milliseconds
 function convertAge(date) {
     let d1 = new Date(); //"now"
     let d2 = new Date(date)
-    // let d2 = new Date("1979/10/01") // some date
     let diff = Math.abs(d1 - d2)
     return diff
 }
 
+// calculates the current age
 function convertAgeNow(ms) {
     let age = ms * 3.1689E-11
     return Math.round(age)
 }
 
+// calculates the next birthday's age
 function convertAgeNext(ms) {
     let next_age = ms * 3.1689E-11
     return Math.round(next_age) + 1
 }
 
+// calculates the number of days until the next birthday
 function convertDaysToBD(month, day) {
     let bd_1 = new Date(date)
     console.log("bd_1 = " + bd_1)
@@ -125,13 +128,13 @@ function convertDaysToBD(month, day) {
     // console.log("days_to_bd = " days_to_bd)
     let diff = days_to_bd * 1.1574074074074E-8
     if (Math.round(diff) > 365) {
-        return Math.round(diff) - 365
+        return Math.round(diff-1) - 365
     } else {
-        return Math.round(diff)
+        return Math.round(diff-1)
     }
 }
 
-
+// sets all text in the html
 christian_now.innerText = convertAgeNow(convertAge("2004/10/21"))
 hunter_now.innerText = convertAgeNow(convertAge("2006/05/24"))
 lily_now.innerText = convertAgeNow(convertAge("2007/09/27"))

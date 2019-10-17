@@ -1,0 +1,35 @@
+.main {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+input {
+    text-align: center;
+    margin: 50px 20px;
+}
+
+blockquote {
+    font-size: 32px;
+    margin: 50px 100px 0 100px;
+    text-align: center;
+    border: none;
+}
+
+blockquote::before, blockquote::after {
+    content: '"';
+    font-family: 'Crimson Text', serif;
+    font-size: 40px;
+    margin: 0 5px;
+}
+
+.div_author {
+    font-style: italic;
+    margin: 30px;
+    text-align: center;
+}
+
+.div_author::before, .div_author::after {
+    content: '   —   ';
+}

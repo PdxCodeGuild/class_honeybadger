@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.min.js" type="text/javascript"></script>
+    <style type="text/css">
+      img {
+          width:300px;
+          display:block;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <select v-model="selected_breed">
+        <option value="">Select a breed</option>
+        <option v-for="breed in breeds" v-bind:value="breed.id">{{breed.name}}</option>
+      </select>
+      <button v-on:click="getImagesForBreed">get images</button>
+      <img v-for="image in images" v-bind:src="image"/>
+    </div>
+    <script type="text/javascript">
+      
+      let app = new Vue({
+        el: '#app',
+        data: {
+          cat_img_url: '',
+          cat_api_key: '2f20dc57-f42d-499a-ba36-e82bbf582e84',
+          cat_breeds_url: 'https://api.thecatapi.com/v1/breeds/',
+          breeds: [],
+          selected_breed: '',
+          images: []
+        },
+        methods: {
+          getImagesForBreed() {
+            
+            let url = 'https://api.thecatapi.com/v1/images/search/'
+            let config = {
+              headers: {
+                'x-api-key': this.cat_api_key,
+              },
+              params: {
+                limit: 10,
+                breed_id: this.selected_breed,
+                order: 'RANDOM'
+              }
+            }
+            axios.get(url, config).then(response => {
+              let data = response.data
+              this.images = []
+              for (let i=0; i<data.length; ++i) {
+                this.images.push(data[i].url)
+              }
+            })
+          }
+        },
+        created() {
+          let config = {
+            headers: {
+              'x-api-key': this.cat_api_key,
+            }
+          }
+          axios.get(this.cat_breeds_url, config).then(response => { // arrow notation to preserve 'this'
+            let data = response.data
+            for (let i=0; i<data.length; ++i) {
+              this.breeds.push({
+                id: data[i].id,
+                name: data[i].name
+              })
+            }
+          })
+        }
+      })
+      
+    </script>
+  </body>
+</html>
