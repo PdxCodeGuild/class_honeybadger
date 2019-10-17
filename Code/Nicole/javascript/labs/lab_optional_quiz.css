@@ -12,6 +12,10 @@
   align-items: center;
 }
 
+h3 {
+  text-align: center;
+}
+
 #answer_label {
   color: black;
   margin-bottom: 15px;
@@ -29,7 +33,17 @@
 
 .main_rows {
   display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  align-items: flex-start;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#btn_next_disabled {
+  background-color: gray;
+  pointer-events: none;
+}
+
+#true_or_false {
+  margin: 15px;
+  font-size: 24px;
 }
