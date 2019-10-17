@@ -1,0 +1,126 @@
+<!DOCTYPE html> <!--      CREATED divs containing classes so the queryselector can access.  want to click and have the dates/time display within flexbox ADD BUTTON on one side for Stopwatch-->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <!-- Copy/pasted from bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+               
+    <!-- Link to external CSS -->
+    <link rel="stylesheet" href="styles2.css" type="text/css"/>    
+
+</head>
+<body>
+
+<!--Wrapping entire body in a container-->
+<div class="container-fluid"> 
+  
+    <h3 class="heading"> “Yesterday is gone. Tomorrow has not yet come. We have only today. Let us begin.”
+                         -Mother Theresa     </h3>
+
+<!-- Creating Flexboxes-->    
+<div class="row mb-2">
+    <div class="col-6 bg-dark p-2 text-white"></div>
+        <div class="clock"></div>
+        
+    <div class="col-6 bg-warning p-2 text-white"></div>
+        <div class="stop_watch" </div>
+
+
+        
+        button type="button" class="btn btn-primary btn-sm">.btn .btn-sm (Large button)</button>
+
+</div>
+        <!-- Creating divs so querySelector can access page-->
+        <div class="clock"></div> 
+        <div class="stopwatch"></div>      
+        <div class="start_button"></div>
+        <div class="pause_button"></div>
+        <div class="stop_button"></div> 
+
+    <script type="text/javascript">
+           // let div_clock = document.querySelector('#div_clock') 
+           // let div_stopwatch = document.querySelector('#div_stopwatch')
+
+            //padding a 0 before numbers 0 thru 9 --> :9 vs :09
+            function add0(num) {
+                return (num < 10) ? '0' + num : num //if num is <10, then print 0 before num. if num is not <10, return num.
+                }
+    
+           //function for clock
+            let clock = document.querySelector('.clock') 
+            clock.addEventListener('click', function() {
+                setInterval(function(){
+                let d = new Date()
+                let year = d.getFullYear()
+                let month = d.getMonth() + 1
+                let day = d.getDate()
+                let hours = d.getHours()
+                let minutes = d.getMinutes()
+                let seconds = d.getSeconds()
+                div_clock.innerText = `Today's date is ${add0(month)}/${add0(day)}/${year} and the current time is ${add0(hours)}:${add0(minutes)}:${add0(seconds)}`
+                },1000)
+            })
+            
+            
+            //function for stopwatch  
+            let stopwatch_date = new Date()
+            stopwatch_date.setHours(0, 0, 0, 0)
+            let stopwatch_interval = null
+
+            let stopwatch = document.querySelector('.stopwatch')
+            stopwatch.addEventListener('click', function()
+                setInterval(function)(){
+            function stopwatchDateToString() {
+                let hours = stopwatch_date.getHours()
+                let minutes = stopwatch_date.getMinutes()
+                let seconds = stopwatch_date.getSeconds()
+                return `${add0(hours)}:${add0(minutes)}:${add0(seconds)}`
+              }
+
+              stopwatch_interval = setInterval(function() {
+                stopwatch_date.setSeconds(stopwatch_date.getSeconds() + 1)
+        
+        
+                div_stopwatch.innerText = stopwatchDateToString()
+              }, 1000) //updating stop watch every second
+        
+
+
+
+    </script>
+<!--JavaScript at end of body for optimized loading-->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</div>
+</body>
+</html>
+
+<!--  Msc code-->
+<!--equivalent code for ternary condition for function add0
+if (num < 10) {
+    return '0'+num
+        } else {
+    return num
+         } -->
+
+<!--equivalent code for ternary condition for function add00
+    num = num.toString()
+    while (num.length < digits) {
+        num = '0' + num
+        }
+    return num -->
+
+    <!-- function add00(num) {
+        return (num < 10) ? '00' + num : (num < 100) ? '0' + num : num
+      }
+  
+      function add0s(num, digits) {
+        num = num.toString()
+        return '0'.repeat(digits - num.length) + num
+     }
+      //console.log(add0s(52, 4)) // 0052 -->

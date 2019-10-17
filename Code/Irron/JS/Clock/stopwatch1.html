@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    
+
+
+</head>
+<body>
+    <h1>Stopwatch</h1>
+
+    <div class = "btn1">
+        <button> Start </button>
+    </div>
+
+    <div class = "btn2">
+        <button onclick="clearInterval(interval)" > Stop </button> <!-- move to event listener-->
+    </div>
+
+
+
+    <script>
+
+        let btn1 = document.querySelector('.btn1')
+        let interval = null
+        btn1.addEventListener('click', function() {
+            interval = setInterval(function() {
+                console.log('running')
+            }, 1000)
+            let date = new Date()
+            date.setHours(15,35,1) //hours, mins, secs, --> setting time to 15:35:01
+            console.log(date)           
+        }) 
+
+
+            
+            
+            
+
+
+    </script>
+
+
+    
+</body>
+</html>
