@@ -1,0 +1,77 @@
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <!-- axios -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.min.js" type="text/javascript"></script>
+
+  <!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+  <!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+
+  <link rel="stylesheet" href="lab07_2.css">
+  <script src="secrets.js"></script>
+  <title>Random Quote API Lab</title>
+</head>
+<body>
+  <div class="main">
+    <h3>Get A Bunch Of Quotes</h3>
+    <input type="text" id="quote_input" placeholder="Enter a key word or phrase">
+    <div id="quote_div"></div>
+    <div id="author_div"></div>
+    <div id="btn_div" class="btn">Get Them!</div>
+  </div>
+  <script type="text/javascript">
+    let quote_div = document.querySelector("#quote_div")
+    let author_div = document.querySelector("#author_div")
+    let quote_input = document.querySelector("#quote_input")
+
+    quote_div.style.display = "none"
+    author_div.style.display = "none"
+
+    function goGetQuote() {
+      let url = "https://favqs.com/api/quotes";
+      axios({
+        headers: {
+          Authorization: `Token token="${quote_api_key}"`
+        },
+        method: 'get',
+        url: url,
+        responseType: 'text',
+        params: {
+          filter: quote_input.value
+        },
+      })
+      .then(function(response) {
+        console.log(response.data)
+        for (let i = 0; i < response.data.quotes.length; ++i) {
+          if (response.data.quotes[i].body == "No quotes found") {
+            return
+          } else {
+            let blockquote =
+            document.createElement("blockquote")
+            quote_div.appendChild(blockquote)
+            blockquote.innerText = response.data.quotes[i].body
+
+            let p = document.createElement("P")
+            p.classList.add("author_div")
+            quote_div.appendChild(p)
+            p.innerText = response.data.quotes[i].author
+          }
+        }
+      })
+    }
+
+
+    btn_div.addEventListener("click", function() {
+      quote_div.style.display = ''
+      author_div.style.display = ''
+      goGetQuote()
+    })
+  </script>
+</body>
+</html>
