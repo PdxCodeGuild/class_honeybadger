@@ -1,11 +1,11 @@
-// console.log(quote_api_key)
-
 let input_quote = document.querySelector("#input_quote")
 let div_quote = document.querySelector("#div_quote")
 let div_author = document.querySelector("#div_author")
 
 div_quote.style.display = "none"
 div_author.style.display = "none"
+
+input_quote.focus()
 
 function loadRandomQuote() {
     let url = "https://favqs.com/api/quotes"
@@ -36,8 +36,6 @@ function loadRandomQuote() {
                     div_quote.appendChild(p)
                     p.innerText = response.data.quotes[i].author
                 }
-                // div_quote.innerText = response.data.quotes[i].body
-                // div_author.innerText = response.data.quotes[i].author
             }
         });
 }
@@ -47,4 +45,11 @@ input_quote.addEventListener("input", function() {
     div_quote.style.display = null
     div_author.style.display = null
     loadRandomQuote()
+})
+
+input_quote.addEventListener("change", function() {
+    console.log("change")
+    div_quote.innerText = ""
+    div_author.innerText = ""
+    input_quote.select()
 })
