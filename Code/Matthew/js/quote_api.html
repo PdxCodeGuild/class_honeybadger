@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.min.js" type="text/javascript"></script>
+  </head>
+  <body>
+    <div id="div_quote"></div>
+    <button id="bt_get_quote">get quote</button>
+    <script type="text/javascript">
+      let div_quote = document.querySelector('#div_quote')
+      let bt_get_quote = document.querySelector('#bt_get_quote')
+      
+      bt_get_quote.addEventListener('click', event => {
+        axios({
+          method: 'get',
+          url: 'https://favqs.com/api/qotd'
+        }).then(response => {
+          let author = response.data.quote.author
+          let body = response.data.quote.body
+          div_quote.innerText = `"${body}" - by ${author}`
+          
+        })
+      })
+
+    </script>
+  </body>
+</html>

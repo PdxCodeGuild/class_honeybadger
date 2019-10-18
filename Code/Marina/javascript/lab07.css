@@ -1,0 +1,41 @@
+.main {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+body {
+  background-color: silver;
+}
+
+#btn_div {
+  border-radius: 100%;
+  height: 75px;
+  text-align:center;
+  display: block;
+  position: relative;
+  padding-top: 18px;
+}
+
+#quote_div {
+  font-size: 30px;
+  margin: 50px 50px 25px 50px;
+  text-align: center;
+}
+
+#author_div {
+  font-size: 20px;
+  margin: 50px 50px 25px 50px;
+  text-align: center;
+}
+
+#quote_div::before,
+#quote_div::after {
+  content: '"';
+}
+
+#author_div::before
+ {
+  content: ' by ';
+}
