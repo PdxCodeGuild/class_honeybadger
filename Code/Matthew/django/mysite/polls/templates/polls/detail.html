@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <a href="{% url 'polls:index' %}">home</a>
+    {% if question %}
+      <h1>{{ question.question_text }}</h1>
+      <ul>
+      {% for choice in question.choice_set.all %}
+          <li>{{ choice.choice_text }}</li>
+      {% endfor %}
+      </ul>
+    {% else %}
+      <p>No question found!</p>
+    {% endif %}
+    
+    <form action="{% url 'polls:vote' question.id %}" method="post">
+      {% csrf_token %}
+      <input type="text" name="myname" value=""/>
+      <button type="submit">submit</button>
+    </form>
+  </body>
+</html>
