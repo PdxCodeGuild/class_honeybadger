@@ -24,9 +24,9 @@
           <a class="waves-effect waves-light btn" id="myBtn">Start The Timer</a>
           <a class="waves-effect waves-light btn" id="resetBtn">Reset The Timer</a>
       </div>
-      <div class="row" id="stop">
+      <div class="row" id="stopwatch">
         <div class="col s12">
-          <div id="stop">00:00:00</div>
+          <div id="stopwatch">00:00:00</div>
         </div>
       </div>
       <div class="row" id="date">
@@ -46,7 +46,7 @@
       let resetBtn = document.querySelector("#resetBtn")
       let clock = document.querySelector("#clock");
       let date = document.querySelector("#date");
-      let stop = document.querySelector("#stop");
+      let stopwatch = document.querySelector("#stopwatch");
       let time = 0;
       let myInterval = -1;
       let stopwatch_date = new Date();
@@ -60,13 +60,13 @@
           button.innerHTML = "Pause The Timer"
           myInterval = setInterval (function() {
             time ++;
-            stop.innerHTML = `The clock is running! <br/>${time}`;
+            stopwatch.innerHTML = `The clock is running! <br/>${time}`;
           }, 1000);
         } else {
           button.innerHTML = "Start The Timer"
           clearInterval(myInterval);
           myInterval = -1;
-          stop.innerHTML = `The clock has been paused. <br/>${time}`;
+          stopwatch.innerHTML = `The clock has been paused. <br/>${time}`;
         }
       });
 
@@ -75,7 +75,7 @@
           clearInterval(myInterval);
           myInterval = -1;
           time = 0;
-          stop.innerHTML = `The clock has been reset. <br/>${time}`
+          stopwatch.innerHTML = `The clock has been reset. <br/>${time}`
         }
       })
 
