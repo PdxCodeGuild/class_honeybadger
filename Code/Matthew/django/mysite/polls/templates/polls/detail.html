@@ -1,26 +1,35 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title></title>
-  </head>
-  <body>
-    <a href="{% url 'polls:index' %}">home</a>
-    {% if question %}
-      <h1>{{ question.question_text }}</h1>
-      <ul>
-      {% for choice in question.choice_set.all %}
-          <li>{{ choice.choice_text }}</li>
-      {% endfor %}
-      </ul>
-    {% else %}
-      <p>No question found!</p>
-    {% endif %}
-    
-    <form action="{% url 'polls:vote' question.id %}" method="post">
-      {% csrf_token %}
-      <input type="text" name="myname" value=""/>
-      <button type="submit">submit</button>
-    </form>
-  </body>
-</html>
+{% extends 'polls/base.html' %}
+{% block title %}Detail{% endblock %}
+{% block content %}
+  <h1>{{ question.question_text }}</h1>
+
+  {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+  
+  {% comment %}
+  <form action="{% url 'polls:vote' question.id %}" method="post">
+    {% csrf_token %}
+    <input type="text" name="mytext" value=""/>
+    {% for choice in question.choices.all %}
+        <input type="radio" name="choice" id="choice{{ forloop.counter }}" value="{{ choice.id }}">
+        <label for="choice{{ forloop.counter }}">{{ choice.choice_text }}</label><br>
+    {% endfor %}
+    <input type="submit" value="Vote">
+    <button type="submit">Vote</button>
+  </form>
+  {% endcomment %}
+  
+  <form action="/polls/1/vote/" method="post">
+    {% csrf_token %}
+    <input type="text" name="mytext" value=""/>
+    <input type="password" name="mypassword" value=""/>
+    <input type="checkbox" name="cb1"/>
+    <input type="checkbox" name="cb2"/>
+    <input type="radio" name="rb" value="1"/>
+    <input type="radio" name="rb" value="2"/>
+    <input type="radio" name="rb" value="3"/>
+    <input type="date" name="mydate"/>
+    <input type="time" name="mytime"/>
+    <input type="color" name="mycolor"/>
+    <button type="submit">Vote</button>
+  </form>
+{% endblock %}
