@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    
+    <style>
+        
+    </style>
+
+    <!-- Copy/paste axios cdnj link (min.js extension)   -->
+    <script src = "https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.min.js"> </script>
+
+    
+            <div id="quote"> 
+     
+    
+    <script type="text/javascript">
+        axios({
+            method: 'get',
+            url: 'https://favqs.com/api/qotd',}
+           )
+            .then(function (response) {
+              console.log(response.data.quote.body);  //data.quote.url
+              
+                
+             document.getElementById("quote").innerHTML = response.data.quote.body
+            }) 
+        
+        
+        
+       
+
+
+
+
+
+
+    </script>
+
+</head>
+<body>
+    
+</body>
+</html>

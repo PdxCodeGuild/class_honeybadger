@@ -50,8 +50,8 @@ def peaks(data):
         #print(i, data[i]) #begins with i = index 1, value of element = 2, which is 2nd number in list
         #print(i+1, data[i+1]) #begins with index =2 and value of element = 3
         print()
-        if data[i]> data[i+1] and data[i]> data[i-1]:  #---> alternative syntax  data[i-1] <data[i]> data[i+1]
-            peaks.append(data[i])
+        if data[i]> data[i+1] and data[i]> data[i-1]:  #---> this compares current data[i] to positions on its immediate left and right. alternative syntax  data[i-1] <data[i]> data[i+1]
+            peaks.append(data[i]) #appending the value of index that meets the if criteria
         #print(peaks)
     return peaks
 
@@ -76,19 +76,53 @@ valleys= valleys(data)
 print(f'The peaks are {peaks}. The valleys are {valleys}.')
 
 
-''' Version 2 (optional)
+''' Version 2 (optional)  Using the data list above, draw the image of X's above.'''
+#data1 = [1, 2, 1,2] #----> created new list to test understanding of nested loop
+for num in data: #---> nested loop which begins by assigning each variable in list num.   
+    for i in range(num): #---> step 2, begins to iterate on num.  assigns each num index i, and the len of the range defined by value of num. 
+        print('x', end='')  #---> num determines how many x's will be printed for each item in list. 1 will be printed once, 2 will be printed twice
+    print()
 
-Using the data list above, draw the image of X's above.
+# #example that shows how nested if statements work    
+# for i in range(10): #---> creates a range of numbers (0 to 9)
+#     for j in range(5): #---> index j is created and will instruct i to iterate 5 times.  
+#         print(i, j) #---> each i will print 5 times
 
 
-Version 3 (optional)
+''' Version 3 (optional)
 
 Make a function that takes in the dataset and a list of peaks, and returns a list of tuples representing lakes. 
 Each tuple should have a starting x coordinate, an ending x coordinate, and a height. The height is relative to the base 
-of the graph.
+of the graph. '''
+
+s = ''
+#passing 3 parameters; lower & upper bounds, and increment. The max = the largest number in list, -1 will begin iteration at the last position of the list, so will start backwards, the 0 will = lowest number
+for i in range(max(data), 0, -1):
+    for j in range(len(data)): #---> creating another index for purpose of comparing i and j. j = the length of the list
+        # s += ' ' if data[j] < i else 'X'
+        if data[j] < i: #---> compares the actual value in the list to its index 
+            s += ' ' #---> if so, add a blank to s
+        else:
+            s += 'X' #---> if not, add an X to s
+    s += '\n' #---> believe this is a way of printing X to the next line??
+
+print(s)
+
+#code to understand how i and j are interacting. 
+#i = the range of variables. 
+#the max number is 9, and -1 will start at the the last number in list and 0 indidcates the count to stop interating
+#so i in range(max(data), 0, -1) will return 9, 8, 7,.... and stop at 1
+#for j in range(len(data)) = when at i , say number 9, print 9 times the length of the list 
+
+#data[j] = returns the actual number at an index 
+for i in range(max(data), 0, -1):
+    for j in range(len(data)):
+        #print (i, j)
+        print(data[j], i)
+        
 
 
-Version 4 (optional)
+''' Version 4 (optional)
 
 Imagine pouring water into onto these hills. The water would wash off the left and right sides, but would accumulate in the 
 valleys. Below the water is represented by O's. Given data, calculate the amount of water that would be collected.

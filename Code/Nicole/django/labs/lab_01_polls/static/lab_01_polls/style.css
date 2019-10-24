@@ -1,4 +1,17 @@
+body {
+  margin: 0 auto;
+}
 
-li a {
-    color: green;
+.main {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.content {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
 }

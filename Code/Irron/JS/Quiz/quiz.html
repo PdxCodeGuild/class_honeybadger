@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <!-- Copy/pasted from bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <!-- Link to external CSS -->
+    <link rel="stylesheet" href="styles.css" type="text/css" />
+
+</head>
+
+<body>
+
+    <!--Wrapping entire body in a container-->
+    <div class="container-fluid">
+
+        <h3 class="heading"> Welcome To Your Javascript Final. Best Of Luck! </h3>
+
+        <!--Every row should be inside a container div and every columns should be inside a row. Already have a container so no need to create another-->
+        <!--12 columns divided by 2.  Max # of boxes for full width = 12. .This creates 2 equal size boxes next to each other-->
+
+
+        <button id="button1" class="btn btn-primary">Question1</button>
+        <button id="button2" class="btn btn-secondary">Question2</button>
+        <button id="button3" class="btn btn-success">Question3</button>
+        <button id="button4" class="btn btn-danger">Question4</button>
+        <button id="button5" class="btn btn-warning">Question5</button>
+        <button id="button6" class="btn btn-info">Question6</button>
+        <button id="button7" class="btn btn-light">Question7</button>
+        <button id="button8" class="btn btn-dark">Question8</button>
+        <button id="button9" class="btn btn-success">Question9</button>
+        <button id="button10" class="btn btn-info">Question10</button>
+
+        <script type="text/javascript">
+            "use strict";
+
+            let quizObject = {
+                'Question1': "True",
+                'Question2': "False",
+                'Question3': "True",
+                'Question4': "False",
+                'Question5': "True",
+                'Question6': "False",
+                'Question7': "True",
+                'Question8': "False",
+                'Question9': "True",
+                'Question10': "False",
+            };
+
+
+
+            let answerObject = {}
+
+            let test = [];
+            let trues = [];
+            let falses = [];
+            let i = 0;
+            let counts = {};
+
+            /*
+            while (i < 10) {
+                let user_answer = prompt("What Is Your Answer?")
+                test.push(user_answer)
+                ++i
+            };
+            console.log(test)
+            */
+
+            /*for (let i =0; i <test.length; i++) {
+                let num = test[i];
+                counts[num] = counts[num] ? counts[num] + 1 :1;}
+            console.log(counts["True"], counts["False"]); */
+
+            //checking if each item in array is true or false. it true add to true array, if false add to false array
+            /* for (let i =0; i<test.length; i++){
+                let num = test[i]
+                if(num === "True"){
+                    trues.push(num)}
+                else if (num === "False"){
+                    falses.push(num)}}
+            console.log(trues)
+            console.log(falses)
+            noTrue = trues.length; //getting length of array
+            noFalse = falses.length;
+            score = noTrue /(10)
+            console.log(noTrue)
+            console.log(noFalse) 
+            console.log(score) */
+
+            //increment the counts of true and false         
+            let noCorrect = 0
+            let noWrong = 0
+            //const keys = Object.keys(quizObject) //creates an array that contains the keys of every property in an object
+            const answers = Object.values(quizObject)  //creates an array that contains the values of every property in an object
+            //console.log(keys)
+            console.log(answers)
+            for (let i = 0; i < test.length; i++) {
+                let _test = test[i]
+                let answer = answers[i]
+                console.log(_test, answer)
+                if (_test === answer) { noCorrect += 1 }
+                else if (_test !== answer) { noWrong += 1 }
+            }
+            console.log(noCorrect)
+            console.log(noWrong)
+
+            const answerz = {}
+            
+            // For each question
+            document.getElementById("button1").addEventListener("click", answerQuestion1)
+            function answerQuestion1() {
+               let user_input = prompt("Am I cool?")
+               answerz[0] = user_input 
+               return answerz    
+            
+            }
+
+            document.getElementById("button2").addEventListener("click", answerQuestion2)
+            function answerQuestion2() {
+               let user_input = prompt("Am I != cool?")
+               answerz[1] = user_input
+               
+            }
+
+             
+            answerQuestion1()
+
+            /* answerz[5] = "True"
+
+            for(let i = 0; i < answers.length; i++){
+                if(answerz[i] == answers[i]) {
+                    console.log("You're correct")
+                } 
+            } */
+            
+
+
+
+
+            let ques1Value = quizObject.Question1 //accessing the Question1 in the quizObject
+            let ques9Value = quizObject.Question9
+            console.log(ques1Value, ques9Value)
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </script>
+
+
+
+
+        <!--JavaScript at end of body for optimized loading-->
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+            crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+            crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+            crossorigin="anonymous"></script>
+
+    </div>
+</body>
+
+</html>

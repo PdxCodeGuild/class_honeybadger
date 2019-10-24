@@ -1,0 +1,65 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>Lab 00: To Do</title>
+  <!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+  <!-- Compiled and minified JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+  <link rel="stylesheet" type="text/css" href="{% static 'lab_01_polls/style.css' %}">
+</head>
+
+<body>
+  <div class="main">
+    <h1>To Do List</h1>
+
+
+    {% if todo_list %}
+
+    <div class="container">
+      <table class="highlight">
+        <thead>
+          <tr>
+            <th>Item</th>
+            <th>Date added</th>
+            <th>Date completed</th>
+            <th></th>
+          </tr>
+        </thead>
+
+        <tbody>
+          {% for item in todo_list %}
+          <tr>
+            <td>{{ item.description_text }}</td>
+            <td>{{ item.created_date }}</td>
+            <td>{{ item.completed_date }}</td>
+            <td>
+              <label>
+                <input type="checkbox" />
+                <span>{{ item.completed }}</span>
+              </label>
+            </td>
+            {% endfor %}
+          </tr>
+        </tbody>
+
+      </table>
+      {% else %} <p>No items in your list</p>
+      {% endif %}
+    </div>
+
+
+
+
+
+
+  </div>
+</body>
+
+</html>

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<!--base-->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>we'll see if this is a template...</title>
+</head>
+<body>
+    <div>{{message}}</div>
+    <ul>
+        {% for todo in todos %}
+        <li>{{todo.body}}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

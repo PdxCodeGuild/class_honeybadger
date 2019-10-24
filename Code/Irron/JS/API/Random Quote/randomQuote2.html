@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Random Quotes</title>
+    <!-- STEP1: Copy from getbootstrap/Get Started page/CSS section. Then copy/paste the "JS" links at the bottom before closing body tag  -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+
+
+
+    <!-- Copy/paste axios cdnj link (min.js extension)   -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.min.js"></script>
+
+
+
+
+
+
+
+</head>
+
+<body>
+    <div id="quote"></div>
+    <div>
+        <button id="nextQuote" class="btn btn-primary btn-lg">Next Quote</button>
+    </div>
+    <div class="container">
+    </div>
+    <ul id="ul_quotes"></ul>
+    <script type="text/javascript">
+
+        // Next quote button
+        let nex
+        tQuote = document.querySelector("#nextQuote")
+        let ul_quotes = document.querySelector('#ul_quotes')
+
+        // On click!
+        nextQuote.addEventListener("click", function () {
+
+            let url = 'https://favqs.com/api/quotes/';
+            let api_key = 'a53d3e5afef897973684973cd0cd1fe4'
+            let config = {
+                headers: {
+                    'Authorization': 'Token token="' + api_key + '"'
+                }
+            }
+
+
+            axios.get(url, config)
+                .then(function (response) {
+                    console.log(response.data)
+                    // let data = response.data.quotes[0].body
+                    let quotes = response.data.quotes
+                    for (let i = 0; i < quotes.length; ++i) {
+                        let author = quotes[i].author
+                        let body = quotes[i].body
+
+                        let li_completed = document.createElement('li')
+                        li_completed.innerText = '"' + body + '" - ' + author
+                        li_completed.classList.add('quote-item')
+                        ul_quotes.appendChild(li_completed)
+                    }
+                })
+
+
+        })
+
+    </script>
+</body>
+
+</html>
+
+//RonWilliams100, pwRonny1 App #1277 a53d3e5afef897973684973cd0cd1fe4//

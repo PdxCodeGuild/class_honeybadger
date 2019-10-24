@@ -12,7 +12,7 @@
 ##########################################
 # 3. cd into the folder that containst the manage.py file. Then create an app:
 
-    python managey.py startapp <yourappname>
+    python manage.py startapp <yourappname>
 
 
 ##########################################

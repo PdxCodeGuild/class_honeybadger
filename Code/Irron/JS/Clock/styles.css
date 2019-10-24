@@ -1,0 +1,16 @@
+.center { /* center images*/
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+  }
+
+  .heading{ /*headings*/
+    text-align: center;
+    text-transform: uppercase;
+    color: #50ABC7;  /* #7A43B6 = purple*/
+    border: 5px solid rgb(18, 17, 19);
+    margin: 50px 0;
+    padding: 10px;
+    font-style: italic;
+}

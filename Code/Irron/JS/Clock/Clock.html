@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    
+    <!-- Copy/pasted from bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+               
+    <!-- Link to external CSS -->
+    <link rel="stylesheet" href="styles.css" type="text/css"/>
+    
+</head>
+<body>
+    <!--Wrapping entire body in a container-->
+<div class="container-fluid"> 
+
+    <h3 class="heading"> “Yesterday is gone. Tomorrow has not yet come. We have only today. Let us begin.”
+                                            -Mother Theresa </h3>
+                        
+    
+
+
+<!--Every row should be inside a container div and every columns should be inside a row. Already have a container so no need to create another-->   
+<!--12 columns divided by 2.  Max # of boxes for full width = 12. .This creates 2 equal size boxes next to each other-->
+<div class="row mb-2"> <!-- row = display as single row, mb-2 = 8px margin at bottom -->
+    <div class="col-6 bg-dark p-2 text-white">  <!-- col-6 = puts 6 columns within row, bg-dark is a background color. .col-12 will expand all available 12 columns. .col-6 will display half of that or 6 of the 12 available columns--> 
+        <div class="image_clock">
+            <img src="clock2.svg" alt="clock" style="width: 45%;" class="center"/>
+            <div class ="caption_clock"> <!--  this is for the queryselector, which will display the date/time -->
+                    <div class="clock" style="width: 30rem;">
+                            <img src=" " alt="..."/>
+                    </div>
+            </div>  
+        </div> 
+        results from JS time goes here <!-- Actul text that will appear. -->
+    </div>
+    <div class="col-6 bg-warning p-2 text-white">  <!-- col-6 = puts 6 columns within row, bg-warning is a background color. .col-12 will expand all available 12 columns. .col-6 will display half of that or 6 of the 12 available columns--> 
+        <div class="image_clock">
+            <img src="stopwatch.svg" alt="clock" style="width: 45%;" class="center"/>
+            <div class ="caption_clock">
+                <p>Countdown=</p>
+            </div>  
+    </div> 
+        results from JS stopwatch goes here <!-- Actul text that will appear. -->
+</div>  
+     
+  
+
+
+    <script>
+                
+           let clock = document.querySelector('.clock') //use dot when referring to class. use # when referencing and id
+           clock.addEventListener('click', function() {
+               setInterval(function() { //setInterval repeats a given function at at every given time interval
+                   //alert(new Date());
+                   let date = new Date()
+                   let day = date.getDate() //returns the day of the month from 1-31
+                   let month = date.getMonth()+1 //returns the month (0-11)
+                   let year = date.getFullYear() //returns current year
+                   
+                   let hours = date.getHours() 
+                   let minutes = date.getMinutes()
+                   let seconds = date.getSeconds()
+                   clock.innerHTML = `Today'date is ${month}/${day}/${year}.  The current time is ${hours}:${minutes}:${seconds}`
+                   //clock.innerHTML = (`The time is currently: ${hours}:  ${minutes}: ${seconds}`)
+                   //alert(`The time is currently ${hours} ${minutes} ${seconds}`)
+                   //console.log(`Today's date is ${month} ${day} ${year}`)
+                }, 1000) // update every 1000 milliseconds, or 1 second
+           }) 
+
+           let stopwatch_date = new Date();
+           stopwatch_date.setHours(0,0,0,0);
+           setInterval (function() {
+               stopwatch_date.setSeconds(stopwatch_date.getSeconds()+1)
+               let second2 = stopwatch_date.getSeconds();
+               console.log(second2)
+               stop.innerHTML = `${second2}`;
+             },1000);
+
+            function updateClock() {
+            let d = new Date()
+            let year = d.getFullYear()
+            let month = d.getMonth() + 1
+            let day = d.getDate()
+            let hours = d.getHours()
+            let minutes = d.getMinutes()
+            let seconds = d.getSeconds()
+            div_clock.innerText = `${year}:${add0(month)}:${add0(day)} ${add0(hours)}:${add0(minutes)}:${add0(seconds)}`
+            }
+            updateClock()
+            setInterval(updateClock, 1000)
+
+           
+    </script>
+</div>    
+    <!--JavaScript at end of body for optimized loading-->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</div>        
+</body>
+</html>

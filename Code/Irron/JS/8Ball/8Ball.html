@@ -1,0 +1,150 @@
+<!DOCTYPE html>  <!-- Links to CSS/Javascript files. Bootstrap links (header and bottom of body). Container for Bootstrap, wrap body within  -->
+
+<html lang="en">
+    
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <!-- Copy/pasted 1 of 2 from bootstrap.  Remaining links posted at bottom of body -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    
+    <!-- Link to external CSS -->
+    <link rel="stylesheet" href="styles.css" type="text/css"/>  
+
+    <!-- Link to external random file 
+    <script type="text/javascript" src="random.js"></script>  -->
+
+
+</head>
+
+
+<body>
+           
+
+    <div id="header" class="display-3 text-primary">Welcome To Magic 8 Ball</div>
+    <br>
+    <div id ="sub_header" class="display-4 text-muted font-weight-light">Get Insights Into Your Future For Just $3 Per Question.</div>
+    <br>
+    <br>
+    <!--
+    <img src=" " class="rounded float-left" style="width: 10%" alt="...">
+    <img src="..." class="rounded float-right" alt="..."> -->
+
+    <div id="div_buttons" class="clearfix d-flex border justify-content-center">
+        <div id = "btn_question" class="btn btn-primary btn-lg float-left">Ask A QUESTION</div>
+        <div id = "btn_normal" class="btn btn-link btn-lg text-warning">Career</div>
+        <div id = "btn_sarcasm" class="btn btn-outline-danger btn-lg">Relationship</div>
+        <div id = "btn_dark" class="btn btn-link btn-lg text-success">Happiness & Mindset</div>
+        <div id = "btn_reset" class="btn btn-secondary btn-lg">Reset 🎱</div>
+    </div>
+    
+    <br>
+
+    <!--
+    <div id = "normal_text" class ="text-white bg-info d-flex justify-content-center align-items-center"></div> 
+    <div id = "sarcasm_text"></div>
+    <div id = "dark_text"></div>
+    <div id = "div_play_count"></div>
+    <div id = "f_string" class="font-italic lead font-weight-bold d-flex flex-direction: column"></div> --> 
+    
+   <!--Output-->
+    <div class="container">
+            <div id = "f_string" class="row col align-self-start lead justify-content-center text-info font-weight-bold" ></div>   
+    </div>     
+    
+    <div class="container">
+            <div id = "normal_text" class="row col align-self-start lead justify-content-center display-4 shadow-sm d-flex bg-light" ></div> 
+    </div>
+
+    <div class="container">
+            <div id = "sarcasm_text" class="row col align-self-start lead justify-content-center display-4 shadow-sm d-flex bg-light" ></div> 
+    </div>
+
+    <div class="container">
+            <div id = "dark_text" class="row col align-self-start lead justify-content-center display-4 shadow-sm d-flex bg-light" ></div> 
+    </div>
+
+    <div class="container">
+    <div id = "div_play_count" class="row col align-self-start font-italic lead justify-content-center
+               p-2 .flex-row" ></div> 
+    </div> 
+
+    <div class="container">
+    <div id = "div_total_count" class="row col align-self-start font-italic lead justify-content-center
+               p-2 .flex-row" ></div> 
+    </div> 
+
+    
+    <br>
+    <br>
+    <br>
+    <br>
+    
+    
+
+
+
+
+
+
+    <div class="container">
+        <div id = "footer">
+            <img src="8ball.webp" class="rounded float-left" style="width: 4%">
+            <img src="8ball.webp" class="rounded float" style="width: 5%">
+            <img src="8ball.webp" class="rounded float" style="width: 5%">
+            <img src="8ball.webp" class="rounded float" style="width: 5%">
+            <img src="8ball.webp" class="rounded float" style="width: 5%">
+            <img src="8ball.webp" class="rounded float" style="width: 5%">
+            <img src="8ball.webp" class="rounded float" style="width: 5%">
+            <img src="8ball.webp" class="rounded float" style="width: 5%">
+            <img src="8ball.webp" class="rounded float" style="width: 5%">
+            <img src="8ball.webp" class="rounded float" style="width: 5%">
+            <img src="8ball.webp" class="rounded float" style="width: 5%">
+            <img src="8ball.webp" class="rounded float" style="width: 5%">
+            <img src="8ball.webp" class="rounded float" style="width: 5%">
+            <img src="8ball.webp" class="rounded float" style="width: 5%">
+            <img src="8ball.webp" class="rounded float" style="width: 5%">
+            <img src="8ball.webp" class="rounded float" style="width: 5%">
+            <img src="8ball.webp" class="rounded float" style="width: 5%">
+            <img src="8ball.webp" class="rounded float" style="width: 5%">
+            <img src="8ball.webp" class="rounded float-right" style="width: 4%">
+        </div>
+        
+        
+    </div>
+    
+    
+    <div class="container">
+        <div id = "div_play_count" class="row col align-self-start font-italic lead justify-content-center
+        p-2 .flex-row" ></div> 
+    </div> 
+    
+          <!-- Wrapping entire body within the container -->
+    <div class="container">
+        <div id="div_score"></div>
+
+          
+
+        
+
+
+    </div>
+
+
+<!-- bootstrap formatting goes on the html page. create a div with div "mydiv class = button"   -->
+
+    
+    <!-- Link to external Javascript file-->
+    <script src="8Ball.js"></script>
+
+   
+    <!--JavaScript at end of body for optimized loading-->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+</body>
+</html>

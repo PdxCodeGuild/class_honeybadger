@@ -1,3 +1,5 @@
+//code to generate a random element or random number
+
 function random_element(arr) {
   let index = Math.floor(Math.random()*arr.length)
   return arr[index]

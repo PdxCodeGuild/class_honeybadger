@@ -1,23 +1,40 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-    <head>
-        <meta charset="utf-8">
-        <title></title>
-    </head>
-    <body>
-        <h1>{{ question.question_text }}</h1>
+
+<head>
+    <meta charset="utf-8">
+    <title>Question {{ question.id }}</title>
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="{% static 'lab_01_polls/style.css' %}">
+</head>
+
+<body>
+    <div class="main">
+        <h1>Question {{ question.id}}:</h1>
+        <h3>{{ question.question_text }}</h3>
 
         {% if error_message %}
         <p><strong>{{ error_message }}</strong></p>
         {% endif %}
+        <div class="content">
+            <form action="{% url 'lab_01_polls:vote' question.id %}" method="post">
+                {% csrf_token %}
+                {% for choice in question.choice_set.all %}
+                <label for="choice{{ forloop.counter }}">
+                    <input class="with-gap" type="radio" name="choice" id="choice{{ forloop.counter }}" value="{{ choice.id }}">
+                    <span>{{ choice.choice_text }}</span>
+                </label><br>
+                {% endfor %}
+                <input type="submit" value="Vote" class="btn orange darken-3">
+            </form>
+        </div>
+    </div>
+</body>
 
-        <form action="{% url 'lab_01_polls:vote' question.id %}" method="post">
-        {% csrf_token %}
-        {% for choice in question.choice_set.all %}
-            <input type="radio" name="choice" id="choice{{ forloop.counter }}" value="{{ choice.id }}">
-            <label for="choice{{ forloop.counter }}">{{ choice.choice_text }}</label><br>
-        {% endfor %}
-        <input type="submit" value="Vote">
-        </form>
-    </body>
 </html>

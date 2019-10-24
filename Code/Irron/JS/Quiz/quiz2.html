@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Quiz!!!</h1>
+    <div id="quiz"></div>
+    <div>
+        <button id="nextQuestion">Next Question</button>
+    </div>
+
+    <script>
+        let quiz = { //quiz object containing an array of arrays; 3 questions 
+            title: 'JavaScript Quiz',
+            questions: [{
+                text: 'How do you increment a number in JavaScript?',
+                answers: [{
+                    text: 'i = i + 1',
+                    correct: false
+                }, {
+                    text: 'i += 1',
+                    correct: false
+                }, {
+                    text: 'i++',
+                    correct: false
+                }, {
+                    text: '++i',
+                    correct: false
+                }, {
+                    text: 'i -= -1',
+                    correct: false
+                }, {
+                    text: 'all of the above',
+                    correct: true
+                }]
+            }, {
+                text: 'In what order are the parts of a for loop?',
+                answers: [{
+                    text: 'initialization, condition, increment',
+                    correct: true
+                }, {
+                    text: 'condition, initialization, increment',
+                    correct: false
+                }, {
+                    text: 'initialization, increment, condition',
+                    correct: false
+                }, {
+                    text: 'condition, initialization, increment',
+                    correct: false
+                }]
+            }, {
+                text: 'What\'s the difference between == and ===?',
+                answers: [{
+                    text: 'nothing',
+                    correct: false
+                }, {
+                    text: '== coerces types, === does not',
+                    correct: true
+                }, {
+                    text: '=== coerces types, == does not',
+                    correct: false
+                }]
+            }]
+        }
+
+        let currentQuestion = 0
+        let correctAnswers = 0
+        const quizElement = document.querySelector("#quiz")
+
+        function buildAnswers() { //created function to access the answers value in the quiz object
+            let answersHtml = '';
+            const answers = quiz.questions[currentQuestion].answers;
+
+            for(let answer of answers) {
+                answersHtml += `<div>
+                    <label for="answer${currentQuestion}">${answer.text}</label>
+                    <input name="answer${currentQuestion}" value="${answer.correct}" type="radio" />
+                </div>`
+            }
+
+            return answersHtml;
+        }
+
+        function buildQuestion() {
+            return `
+                <div>
+                    ${quiz.questions[currentQuestion].text}
+                </div>
+                <div>
+                    ${buildAnswers()}
+                </div>
+            `
+        }
+
+        function buildEndQuiz() {
+            return `
+                <h1>Good Job</h1>
+                <div>
+                    <strong>
+                        You answered ${correctAnswers} out of ${quiz.questions.length} correctly!
+                    </strong>
+                </div>
+            `
+        }
+
+        // Create the quiz
+        quizElement.innerHTML = buildQuestion();
+
+        // Next question button
+        const nextQuestion = document.querySelector("#nextQuestion");
+        // On click!
+        nextQuestion.addEventListener("click", function() {
+            // Is the question correct?
+            const answerElements = document.getElementsByName(`answer${currentQuestion}`);
+            // Iterate over each radio input and figure out if it's true
+            answerElements.forEach(function(answer) {
+                if(answer.checked && answer.value === "true") {
+                    correctAnswers += 1;
+                }
+            })
+
+            // If the quiz is over, show them the end
+            if(currentQuestion === quiz.questions.length - 1) {
+                quizElement.innerHTML = buildEndQuiz()
+                nextQuestion.remove();
+            } else { // Otherwise go to the next question
+                currentQuestion += 1;
+                quizElement.innerHTML = buildQuestion()
+                console.log(correctAnswers)
+            }
+        });
+    </script>
+</body>
+
+</html>

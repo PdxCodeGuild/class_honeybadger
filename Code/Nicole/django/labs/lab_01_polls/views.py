@@ -5,7 +5,6 @@ from django.http import HttpResponse, HttpResponseRedirect
 from .models import Question
 from django.template import loader
 from django.http import Http404
-from django.shortcuts import render
 
 from django.shortcuts import get_object_or_404, render
 from django.urls import reverse
@@ -13,7 +12,7 @@ from django.urls import reverse
 from .models import Question, Choice
 
 def index(request):
-    latest_question_list = Question.objects.order_by("-pub_date")[:5]
+    latest_question_list = Question.objects.order_by("id")[:5]
     template = loader.get_template("lab_01_polls/index.html")
     context = {
         "latest_question_list": latest_question_list,
