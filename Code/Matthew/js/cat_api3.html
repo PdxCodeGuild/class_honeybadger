@@ -5,6 +5,7 @@
     <title></title>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.min.js" type="text/javascript"></script>
+    <script src="secrets.js" type="text/javascript"></script>
     <style type="text/css">
       img {
           width:300px;
@@ -22,12 +23,12 @@
       <img v-for="image in images" v-bind:src="image"/>
     </div>
     <script type="text/javascript">
-      
+      console.log(cat_api_key)
       let app = new Vue({
         el: '#app',
         data: {
           cat_img_url: '',
-          cat_api_key: '2f20dc57-f42d-499a-ba36-e82bbf582e84',
+          cat_api_key: cat_api_key,
           cat_breeds_url: 'https://api.thecatapi.com/v1/breeds/',
           breeds: [],
           selected_breed: '',

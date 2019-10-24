@@ -1,0 +1,41 @@
+.nav-wrapper {
+  padding: 10px;
+  margin:10px;
+  text-align: center;
+}
+
+body, html {
+  background-color: silver;
+  font-family: sans-serif;
+  font-size: 25px;
+}
+
+.btn {
+  border-radius: 75%;
+  background-color: black;
+  margin: 15px;
+  text-align: center;
+}
+
+#date {
+  background-color: black;
+  color: white;
+  text-align: center;
+}
+
+#clock {
+  background-color: black;
+  color: white;
+  text-align: center;
+}
+
+#stopwatch {
+  background-color: black;
+  color: white;
+  text-align: center;
+}
+
+.heading {
+  border-bottom: solid black;
+  text-align: center;
+}

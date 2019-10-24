@@ -1,0 +1,101 @@
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Mansalva&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="clock.css">
+  <title>Clock</title>
+</head>
+<body>
+  <main>
+    <div class="heading">
+      <div class="row">
+        <div class="col s12">
+          <h3>Here is that clock!</h3>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="nav-wrapper">
+          <a class="waves-effect waves-light btn" id="myBtn">Start The Timer</a>
+          <a class="waves-effect waves-light btn" id="resetBtn">Reset The Timer</a>
+      </div>
+      <div class="row" id="stopwatch">
+        <div class="col s12">
+          <div id="stopwatch">00:00:00</div>
+        </div>
+      </div>
+      <div class="row" id="date">
+        <div class="col s6">
+          <div id="date"></div>
+        </div>
+      </div>
+      <div class="row" id="clock">
+        <div class="col s6">
+          <div id="clock"></div>
+        </div>
+      </div>
+    </div>
+  </main>
+    <script type="text/javascript">
+      let button = document.querySelector("#myBtn");
+      let resetBtn = document.querySelector("#resetBtn")
+      let clock = document.querySelector("#clock");
+      let date = document.querySelector("#date");
+      let stopwatch = document.querySelector("#stopwatch");
+      let time = 0;
+      let myInterval = -1;
+      let stopwatch_date = new Date();
+      stopwatch_date.setHours(0, 0, 0, 0);
+      stopwatch_date = stop;
+      // stopwatch_date.setSeconds(stopwatch_date.getSeconds()+1)
+      // let seconds2 = stopwatch_date.getSeconds();
+
+      button.addEventListener("click", function(event){
+        if (myInterval == -1) {
+          button.innerHTML = "Pause The Timer"
+          myInterval = setInterval (function() {
+            time ++;
+            stopwatch.innerHTML = `The clock is running! <br/>${time}`;
+          }, 1000);
+        } else {
+          button.innerHTML = "Start The Timer"
+          clearInterval(myInterval);
+          myInterval = -1;
+          stopwatch.innerHTML = `The clock has been paused. <br/>${time}`;
+        }
+      });
+
+      resetBtn.addEventListener("click", function(event){
+        if (myInterval >= -1) {
+          clearInterval(myInterval);
+          myInterval = -1;
+          time = 0;
+          stopwatch.innerHTML = `The clock has been reset. <br/>${time}`
+        }
+      })
+
+      setInterval (function () {
+        let d = new Date()
+        let hours = d.getHours();
+        let AM_PM = 'AM';
+        if (hours > 12){
+          AM_PM = 'PM';
+          hours -= 12
+        }
+        let minutes = d.getMinutes();
+        let seconds = d.getSeconds();
+        let year = d.getFullYear();
+        let month = d.getMonth()+1;
+        let day = d.getDate();
+        clock.innerHTML = `The current time is: <br/>${minutes} minutes and ${seconds} seconds after ${hours} ${AM_PM}, `;
+        date.innerHTML = `Today's date is:<br/> ${month} /  ${day} / ${year}`
+      }, 1000);
+
+    </script>
+  </body>
+  </html>

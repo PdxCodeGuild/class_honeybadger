@@ -61,11 +61,19 @@ function keyWatchObject() {
     return { milliseconds,seconds,minutes,hours,days,years };
 }
 
+const [milliseconds, seconds, ...rest] = keyWatch();
+
 const obj = keyWatchObject();
 
-const { seconds } = obj;
+//const { seconds } = obj;
 
 console.dir({ seconds });
+
+function blop({ seconds }) {
+    console.info("seconds: %d", seconds);
+}
+
+blop(keyWatchObject())
 
 function displayUpdate(timeArray) {
     
@@ -118,11 +126,14 @@ function countDown() {
         counterInterval = null
     }
 
-    const runHrs = countDownInputsHrs.value * 3600
-    const runMins = countDownInputsMins.value * 60
-    const runSecs = countDownInputsSecs.value
+    const runHrs = parseInt(countDownInputsHrs.value * 3600)
+    const runMins = parseInt(countDownInputsMins.value * 60)
+    const runSecs = parseInt(countDownInputsSecs.value)
+
+    console.log(runHrs,runMins,runSecs)
 
     runTime = runHrs + runMins + runSecs
+    console.log(runTime)
 
     let timeStart = masterTime[1]
  
@@ -130,10 +141,11 @@ function countDown() {
         let diff = masterTime[1]-timeStart
         
         let curTime = runTime - diff 
+        console.log(curTime)
 
-        const seconds = clampDisplayTime(Math.floor(curTime))
-        const minutes = clampDisplayTime(Math.floor(curTime/60))
-        const hours = clampDisplayTime(Math.floor(curTime/3600))
+        const seconds = clampDisplayTime(Math.floor(curTime)) % 60
+        const minutes = clampDisplayTime(Math.floor(curTime/60)) % 60
+        const hours = clampDisplayTime(Math.floor(curTime/3600)) 
 
         countDownDisplay.innerText = `${hours}:${minutes}:${seconds}`
         
@@ -150,11 +162,11 @@ function countDown() {
 let masterTime
 setInterval(function() {
     masterTime = keyWatch()
-},100)
+},10)
 
 setInterval(function() {
     displayUpdate(masterTime)
-},100)
+},10)
 
 stopBtn.addEventListener("click", function() {
     stopWatch()

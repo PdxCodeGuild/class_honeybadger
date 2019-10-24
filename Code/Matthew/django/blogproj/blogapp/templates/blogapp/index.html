@@ -1,0 +1,22 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="{% static 'blogapp/style.css' %}" style="text/css"/>
+  </head>
+  <body>
+    <h1>{{ title | title }}</h1>
+    <ul>
+      
+    {% for blog_post in blog_posts %}
+      {% comment %}
+        <li>{{blog_post.id}}) {{blog_post.title | title}} - {{ blog_post.body | slice:"0:10" }}... {{ blog_post.pretty_date }}</li>
+      {% endcomment %}
+      <li><a href="/blog/{{blog_post.id}}/">{{blog_post.title | title}}</a> - {{ blog_post.body | slice:"0:10" }}... {{ blog_post.pretty_date }}</a></li>
+      
+    {% endfor %}
+    </ul>
+  </body>
+</html>
