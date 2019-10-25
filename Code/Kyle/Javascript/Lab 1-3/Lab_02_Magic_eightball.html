@@ -3,25 +3,6 @@
   <head>
     <meta charset="utf-8">
     <title></title>
-    <script type="text/javascript">
-
-    function random_element(arr) {
-        let index = Math.floor(Math.random()*arr.length)
-        return arr[index]
-      }
-
-    function magic8() {
-      let answers = ["Yes", "Maybe", "Answer Uncertain", "No"]
-      let magic = random_element(answers)
-      let question = prompt("Ask your question traveler...")
-      alert(magic)
-
-    }
-
-
-
-
-    </script>
     <style>
 
     body {
@@ -33,14 +14,30 @@
     }
 
     button {
-      
+
     }
 
     </style>
   </head>
   <body>
     <h1>Magic 8 Ball<h1>
-      <button onclick="magic8()">Welcome... Ask any question..
+      <input type="text" id="item"/>
+      <button onclick=
+
+
+      <div id="question" onclick="magic8()"><div/>
+
+      function random_element(arr) {
+          let index = Math.floor(Math.random()*arr.length)
+          return arr[index]
+        }
+
+      function magic8() {
+        let answers = ["Yes", "Maybe", "Answer Uncertain", "No"]
+        let magic = random_element(answers)
+
+      }
+    </script>
 
   </body>
 </html>
