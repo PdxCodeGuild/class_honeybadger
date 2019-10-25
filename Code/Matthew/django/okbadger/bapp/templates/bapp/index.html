@@ -1,0 +1,40 @@
+
+{% extends 'bapp/base.html' %}
+
+{% block content %}
+  {% load static %}
+  <style type="text/css">
+    h2 a {
+      text-decoration:none;
+    }
+    .profile {
+      display:flex;
+      flex-direction:row;
+      justify-content:flex-start;
+    }
+    .profile > div {
+      margin:20px;
+    }
+  </style>
+  <h1>OkBadger Homepage <3333</h1>
+  <a href="{% url 'bapp:create' %}">create a profile</a>
+  {% for dating_profile in dating_profiles %}
+  <div class="profile">
+    <div>
+      <a href="{% url 'bapp:profile' dating_profile.id %}"><img src="{{ dating_profile.picture.url }}" width="150"/></a>
+      {% comment %}
+      {% with counter=dating_profile.id|stringformat:"s" %}
+      {% with image_url='bapp/images/hb_'|add:counter|add:'.jpeg' %}
+      <a href="{% url 'bapp:profile' dating_profile.id %}"><img src="{% static image_url %}" width="150"/></a>
+      {% endwith %}
+      {% endwith %}
+      {% endcomment %}
+    </div>
+    <div>
+      <h2><a href="{% url 'bapp:profile' dating_profile.id %}">{{dating_profile.name}}</a></h2>
+      <h5>{{dating_profile.age}} - {{dating_profile.location}}</h5>
+      <h5>Occupation: {{dating_profile.occupation}}</h5>
+    </div>
+  </div>
+  {% endfor %}
+{% endblock %}

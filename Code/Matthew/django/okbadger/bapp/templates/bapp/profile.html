@@ -1,0 +1,11 @@
+
+{% extends 'bapp/base.html' %}
+
+{% block content %}
+  <a href="{% url 'bapp:index' %}">back</a>
+  <h1>{{ dating_profile.name }}</h1>
+  <a href="{% url 'bapp:profile' dating_profile.id %}"><img src="{{ dating_profile.picture.url }}" width="150"/></a>
+  <h5>{{dating_profile.age}} - {{dating_profile.location}}</h5>
+  <h5>Occupation: {{dating_profile.occupation}}</h5>
+  <p>{{ dating_profile.bio }}</p>
+{% endblock %}
