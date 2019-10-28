@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<!--index-->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>todo index</title>
+</head>
+<body>
+    <div>
+        <div>{{message}}</div>
+        <ul>
+            {% for todo in todos %}
+            <li>{{ todo }}
+                <form action="{% url 'todo:complete_todo' %}" method="post">
+                    {% csrf_token %}
+                    <input type="hidden" name="todo_id" value="{{todo.id}}">
+                    <button type="submit">completed</button>
+                </form>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+    <div>
+        <form action="{% url 'todo:new_todo' %}" method="post">
+            {% csrf_token %}
+            <input type="text" name="todo_txt" placeholder = "do what exactly?">
+            <button type="submit">add todo</button>
+        </form>
+    </div>
+</body>
+</html>

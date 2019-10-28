@@ -5,22 +5,17 @@
     <title></title>
   </head>
   <body>
-    <a href="{% url 'polls:index' %}">home</a>
-    {% if question %}
-      <h1>{{ question.question_text }}</h1>
-      <ul>
-      {% for choice in question.choice_set.all %}
-          <li>{{ choice.choice_text }}</li>
-      {% endfor %}
-      </ul>
-    {% else %}
-      <p>No question found!</p>
-    {% endif %}
+    <h1>{{ question.question_text }}</h1>
+
+    {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
     
     <form action="{% url 'polls:vote' question.id %}" method="post">
-      {% csrf_token %}
-      <input type="text" name="myname" value=""/>
-      <button type="submit">submit</button>
+    {% csrf_token %}
+    {% for choice in question.choice_set.all %}
+        <input type="radio" name="choice" id="choice{{ forloop.counter }}" value="{{ choice.id }}">
+        <label for="choice{{ forloop.counter }}">{{ choice.choice_text }}</label><br>
+    {% endfor %}
+    <input type="submit" value="Vote">
     </form>
   </body>
 </html>
