@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style>
+      form {
+        display:flex;
+        flex-direction:column;
+        align-items:flex-start;
+      }
+      form > * {
+        margin:4px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>happy monday!</h1>
+    <hr/>
+    <h4>Create a new post</h4>
+    <form action="{% url 'blogapp:create_blogpost' %}" method="post">
+      {% csrf_token %}
+      <input type="text" name="title_llama" placeholder="title" value=""/>
+      <input type="text" name="author_llama" placeholder="author"/>
+      <input type="text" name="slug_llama" placeholder="slug"/>
+      <textarea name="body_llama" placeholder="body"></textarea>
+      <select name="category_id_llama">
+        <option value="" selected disabled>Select a category</option>
+        {% for blog_post_category in blog_post_categories %}
+        <option value="{{blog_post_category.id}}">{{blog_post_category.name}}</option>
+        {% endfor %}
+      </select>
+      <button>post</button>
+    </form>
+    <hr/>
+    <ul>
+      {% for blog_post in blog_posts %}
+      <li><a href="{% url 'blogapp:detail' blog_post.slug %}">{{ blog_post | title }}</a></li>
+      {% endfor %}
+    </ul>
+  </body>
+</html>
+

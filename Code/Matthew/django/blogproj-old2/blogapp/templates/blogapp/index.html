@@ -1,0 +1,10 @@
+{% extends 'blogapp/base.html' %}
+{% block title %}Welcome to the blog index page!{% endblock %}
+{% block content %}
+  <a href="{% url 'blogapp:new' %}">create blog post</a>
+  {% for blog_post in blog_posts %}
+  <h2><a href="{% url 'blogapp:detail' blog_post.id %}">{{ blog_post.title | title }}</a> - {{ blog_post.type.name | title }}</h2>
+  <h6>Published on {{ blog_post.published_date }}</h6>
+  <p>{{ blog_post.body | safe | truncatechars:30 }}</p>
+  {% endfor %}
+{% endblock %}

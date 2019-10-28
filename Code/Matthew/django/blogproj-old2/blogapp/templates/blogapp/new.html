@@ -1,0 +1,39 @@
+{% extends 'blogapp/base.html' %}
+
+{% block title %}New Blog Post{% endblock %}
+
+{% block content %}
+<a href="{% url 'blogapp:index' %}">back</a>
+<form action="{% url 'blogapp:create_blogpost' %}" method="post">
+  {% csrf_token %}
+  <div>
+    <input type="text" id="blogpost_title" name="blogpost_title" value=""/>
+  </div>
+  <div>
+    <textarea id="blogpost_body" name="blogpost_body"></textarea>
+  </div>
+  <div>
+    <select id="blogpost_type_id" name="blogpost_type_id">
+      <option value="" selected disabled>Select an option...</option>
+      {% for blogpost_type in blogpost_types %}
+      <option value="{{blogpost_type.id}}">{{blogpost_type.name | title}}</option>
+      {% endfor %}
+    </select>
+  </div>
+  <button type="submit">submit</button>
+  <button id="bt_clear">clear</button>
+</form>
+<script type="text/javascript">
+  let blogpost_title = document.querySelector('#blogpost_title')
+  let blogpost_body = document.querySelector('#blogpost_body')
+  let blogpost_type_id = document.querySelector('#blogpost_type_id')
+  let bt_clear = document.querySelector('#bt_clear')
+  
+  bt_clear.addEventListener('click', function(event) {
+    blogpost_title.value = ''
+    blogpost_body.value = ''
+    blogpost_type_id.value = ''
+    event.preventDefault()
+  })
+</script>
+{% endblock %}

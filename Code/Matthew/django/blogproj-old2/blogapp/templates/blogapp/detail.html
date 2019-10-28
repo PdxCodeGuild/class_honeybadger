@@ -1,0 +1,6 @@
+{% extends 'blogapp/base.html' %}
+{% block title %}{{blog_post.title}}{% endblock %}
+{% block content %}
+<a href="{% url 'blogapp:index' %}">back</a>
+<p>{{blog_post.body | safe}}</p>
+{% endblock %}

@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <h1>{{single_post.title | title}}</h1>
+    <h2>By {{single_post.author | title}}, {{single_post.category.name}}</h2>
+    <p>{{single_post.html_body|safe}}</p>
+  </body>
+</html>
