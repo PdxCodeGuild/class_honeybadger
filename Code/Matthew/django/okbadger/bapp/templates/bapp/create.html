@@ -1,0 +1,45 @@
+{% extends 'bapp/base.html' %}
+
+{% block content %}
+<style>
+  form {
+    display:flex;
+    flex-direction:column;
+    width:500px;
+    margin: 0 auto;
+  }
+  form > * {
+    margin:5px;
+  }
+  form select[multiple] {
+    height:150px;
+  }
+</style>
+
+<form action="{% url 'bapp:save_profile' %}" method="post" enctype="multipart/form-data">
+  <h1>Create a Profile</h1>
+  {% csrf_token %}
+  <input type="text" name="profile_name" placeholder="name"/>
+  <select name="profile_location_id">
+    <option value="" selected disabled>Select a location</option>
+    {% for location in locations %}
+    <option value="{{location.id}}">{{location.name}}</option>
+    {% endfor %}
+  </select>
+  <input type="text" name="profile_occupation" placeholder="occupation"/>
+  <input type="text" name="profile_age" placeholder="age"/>
+  <textarea name="profile_bio" placeholder="bio"></textarea>
+  <select name="profile_orientations" multiple>
+    {% for orientation in orientations %}
+    <option value="{{orientation.id}}">{{orientation.name}}</option>
+    {% endfor %}
+  </select>
+  <select name="profile_genders" multiple>
+    {% for gender in genders %}
+    <option value="{{gender.id}}">{{gender.name}}</option>
+    {% endfor %}
+  </select>
+  <input type="file" name="profile_picture" accept="image/*"/>
+  <button type="submit" class="btn">Create Profile</button>
+</form>
+{% endblock %}
