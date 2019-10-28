@@ -7,5 +7,5 @@ class Todoitem(models.Model):
     completion_status = models.BooleanField()
 
     def __str__(self):
-        return f'{self.body}: {self.completion_status}'
+        return f'{self.body}'
 

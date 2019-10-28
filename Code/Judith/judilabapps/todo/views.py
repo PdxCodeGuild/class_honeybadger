@@ -8,8 +8,10 @@ from .models import Todoitem
 
 def index(request, **kwargs):
     context = {
-        'message':'hello',
-        'todos': Todoitem.objects.all()
+        'list_header': 'Anything!',
+        'comp_header': 'Look On Your Works',
+        'todos': Todoitem.objects.filter(completion_status=False), 
+        'done_todos': Todoitem.objects.filter(completion_status=True),
     }
     return render(request, 'todo/index.html', context)
 
