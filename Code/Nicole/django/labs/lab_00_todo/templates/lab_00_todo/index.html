@@ -4,62 +4,103 @@
 <html lang="en" dir="ltr">
 
 <head>
-  <meta charset="utf-8">
-  <title>Lab 00: To Do</title>
-  <!-- Compiled and minified CSS -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <meta charset="utf-8">
+    <title>Lab 00: To Do</title>
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 
-  <!-- Compiled and minified JavaScript -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 
-  <link rel="stylesheet" type="text/css" href="{% static 'lab_01_polls/style.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'lab_01_polls/style.css' %}">
 </head>
 
 <body>
-  <div class="main">
-    <h1>To Do List</h1>
+    <div class="main">
+        <h1>To Do List</h1>
+        <div class="container">
+            <form action="{% url 'lab_00_todo:add_todo' %}" method="post">
+                {% csrf_token %}
+                <div class="row">
+                    <div id="add_todo_item" class="input-field col s12">
+                        <input id="todo_add" name="add_todo_llama" type="text" class="validate">
+                        <label for="todo_add">ToDo Item</label>
+                        <button class="btn col s12 deep-orange lighten-2">Add to list</button>
+                    </div>
+                </div>
+            </form>
+            <table class="highlight">
+                <tbody>
+                    {% if todo_list %}
+                    <thead>
+                        <tr>
+                            <th>Item</th>
+                            <th>Date added</th>
+                            <th>Date completed</th>
+                            <th>Action</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    {% for item in todo_list %}
+
+                    <tr class="list_incomplete">
+                        <td>{{ item.description_text }}</td>
+                        <td>{{ item.created_date }}</td>
+                        <td>{% if item.completed_date %} {{ item.completed_date }} {% endif %}</td>
+                        <td>
+                            <form action="{% url 'lab_00_todo:complete_todo' %}" method="post">
+                                {% csrf_token %}
+                                <input type="hidden" name="item_id_llama" value="{{item.id}}" />
+                                <button class="btn deep-orange lighten-2" type="submit">Complete</button>
+                            </form>
+                        </td>
+                        <td>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                    {% else %}
+                    <div class="empty_list">Add something to your list!
+                    </div>
+                    {% endif %}
+
+                    {% if completed_list %}
+                    {% for item in completed_list %}
+                    <tr class="list_complete">
+                        <td>{{ item.description_text }}</td>
+                        <td>{{ item.created_date }}</td>
+                        <td>{{ item.completed_date }}</td>
+                        <td>
+                            <form action="{% url 'lab_00_todo:delete_todo' %}" method="post">
+                                {% csrf_token %}
+                                <input type="hidden" name="delete_id_llama" value="{{item.id}}" />
+                                <button class="btn grey lighten-1" type="submit">Delete</button>
+                            </form>
+                        </td>
+                        <td>
+                            <form action="{% url 'lab_00_todo:undo_todo' %}" method="post">
+                                {% csrf_token %}
+                                <input type="hidden" name="undo_item_id" value="{{item.id}}" />
+                                <button class="btn blue lighten-1" type="submit">Undo</button>
+                            </form>
+
+                        </td>
+                    </tr>
+                    {% endfor %}
+                    {% endif %}
 
 
-    {% if todo_list %}
+                </tbody>
+            </table>
 
-    <div class="container">
-      <table class="highlight">
-        <thead>
-          <tr>
-            <th>Item</th>
-            <th>Date added</th>
-            <th>Date completed</th>
-            <th></th>
-          </tr>
-        </thead>
+        </div>
 
-        <tbody>
-          {% for item in todo_list %}
-          <tr>
-            <td>{{ item.description_text }}</td>
-            <td>{{ item.created_date }}</td>
-            <td>{{ item.completed_date }}</td>
-            <td>
-              <label>
-                <input type="checkbox" />
-                <span>{{ item.completed }}</span>
-              </label>
-            </td>
-            {% endfor %}
-          </tr>
-        </tbody>
 
-      </table>
-      {% else %} <p>No items in your list</p>
-      {% endif %}
     </div>
 
-
-
-
-
-
-  </div>
+    <script type="text/javascript">
+        let todo_add = document.querySelector("#todo_add")
+        todo_add.focus()
+    </script>
 </body>
 
 </html>
