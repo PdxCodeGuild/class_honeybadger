@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>detail view</title>
+</head>
+<body>
+    <div>
+        <p>{{ item.first_name }} {{ item.last_name }}</p>
+        <p>{{ item.birthday }}</p>
+        <p>{{ item.phone_num }} {{ is_cell }}</p> 
+    </div>
+    <div>
+        <form action="{% url 'contacts:edit' item.id %}" method="post">
+            {% csrf_token %}
+            <div>
+                <input type="text" value="{{item.first_name}}" name="first" required>
+                <label name="first">first name</label>
+            </div>
+            <div>
+                <input type="text" value="{{item.last_name}}" name="last" required>
+                <label name="last">last name</label>
+            </div>
+            <div>
+                <input type="date" value="{{item.birthday}}" name="birthday" required>
+                <label name="birthday">DOB</label>
+            </div>
+            <div>
+                <input type="number" value="{{item.phone_num}}" name="phone" required>
+                <label name="phone">phone number</label>
+            </div>
+            <div>
+                <input type="checkbox" value="{{item.is_cell}}" name="is_cell">
+                <label name="is_cell">mobile</label>
+            </div>
+            <button type="submit">submit changes</button>
+        </form>
+    </div>
+</body>
+</html>
