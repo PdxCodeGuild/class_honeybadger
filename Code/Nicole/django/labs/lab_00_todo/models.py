@@ -5,7 +5,9 @@ class ToDoItem(models.Model):
     description_text = models.CharField(max_length=100)
     created_date = models.DateTimeField("date created")
     completed_date = models.DateTimeField(null=True, blank=True)
-    completed = models.BooleanField()
+    completed = models.BooleanField(null=True, blank=True)
+
 
     def __str__(self):
-        return self.description_text
+        return self.description_text + ' ' + "(" + str(self.completed) + ")"
+

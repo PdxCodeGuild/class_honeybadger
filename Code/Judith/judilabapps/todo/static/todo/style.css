@@ -1,0 +1,66 @@
+body {
+    display: grid;
+    grid-template-rows: [header] 1fr [body] 6fr [creator] 2fr;
+    grid-template-columns: [left-gutter] 1fr [main] 4fr [right-gutter] 1fr ;
+    grid-gap: 20px;
+    font-family: "Press Start 2P","Yoshi's Story game text BRK", "Trebuchet MS";
+    background: linear-gradient(to bottom right, #bebaff, #febaff) fixed;
+    color:#d2691e;
+}
+
+header {
+    grid-row: header;
+    grid-column: main/right-gutter;
+    text-align: center;
+}
+
+li {
+    color: #d2691e;
+}
+
+body > * {
+    border-radius: 10px;
+    background-color: #fffacd !important;
+    margin: 10px;
+    padding: 10px;
+}
+
+#main_display {
+    grid-row: body;
+    grid-column: main;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+#donezo li {
+    color: purple;
+}
+
+#creator{
+    grid-row: creator;
+    grid-column: main/right-gutter;
+}
+
+#creator form {
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+#creator .fancy_input {
+    background: transparent;
+    font-family: "Press Start 2P";
+    text-align: center;
+    border: none;
+    color: #d2691e;
+    font-size: 2em;
+}
+
+.submit {
+    margin: 5px;
+    border: none;
+    background-color: purple;
+    border-radius: 8px;
+}
+
