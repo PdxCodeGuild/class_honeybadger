@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<!--index-->
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="{% static 'todo/style.css' %}">
+    <title>todo index</title>
+</head>
+<body>
+    <header>Do Something!</header>
+    <div id="main_display">    
+        <div id="unfinished">
+            <div>{{list_header}}</div>
+            <ul>
+                {% for todo in todos %}
+                <li>{{ todo }}
+                    <form action="{% url 'todo:complete_todo' %}" method="post">
+                        {% csrf_token %}
+                        <input type="hidden" name="todo_id" value="{{todo.id}}">
+                        <button class="submit" type="submit">&#10003;</button>
+                    </form>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+        <div id="donezo">
+            <div>{{comp_header}}</div>
+            <ul>
+                {% for todo in done_todos %}
+                <li>{{ todo }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+    <div id="creator">
+        <form action="{% url 'todo:new_todo' %}" method="post">
+            {% csrf_token %}
+            <input class="fancy_input" type="text" name="todo_txt" placeholder = "do what exactly?" required>
+            <button class="fancy_input" type="submit">maybe this?</button>
+        </form>
+    </div>
+</body>
+</html>

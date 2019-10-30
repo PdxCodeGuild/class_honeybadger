@@ -1,0 +1,104 @@
+{% extends 'todoapp/base.html' %}
+
+{% block content %}
+<style type="text/css">
+  .todo_item {
+    transition: all 200ms;
+    margin-bottom:10px;
+    padding:20px;
+    display:flex;
+    flex-direction:row;
+    justify-content:space-between;
+    align-items:center;
+    cursor:pointer;
+    -webkit-box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
+        box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
+  }
+  .todo_item:hover {
+    -webkit-box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12), 0 2px 4px -1px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12), 0 2px 4px -1px rgba(0, 0, 0, 0.3);
+  }
+  input[type="text"]:focus {
+    border-bottom: 0.5px solid black !important;
+    box-shadow: none !important;
+  }
+  /* input[type="text"]:focus + label {
+    color:black !important;
+  } */
+  
+  .flex_row {
+    display:flex;
+    flex-direction:row;
+    justify-content:space-between;
+    align-items:center;
+  }
+  
+  .todo_item .btn {
+    margin-left:10px;
+  }
+  
+  .completed {
+    color:grey;
+    text-decoration:line-through;
+  }
+  
+</style>
+<h3>Todo Items</h3>
+
+<!-- FORM -->
+<form action="{% url 'todoapp:save_todo' %}" method="post">
+  {% csrf_token %}
+  <div class="row">
+    <div class="col s5">
+      <div class="input-field inline">
+        <input type="text" id="todo_text" name="todo_text" required/>
+        <label for="todo_text" class="black-text">Text</label>
+      </div>
+      
+    </div>
+    <div class="col s5">
+      <div class="input-field inline">
+        <select name="todo_type_ids" multiple>
+          {% for type in todo_types %}
+          <option value="{{type.id}}">{{type.emoji}} {{type.name}}</option>
+          {% endfor %}
+        </select>
+        <label>Types</label>
+      </div>
+    </div>
+    <div class="col s2">
+      <button class="btn light-blue lighten-2">add</button>
+    </div>
+  </div>
+</form>
+
+<!-- TODO ITEMS -->
+{% for todo_item in todo_items %}
+<div class="todo_item">
+  <div class="{% if todo_item.date_completed %}completed{% endif %}">{{todo_item.text}}</div>
+  <div class="flex_row">
+    {% for type in todo_item.ordered_types %}
+    <span class="tooltipped" data-position="top" data-tooltip="{{type.name}}">{{ type.emoji }}</span>
+    {% endfor %}
+    {% if not todo_item.date_completed %}
+    <form action="{% url 'todoapp:complete_todo' %}" method="post">
+      {% csrf_token %}
+      <input type="hidden" name="todo_item_id" value="{{todo_item.id}}"/>
+      <button class="btn btn-floating light-blue lighten-2 tooltipped" data-position="top" data-tooltip="complete"><i class="material-icons">check</i></button>
+    </form>
+    {% endif %}
+  </div>
+</div>
+{% endfor %}
+
+<!-- JAVASCRIPT -->
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function() {
+    let elems_tooltips = document.querySelectorAll('.tooltipped')
+    let instances_tooltips = M.Tooltip.init(elems_tooltips, {})
+    
+    let elems_selects = document.querySelectorAll('select');
+    let instances_selects = M.FormSelect.init(elems_selects, {});
+  });
+</script>
+{% endblock %}

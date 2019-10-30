@@ -23,7 +23,7 @@
     from django.http import HttpResponse
     
     def index(request):
-        return HttpResponse("This is the app inded page")
+        return HttpResponse("This is the app index page")
     
 
 # 6. Create and go to urls.py in the APP folder:

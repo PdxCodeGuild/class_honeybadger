@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Contacts Home</title>
+</head>
+<body>
+    <div>
+        <ul>
+            {% for item in contact_list %}
+            <li>{{item}}</li>
+            {% endfor %}
+        </ul>
+    </div>
+    <div>
+        <form action="{% url 'contacts:new' %}" method="post">
+            {% csrf_token %}
+            <input type="text" name="first_name" placeholder="first name" required>
+            <input type="text" name="last_name" placeholder="last name" required>
+            <input type="date" name="birthday" required><label name="birthday">DOB</label>
+            <input type="number" name="phone_num" placeholder="phone number" required>
+            <input type="checkbox" name="is_cell"><label name="is_cell">mobile number</label>
+            <button type="submit">submit</button>
+        </form>
+    </div>
+</body>
+</html>
