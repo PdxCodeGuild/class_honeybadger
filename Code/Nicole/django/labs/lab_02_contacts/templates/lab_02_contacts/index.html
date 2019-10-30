@@ -1,0 +1,79 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <title>Lab 02 — Contacts</title>
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="{% static 'lab_01_polls/style.css' %}">
+</head>
+
+<body>
+    <div class="main">
+        <h1 class="title">
+            Contact List
+        </h1>
+        <div class="container">
+            <form action="{% url 'lab_02_contacts:add_contact'%}" method="post">
+                {% csrf_token %}
+                <div class="row">
+                    <div class="input-field col s3">
+                        <input type="text" id="contact_first_name" name="contact_first_name" value="">
+                        <label for="contact_first_name">First Name</label>
+                    </div>
+                    <div class="input-field col s3">
+                        <input type="text" name="contact_last_name" value="">
+                        <label for="contact_last_name">Last Name</label>
+                    </div>
+                    <div class="input-field col s2">
+                        <input type="date" name="contact_birthday" value="">
+                        <label for="contact_birthday">Birthday</label>
+                    </div>
+                    <div class="input-field col s3">
+                        <input type="text" name="contact_phone" value="">
+                        <label for="contact_phone">Phone Number</label>
+                    </div>
+                    <div class="input-field col s1">
+                        <label>
+                            <input type="checkbox" name="contact_cell" value="">
+                            <span>Cell?</span>
+                        </label>
+                    </div>
+                </div>
+                <button class="btn">Add Contact</button>
+
+            </form>
+            <table class="highlight">
+                <tbody>
+                    <thead>
+                        <tr>
+                            <th>Last Name</th>
+                            <th>First Name</th>
+                            <th>Birthday</th>
+                            <th>Phone number</th>
+                            <th>Cell phone?</th>
+                        </tr>
+                    </thead>
+
+                    {% for contact in contact_names %}
+                    <tr>
+                        <td>{{ contact.last_name }}</td>
+                        <td>{{ contact.first_name }}</td>
+                        <td>{{ contact.birthday }}</td>
+                        <td>{{ contact.phone_number }}</td>
+                        <td>{{ contact.is_cell }}</td>
+                        {% endfor %}
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+</body>
+
+</html>
