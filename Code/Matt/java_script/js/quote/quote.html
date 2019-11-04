@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <script src="secrets.js"></script>
+
+
+</head>
+
+<body>
+    <div class="container">
+
+        <input type="text" id="filter_text" placeholder="Put a filter on your quote ">
+        <div id=quote_div></div>
+        <div id=get_quote_button class="waves-effect waves-light btn ">get quote</div>
+        <div id="quote_output"></div>
+
+    </div>
+    <script>
+        console.log(api_key)
+    </script>
+    <script src="quote.js"></script>
+
+
+</body>
+
+
+</html>

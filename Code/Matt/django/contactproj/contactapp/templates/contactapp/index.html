@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <title></title>
+</head>
+
+<body>
+    <h1>{{ message }}</h1>
+    {% for contact in contacts%}
+    <div> {{contact.first_name}} {{contact.last_name}}
+    </div>
+
+    {%endfor%}
+</body>
+
+</html>
