@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+  </head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>URL Shortener</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Mansalva&display=swap" rel="stylesheet">
+  <style media="screen">
+  body {
+    padding: 40px;
+    margin: 100px;
+    background: grey;
+    color: white;
+  }
+  html {
+    background: black;
+  }
+  </style>
+  <body>
+    <ul>
+      <form action="{% url 'shortapp:save_url'%}" method="post">
+        {% csrf_token %}
+        <input name="longUrl" placeholder="the long URL goes here">
+        <button class="btn" type="submit">Shorten</button>
+      </form>
+      {% for URL_ToShorten in URL_ToShortens %}
+      <li><h6>You wanted to convert:</h6><h7>{{ URL_ToShorten.URL }}</h7></li>
+      <li><h6>So here it is:</h6><h7>{{ URL_ToShorten.code }}</h7></li>
+      <br>
+      {% endfor %}
+    </ul>
+  </body>
+</html>
