@@ -63,13 +63,7 @@ let answers = quiz.questions[0].answers
 
 //render the quiz questions
 document.getElementById("question_box").innerHTML = quiz.questions[0].text
-//render the quiz answers
-// console.log(document.getElementById("answers").innerHTML = quiz.questions[0].answers[0].text)
 
-// for question in questions:
-    // build html and enter questions[i].text
-
-// console.log(questions)
 
 
 for (i = 0; i < answers.length; i++) {

@@ -1,0 +1,122 @@
+html {
+    position: relative;
+    min-height: 100vh;
+}
+
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+.main {
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    max-width: 1400px;
+}
+
+.main_row {
+    display: flex;
+    flex-direction: row;
+}
+
+.main_photos {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: 50px 10%;
+    justify-content: center;
+}
+
+.paginate {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 50px 0;
+    padding: 0 0 100px 0;
+}
+
+.radio {
+    margin-right: 5px;
+    margin-left: 5px;
+}
+
+.radio_toggle {
+    padding-left: 23px !important;
+}
+
+#flickr_search {
+    margin-right: 20px;
+}
+
+#flickr_photos {
+    min-height: 400px;
+}
+
+#btn_next, #btn_previous, #flickr_search_btn {
+    min-width: 200px;
+    text-align: center;
+    margin: 0 10px;
+}
+
+img {
+    object-fit: cover;
+    width: 25vh;
+    height: 25vh;
+    padding: 10px;
+}
+
+/* label underline focus color */
+.input-field input[type=text]:focus {
+    border-bottom: 1px solid #000 !important;
+    box-shadow: 0 1px 0 0 #000 !important;
+}
+
+/* icon prefix focus color */
+.input-field .prefix.active {
+    color: #2979ff !important;
+}
+
+.page-footer {
+    padding: 15px 0;
+    text-align: center;
+}
+
+a {
+    color: white;
+}
+
+a:hover {
+    color: black;
+}
+
+footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    margin-top: 100px;
+}
+
+#flickr_sort {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    border-style: none;
+    border-width: 0 0 5px 0;
+    border-color: #eceff1;
+}
+
+.sort_radios {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+}
+
+#span_total_pages, #span_current_page {
+    font-weight: bold;
+}

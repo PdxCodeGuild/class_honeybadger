@@ -1,0 +1,53 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <title>Lab 03 — URL Shortener</title>
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="{% static 'lab_01_polls/style.css' %}">
+</head>
+
+<body>
+    <div class="main">
+        <h1 class="title">
+            URL Shortener
+        </h1>
+        <div class="container">
+            <form action="{% url 'lab_03_urlshort:save_url'%}" method="post">
+                {% csrf_token %}
+                <div class="row">
+                    <div class="input-field inline col s12">
+                        <input type="text" id="long_url" name="long_url" value="">
+                        <label for="long_url">Long URL</label>
+                        <button class="btn">Shorten</button>
+                    </div>
+                </div>
+
+            </form>
+            <table class="highlight">
+                <tbody>
+                    <thead>
+                        <tr>
+                            <th>Long URL</th>
+                            <th>Short URL</th>
+                        </tr>
+                    </thead>
+
+                    {% for url in urls %}
+                    <tr>
+                        <td>{{ url.url_long }}</td>
+                        <td title="{{ url.url_long }}"><a href="http://{{domain}}{% url 'lab_03_urlshort:redirect_url' url.url_code %}">{{url.url_code}}</a> </td>
+                    </tr> {% endfor %}
+                </tbody>
+            </table>
+        </div>
+</body>
+
+</html>

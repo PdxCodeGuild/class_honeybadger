@@ -7,4 +7,5 @@ urlpatterns = [
     path("lab_01_polls/", include("lab_01_polls.urls")),
     path("lab_02_contacts/", include("lab_02_contacts.urls")),
     path('admin/', admin.site.urls),
+    path("lab_03_urlshort/", include("lab_03_urlshort.urls")),
 ]
