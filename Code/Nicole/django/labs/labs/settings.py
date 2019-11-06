@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'lab_03_urlshort',
     'lab_02_contacts.apps.Lab02ContactsConfig',
     'lab_00_todo.apps.Lab00TodoConfig',
     'lab_home.apps.LabHomeConfig',
