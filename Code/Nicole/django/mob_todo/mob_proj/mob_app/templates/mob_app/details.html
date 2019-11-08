@@ -1,0 +1,48 @@
+{% extends "mob_app/base.html" %}
+
+{% block content %}
+
+<div class="main">
+    <div class=" flex_it_out">
+        <div>
+            <h1>{{ list_detailz.name }}</h1>
+        </div>
+        <div><a href="{% url 'mob_app:delete_completed' list_detailz.id %}" class="btn">Clear completed</a></div>
+    </div>
+    <table class="highlight">
+        <thead>
+            <tr>
+                <th>Image</th>
+                <th>Text</th>
+                <th>Date Created</th>
+                <th>Date Complete</th>
+                <th>Urgent?</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            {% for item in items %}
+
+            <tr>
+                <td>{% if item.my_image %}<a href="{{ item.my_image.url }}" target="_blank"><i class="material-icons">camera_enhance</i>{% else %}<i class="material-icons">child_care</i>{% endif %}</td>
+                <td>{{ item.text }}</td>
+                <td>{{ item.date_created }}</td>
+                <td>{{ item.date_completed }}</td>
+                <td>{{ item.urgent }}</td>
+                <td><a href="{% url 'mob_app:completed' item.id %}">Complete</a></td>
+            </tr>
+            {% endfor%}
+
+        </tbody>
+    </table>
+
+
+
+
+
+
+
+</div>
+
+{% endblock %}

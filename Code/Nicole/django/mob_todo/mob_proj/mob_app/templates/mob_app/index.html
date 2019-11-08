@@ -1,0 +1,46 @@
+{% extends "mob_app/base.html" %}
+
+{% block content %}
+
+<div class="main">
+    <h1>Mob Todo List</h1>
+    <div class="row">
+        <form class="col s12" action="{% url 'mob_app:new_todo' %}" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="row">
+                <div class="input-field col s12">
+                    <input type="text" id="new_text" name="new_text">
+                    <label for="new_text">Text</label>
+                </div>
+                <div class="input-field inline col s6">
+                    <select class="icons" name="list_type">
+                        <option disabled selected>Choose a list</option>
+                        {% for list in lists %}
+                        <option value="{{ list.id }}">{{ list.name }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="input-field inline col s1">
+                </div>
+                <div class="input-field inline col s3">
+                    <p>
+                        <label>
+                            <input type="checkbox" class="filled-in" name="urgent" />
+                            <span>Urgent?</span>
+                        </label>
+                    </p>
+                </div>
+                <div class="input-field inline col s2">
+                    <input type="file" name="my_image" accept="image/*">
+                </div>
+
+            </div>
+            <button class="btn">Submit</button>
+        </form>
+    </div>
+</div>
+
+
+
+
+{% endblock %}
