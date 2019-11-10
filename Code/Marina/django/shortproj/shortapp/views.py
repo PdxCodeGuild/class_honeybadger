@@ -43,4 +43,4 @@ def save_url(request):
 def redirect_url(request, code):
     # look up the record with the given code
     # redirect to the long url inside the record
-    return HttpResponse('redirecting to url with code ' + code)
+    return HttpResponseRedirect('redirecting to url with code ' + code)
