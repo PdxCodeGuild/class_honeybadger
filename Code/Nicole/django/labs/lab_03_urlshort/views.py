@@ -6,7 +6,8 @@ from .pw_gen import password
 
 def index(request):
     urls = urlShort.objects.all()
-    domain = request.META['HTTP_HOST']
+    domain = request.META['HTTP_HOST'] # this pulls the main domain from the site
+    
 
     context = {
         "urls":urls,
