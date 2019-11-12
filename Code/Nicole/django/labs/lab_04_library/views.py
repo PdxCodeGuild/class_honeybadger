@@ -9,3 +9,13 @@ def index(request):
         "books":books,
     }
     return render(request, "lab_04_library/index.html", context)
+
+
+def checkout(request, book_id):
+    book_id = request.POST["book_checkout_id"]
+    book_checkout = Book.objects.get(id=book_id)
+    
+    book_checkout.checked_out = True
+    book_checkout.save()
+    
+    return HttpResponseRedirect(reverse('lab_04_library:index'))

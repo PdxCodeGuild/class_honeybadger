@@ -16,6 +16,6 @@ class Book(models.Model):
     checked_out = models.BooleanField()
     
     def __str__(self):
-        return self.title + ", by " + self.author
+        return self.title
 
     
