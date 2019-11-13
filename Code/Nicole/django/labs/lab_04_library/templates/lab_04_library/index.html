@@ -26,19 +26,36 @@
             <table class="striped">
                 <thead>
                     <tr>
-                        <th>Boot Title</th>
+                        <th>Book Title</th>
                         <th>Publish Date</th>
                         <th>Author Name</th>
                         <th>Checked out?</th>
+                        <th>Action</th>
                     </tr>
                 </thead>
 
                 <tbody>
+                    {% for book in books %}
                     <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <td>{{book.title}}</td>
+                        <td>{{book.publish_date}}</td>
+                        <td>{{book.author}}</td>
+                        {% if book.checked_out %}
+                        <td>Yes</td>
+                        <td><button class="btn disabled">Check out</button></td>
+                        {% else %}
+                        <td>No</td>
+                        <td>
+                            <form action="{% url 'lab_04_library:checkout' book.id %}" method="post">
+                                {% csrf_token %}
+                                <input type="hidden" name="book_checkout_id" value="{{book.id}}">
+                                <button class="btn">Check out</button>
+                            </form>
+                        </td>
+                        {% endif %}
+
                     </tr>
+                    {% endfor %}
                 </tbody>
             </table>
         </div>
