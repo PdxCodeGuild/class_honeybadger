@@ -21,8 +21,10 @@ def generate_code():
 
 def index(request):
     URL_ToShortens = Shorten.objects.all()
+    domain = request.META['HTTP_HOST']
     context = {
-        'URL_ToShortens': URL_ToShortens
+        'URL_ToShortens': URL_ToShortens,
+        'domain':domain,
     }
     return render(request, 'shortapp/index.html', context)
 
@@ -42,5 +44,6 @@ def save_url(request):
 
 def redirect_url(request, code):
     # look up the record with the given code
+    links = Shorten.objects.get(code=code)
     # redirect to the long url inside the record
-    return HttpResponseRedirect('redirecting to url with code ' + code)
+    return redirect(links.URL)

@@ -1,0 +1,22 @@
+.sidenav {
+    background-color: lemonchiffon !important;
+}
+
+.main {
+    padding: 20px 20%;
+}
+
+.flex_it_out {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+h1 {
+    margin: 0 !important;
+}
+
+table {
+    margin-top: 40px;
+}
