@@ -42,18 +42,27 @@
       </div>
     </nav>
     <main>
-      <ul>
         <form action="{% url 'shortapp:save_url'%}" method="post">
           {% csrf_token %}
           <input name="longUrl" placeholder="the long URL goes here">
           <button class="btn" type="submit">Shorten</button>
         </form>
-        {% for URL_ToShorten in URL_ToShortens %}
-        <li><h6>You wanted to convert:</h6><h7>{{ URL_ToShorten.URL }}</h7></li>
-        <li><h6>So here it is:</h6><h7>{{ URL_ToShorten.code }}</h7></li>
-        <br>
+        <table class="highlight">
+          <tbody>
+            <thead>
+              <tr>
+                <th>Long URL</th>
+                <th>Short URL</th>
+              </tr>
+            </thead>
+        {% for url in URL_ToShortens %}
+        <tr>
+          <td>{{ url.URL | truncatechars:8 }}</td>
+          <td title="{{ url.URL }}"><a href="http://{{domain}}{% url 'shortapp:redirect_url' url.code %}">{{url.code}}</a></td>
+        </tr>
         {% endfor %}
-      </ul>
+      </tbody>
+    </table>
     </main>
     <footer class="page-footer black lighten-2">
       © 2019 HBAM Inc

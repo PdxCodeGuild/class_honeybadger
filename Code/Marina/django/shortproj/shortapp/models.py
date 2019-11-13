@@ -5,4 +5,4 @@ class Shorten(models.Model):
     code = models.CharField(max_length=200)
 
     def __str__(self):
-        return self.URL
+        return "http://.../" + self.code
