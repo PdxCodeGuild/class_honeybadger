@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.min.js"></script>
+  </head>
+  <body>
+    <h1>hello!</h1>
+    <input id="input_text" type="text"/>
+    <script type="text/javascript">
+      let input_text = document.querySelector('#input_text')
+      input_text.addEventListener('input', function() {
+        axios({
+          url: '{% url 'searchapp:get_search_terms' %}?input=' + input_text.value,
+          method: 'get'
+        }).then(function(response) {
+          console.log(response.data)
+        })
+      })
+    </script>
+  </body>
+</html>
