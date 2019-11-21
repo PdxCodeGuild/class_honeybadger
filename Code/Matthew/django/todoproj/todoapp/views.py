@@ -18,24 +18,23 @@ def other(request):
 
 
 def save_todo(request):
-    
+
     print(request.POST)
     todo_text = request.POST['todo_text']
     todo_type_ids = request.POST.getlist('todo_type_ids')
-    
+
     todo_item = TodoItem(text=todo_text)
     todo_item.save()
-    
+
     for todo_type_id in todo_type_ids:
         todo_type = TodoItemType.objects.get(id=todo_type_id)
         todo_item.types.add(todo_type)
-    
+
     return HttpResponseRedirect(reverse('todoapp:index'))
-    
+
 def complete_todo(request):
     todo_item_id = request.POST['todo_item_id']
     todo_item = TodoItem.objects.get(id=todo_item_id)
     todo_item.date_completed = timezone.now()
     todo_item.save()
     return HttpResponseRedirect(reverse('todoapp:index'))
-    

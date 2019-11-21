@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title>My Todo App</title>
-    
+
     <!-- materialize -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
@@ -17,7 +17,7 @@
         min-height:100vh;
         margin: 0 auto;
         background-color:white;
-        
+
       }
       main {
         padding: 0 20px;
@@ -54,7 +54,9 @@
     <script type="text/javascript">
       document.addEventListener('DOMContentLoaded', function() {
           var elems_sidenav = document.querySelectorAll('.sidenav')
-          var instances_sidenav = M.Sidenav.init(elems_sidenav, {})
+          var instances_sidenav = M.Sidenav.init(elems_sidenav, {
+              fullWidth: true,
+              indicators: true})
       })
     </script>
   </body>
