@@ -1,33 +1,63 @@
 from django.shortcuts import render,reverse
-
+from .models import TodoList, TodoItem
 from django.http import HttpResponse, HttpResponseRedirect
-
-from .models import ToDoPost
+from django.utils import timezone
 
 def index(request):
-    todo_posts = ToDoPost.objects.order_by('date_posted')
+    lists = TodoList.objects.all().order_by('name')
 
     context = {
-        'todo_posts': todo_posts,
+        "lists": lists,
     }
     return render(request, "todoapp/index.html", context)
 
-def detail(request, todo_post_slug):
-    single_do = ToDoPost.objects.get(slug=todo_post_slug)
+def details(request, list_id):
+    list_detailz = TodoList.objects.get(id=list_id)
+    nav_list = TodoList.objects.all().order_by('name')
+    ordered_items = list_detailz.items.order_by('date_completed','-urgent')
+
     context = {
-        'single_do': single_do
+        'list_detailz': list_detailz,
+        'lists': nav_list,
+        'items': ordered_items,
     }
-    return render(request, 'todoapp/detail.html', context)
+    return render(request, 'todoapp/details.html', context)
 
-def create_todopost(request):
-    print(request.POST)
-    title = request.POST['title']
-    body = request.POST['body']
-    slug = request.POST['slug']
 
-    todo_post = ToDoPost(title = title,
-                        slug = slug,
-                        body = body)
+def new_todo(request):
+    text = request.POST['new_text']
+    list_id = request.POST['list_type']
 
-    todo_post.save()
+    list = TodoList.objects.get(id=list_id)
+
+    if 'urgent' in request.POST:
+        urgent = True
+    else:
+        urgent = False
+
+    new_item = TodoItem(
+            text = text,
+            list = list,
+            urgent = urgent,
+    )
+
+    new_item.save()
+
     return HttpResponseRedirect(reverse('todoapp:index'))
+
+def completed(request, item_id):
+    item = TodoItem.objects.get(id=item_id)
+    item.date_completed = timezone.now()
+
+    item.save()
+
+    return HttpResponseRedirect(reverse('todoapp:details', args=[item.list.id]))
+
+def delete_completed(request, list_id):
+    list = TodoList.objects.get(id=list_id)
+
+    for item in list.items.all():
+        if item.date_completed:
+            item.delete()
+
+    return HttpResponseRedirect(reverse('todoapp:details', args=[list_id]))

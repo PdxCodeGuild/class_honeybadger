@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <!-- Materialize -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <style type="text/css">
+      main {
+        max-width:800px;
+        margin: 0 auto;
+      }
+      form {
+        display:flex;
+        flex-direction:row;
+        align-items:center;
+      }
+      form > .input-field {
+        flex-grow:1;
+        margin-right:10px;
+      }
+
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>hello! happy friday :D</h1>
+      <form action="{% url 'urlapp:save_url' %}" method="post">
+        {% csrf_token %}
+        <div class="input-field inline">
+          <input type="text" name="url" id="input_url" required/>
+          <label for="input_url">Your Url</label>
+        </div>
+        <button class="btn" type="submit">shorten</button>
+      </form>
+      <table class="striped">
+        <tr>
+          <th>Url</th>
+          <th>Copy</th>
+        </tr>
+        {% for url_short in url_shorts %}
+        <tr>
+          <td><a href="{% url 'urlapp:redirect_url' url_short.code %}">{{url_short.url_domain}}</a></td>
+          <td>
+            <a class="btn-floating" onclick="copyUrl('{{host}}{% url 'urlapp:redirect_url' url_short.code %}')"><i class="material-icons">content_copy</i></a>
+            <a class="btn-floating" href="{% url 'urlapp:redirect_url' url_short.code %}" target="_blank"><i class="material-icons">open_in_new</i></a>
+
+          </td>
+        </tr>
+        {% endfor %}
+      </table>
+    </main>
+    <script type="text/javascript">
+      // https://stackoverflow.com/questions/400212/how-do-i-copy-to-the-clipboard-in-javascript
+      function copyToClipboard(text) {
+        if (!navigator.clipboard) {
+          var textArea = document.createElement("textarea");
+          textArea.value = text;
+          document.body.appendChild(textArea);
+          textArea.focus();
+          textArea.select();
+
+          try {
+            var successful = document.execCommand('copy');
+            var msg = successful ? 'successful' : 'unsuccessful';
+            console.log('Fallback: Copying text command was ' + msg);
+          } catch (err) {
+            console.error('Fallback: Oops, unable to copy', err);
+          }
+
+          document.body.removeChild(textArea);
+          return;
+        } else {
+          navigator.clipboard.writeText(text).then(function() {
+            console.log('Async: Copying to clipboard was successful!');
+          }, function(err) {
+            console.error('Async: Could not copy text: ', err);
+          });
+        }
+      }
+
+      function copyUrl(url) {
+        console.log(url)
+        copyToClipboard(url)
+        M.toast({html: 'Copied to clipboard', displayLength: 1000})
+      }
+
+    </script>
+  </body>
+</html>

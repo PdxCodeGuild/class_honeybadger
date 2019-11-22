@@ -1,0 +1,64 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <title>Mob Todo List</title>
+
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="{%  static 'mob_app/style.css' %}">
+
+    <style type="text/css">
+        .sidenav {
+            padding-top: 30px;
+        }
+    </style>
+</head>
+
+<body>
+    <ul id="slide-out" class="sidenav">
+        <li><a href="{% url 'mob_app:index' %}"><i class="material-icons">home</i></a></li>
+        <li>
+            <div class="divider"></div>
+        </li>
+        {% for list in lists %}
+        <li><a href="{% url 'mob_app:details' list.id %}"><i class="material-icons">{{ list.icon }}</i>{{ list.name }}</a></li>
+        {% endfor %}
+        <li>
+            <div class="divider"></div>
+
+        </li>
+        <li>
+            <a>© 2019 — HBAM International</a>
+        </li>
+    </ul>
+    <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+
+
+    {% block content %}
+    {% endblock %}
+
+    <script type="text/javascript">
+        document.addEventListener('DOMContentLoaded', function() {
+            var elems_nav = document.querySelectorAll('.sidenav');
+            var instances_nav = M.Sidenav.init(elems_nav, {});
+            var elems_select = document.querySelectorAll('select');
+            var instances_select = M.FormSelect.init(elems_select, {});
+        });
+    </script>
+
+</body>
+
+
+
+</html>

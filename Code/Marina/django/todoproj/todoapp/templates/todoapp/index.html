@@ -1,53 +1,40 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title></title>
-    <style>
-      form {
-        display:flex;
-        flex-direction: column;
-        align-items: start;
-      }
+{% extends "todoapp/base.html" %}
 
-      form > * {
-        margin:5px;
-        padding: 5px;
-      }
-      body {
-        background-color: silver;
-        margin:5px;
-        padding: 5px;
-      }
+{% block content %}
 
-      ul {
-        background-color: tan;
-        color: dark red;
-        display:flex;
-        flex-direction: column;
-        align-items: start;
-      }
 
-      li{
-        margin:10px;
-        padding: 10px;
-      }
-
-    </style>
-  </head>
-  <body>
-    <h3>Post a thing to do</h3>
-    <form action="{% url 'todoapp:create_todopost' %}" method="post">
+<div class="main">
+  <h1>To Do List</h1>
+  <div class="row">
+    <form class="col s12" action="{% url 'todoapp:new_todo' %}" method="post" enctype="multipart/form-data">
       {% csrf_token %}
-      <input type="text" name="title"  placeholder="title" value="">
-      <input type="text" name="slug"  placeholder="slug" value="">
-      <textarea type="text" name="body"></textarea>
-      <button>submit</button>
+      <div class="row">
+        <div class="input-field col s12">
+          <input type="text" id="new_text" name="new_text">
+          <label for="new_text">Text</label>
+        </div>
+        <div class="input-field inline col s6">
+          <select class="icons" name="list_type">
+            <option disabled selected>Choose a list</option>
+            {% for list in lists %}
+            <option value="{{ list.id }}">{{ list.name }}</option>
+            {% endfor %}
+          </select>
+        </div>
+        <div class="input-field inline col s1">
+        </div>
+        <div class="input-field inline col s3">
+          <p>
+              <label>
+                <input type="checkbox" class="filled-in" name="urgent" />
+                <span>Urgent?</span>
+              </label>
+          </p>
+        </div>
+      </div>
+      <button class="btn">Submit</button>
     </form>
-    <ul>
-      {% for todo_post in todo_posts %}
-      <li>{{todo_post.title}} - {{todo_post.body}}</li>
-      {% endfor %}
-    </ul>
-  </body>
-</html>
+  </div>
+</div>
+
+{% endblock %}

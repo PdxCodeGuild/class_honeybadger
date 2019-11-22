@@ -1,0 +1,38 @@
+{% extends "todoapp/base.html" %}
+
+{% block content %}
+
+<div class="main">
+  <div class="flex_it_out">
+    <div>
+      <h1>{{ list_detailz.name }}</h1>
+    </div>
+    <div><a href="{% url 'todoapp:delete_completed' list_detailz.id %}" class="btn">Clear completed</a></div>
+  </div>
+  <table class="highlight">
+    <thead>
+      <tr>
+        <th>Image</th>
+        <th>Text</th>
+        <th>Date Created</th>
+        <th>Urgent?</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      {% for item in items %}
+
+      <tr>
+      <td>{{ item.text }}</td>
+      <td>{{ item.date_created }}</td>
+      <td>{{ item.date_completed }}</td>
+      <td>{{ item.urgent }}</td>
+      <td><a href="{% url 'todoapp:completed' item.id %}">Complete</a></td>
+    </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+</div>
+
+{% endblock %}

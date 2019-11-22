@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    
+    <!-- Materialize -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+     
+    <!-- Vue -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <!-- Axios -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.min.js" type="text/javascript"></script>
+    <style type="text/css">
+      #app {
+        max-width:600px;
+        margin:0 auto;
+      }
+      html {
+        overflow-y: scroll;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <h1>HB Vocab</h1>
+      <div>
+        <input type="text" v-model="new_word" placeholder="word"/>
+        <textarea v-model="new_definition" class="materialize-textarea" placeholder="definition"></textarea>
+        <button class="btn" v-on:click="addVocabItem">add</button>
+      </div>
+      <ul class="collapsible">
+        <li v-for="item in items">
+          <div class="collapsible-header">[[item.word]]</div>
+          <div class="collapsible-body">[[item.definition]]</div>
+        </li>
+      </ul>
+    </div>
+    <script type="text/javascript">
+      
+      let app = new Vue({
+        el: '#app',
+        delimiters: ["[[","]]"],
+        data: {
+          items: [],
+          new_word: '',
+          new_definition: ''
+        },
+        methods: {
+          addVocabItem: function() {
+            if (this.new_word == '' || this.new_definition == '') {
+              return
+            }
+            let data = {
+              word: this.new_word,
+              definition: this.new_definition
+            }
+            axios({
+              url: '{% url 'vocabapp:save_item' %}',
+              method: 'post',
+              data: data,
+              headers: {
+                'X-CSRFToken': '{{ csrf_token }}'
+              }
+            }).then(response => {
+              console.log(response)
+              this.getData()
+            })
+          },
+          getData: function() {
+            axios({
+              url: '{% url 'vocabapp:get_data' %}',
+              method: 'get'
+            }).then(response => {
+              // console.log(response.data)
+              this.items = response.data.items
+            })
+          }
+        },
+        created: function() {
+          this.getData()
+        }
+      })
+    
+      document.addEventListener('DOMContentLoaded', function() {
+        var elems = document.querySelectorAll('.collapsible');
+        var instances = M.Collapsible.init(elems, {});
+      });
+      
+    </script>
+  </body>
+</html>

@@ -5,16 +5,54 @@
 
 <head>
     <meta charset="utf-8">
-    <title></title>
+    <title>Nicole's Django Labs</title>
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="{% static 'lab_01_polls/style.css' %}">
 </head>
 
 <body>
-    <h1>Links</h1>
-    <ul>
-        <li><a href="{% url 'lab_00_todo:index' %}">Lab 00: To Do</a></li>
-        <li><a href="{% url 'lab_01_polls:index' %}">Lab 01: Polls</a></li>
-        <li><a href="{% url 'lab_02_contacts:index' %}">Lab 02: Contacts</a></li>
-    </ul>
+    <div class="main">
+        <h1 class="title">Nicole's Django Labs</h1>
+        <div class="container link_table">
+            <table class="responsive-table striped">
+                <thead>
+                    <tr>
+                        <th>Lab Name</th>
+                        <th class="button_row">Link</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td>Lab 00: To Do</td>
+                        <td class="button_row"><a class="btn" target="_blank" href="{% url 'lab_00_todo:index' %}">Lab 00</a></td>
+                    </tr>
+                    <tr>
+                        <td>Lab 01: Polls</td>
+                        <td class="button_row"><a class="btn" target="_blank" href="{% url 'lab_01_polls:index' %}">Lab 01</a></td>
+                    </tr>
+                    <tr>
+                        <td>Lab 02: Contacts</td>
+                        <td class="button_row"><a class="btn" target="_blank" href="{% url 'lab_02_contacts:index' %}">Lab 02</td>
+                    </tr>
+                    <tr>
+                        <td>Lab 03: URL Shortener</td>
+                        <td class="button_row"><a class="btn" target="_blank" href="{% url 'lab_03_urlshort:index' %}">Lab 03</a></td>
+                    </tr>
+                    <tr>
+                        <td>Lab 04: Library</td>
+                        <td class="button_row"><a class="btn" target="_blank" href="{% url 'lab_04_library:index' %}">Lab 04</a></td>
+                    </tr>
+                </tbody>
+            </table>
+
+
+        </div>
+    </div>
 </body>
 
 </html>

@@ -1,5 +1,5 @@
 from django.contrib import admin
+from .models import TodoList, TodoItem
 
-from .models import ToDoPost
-
-admin.site.register(ToDoPost)
+admin.site.register(TodoList)
+admin.site.register(TodoItem)

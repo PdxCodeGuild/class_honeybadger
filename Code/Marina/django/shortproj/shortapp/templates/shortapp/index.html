@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+</head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>URL Shortener</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Mansalva&display=swap" rel="stylesheet">
+<style media="screen">
+  body {
+    max-width: 600px;
+    min-height: 100vh;
+    padding: 40px;
+    margin: 0 auto;
+    background-color: lemonchiffon;
+    color: black;
+  }
+  html {
+    background: black;
+  }
+  footer {
+    text-align:center;
+    padding:20px;
+    color: white;
+  }
+
+  .nav {
+    color: white;
+  }
+</style>
+<body>
+  <nav class="blue lighten-2">
+    <div class="nav-wrapper">
+      <a href="#" class="brand-logo"><i class="material-icons">ac_unit</i>URL Manager</a>
+        <ul id="nav-mobile" class="right hide-on-small-and-down">
+          <li><a href="/admin/">Admin</a></li>
+        </ul>
+        <a href="#" data-target="slide-out" class="sidenav-trigger right hide-on-med-and-up"><i class="material-icons">menu</i></a>
+      </div>
+    </nav>
+    <main>
+        <form action="{% url 'shortapp:save_url'%}" method="post">
+          {% csrf_token %}
+          <input name="longUrl" placeholder="the long URL goes here">
+          <button class="btn" type="submit">Shorten</button>
+        </form>
+        <table class="highlight">
+          <tbody>
+            <thead>
+              <tr>
+                <th>Long URL</th>
+                <th>Short URL</th>
+              </tr>
+            </thead>
+        {% for url in URL_ToShortens %}
+        <tr>
+          <td>{{ url.URL | truncatechars:8 }}</td>
+          <td title="{{ url.URL }}"><a href="http://{{domain}}{% url 'shortapp:redirect_url' url.code %}">{{url.code}}</a></td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    </main>
+    <footer class="page-footer black lighten-2">
+      © 2019 HBAM Inc
+    </footer>
+  </body>
+  </html>

@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 
+<<<<<<< HEAD
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 
    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
@@ -20,6 +21,58 @@
         <input type="text" name="url"/>
         <a class="waves-effect waves-light btn">Submit</a>
     <form>
+=======
+
+
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+   <style>
+       .main{
+           display: flex;
+           flex-direction: column;
+           justify-content: center;
+           align-items: center;
+
+       }
+       form {
+           width:600px !important;
+       }
+   </style>
+</head>
+
+<body>
+    <div class="main">
+        <h1>{{message}}</h1>
+        <div class="row">
+            <form class="col s12" action='/save_url/' method='post'>
+                <div class="row">
+                    {%csrf_token%}
+                    <div class="input-field col s12" >
+                        <input id="url" type="text" name="url"/>
+                        <label for="url">Enter your URL</label>
+                    </div>
+                    <a class="waves-effect waves-light btn">Submit</a>
+                </div>
+            </form>
+        </div>
+        <table class="striped">
+            <tr>
+              <th>Url</th>
+              <th>Code</th>
+            </tr>
+            {% for url_short in url_shorts %}
+            <tr>
+                <td>{{url_short.url}}</td>
+                <td>{{url_short.code}}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+>>>>>>> 26d2ca2e849b96cb19d7537771ce4e0481d57852
 </body>
 
 </html>

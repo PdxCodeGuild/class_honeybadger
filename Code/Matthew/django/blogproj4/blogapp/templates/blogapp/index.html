@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.min.js"></script>
+    <style media="screen">
+      .pagination_container {
+        display:flex;
+        flex-direction:row;
+        justify-content:center;
+        align-items:center;
+      }
+      .collapsible {
+        max-width:800px;
+        margin: 0 auto;
+      }
+      .collapsible-header {
+        display:flex;
+        flex-direction:row;
+        justify-content:space-between;
+      }
+      .favorite {
+        color:black;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Hello World!</h1>
+    <ul class="collapsible">
+      {% for blog_post in blog_posts %}
+      <li>
+        <div class="collapsible-header">
+          <span>{{blog_post.title}}</span>
+          <a class="favorite" data-blog_post_id="{{blog_post.id}}">
+            {% if user in blog_post.favorited_users.all %}
+            <i class="material-icons">star</i>
+            {% else %}
+            <i class="material-icons">star_border</i>
+            {% endif %}
+          </a>
+        </div>
+        <div class="collapsible-body">{{blog_post.body|safe}}</div>
+      </li>
+      {% endfor %}
+    </ul>
+    <div class="pagination_container">
+      {% if blog_posts.has_previous %}
+      <div><a href="?page={{blog_posts.previous_page_number}}"><i class="material-icons grey-text">chevron_left</i></a></div>
+      {% endif %}
+      <div><span>{{ blog_posts.number }} / {{ blog_posts.paginator.num_pages }}</span></div>
+      {% if blog_posts.has_next %}
+      <div><a href="?page={{blog_posts.next_page_number}}"><i class="material-icons grey-text">chevron_right</i></a></div>
+      {% endif %}
+    </div>
+
+    <script type="text/javascript">
+      document.addEventListener('DOMContentLoaded', function() {
+        var elems = document.querySelectorAll('.collapsible');
+        var instances = M.Collapsible.init(elems, {});
+      });
+
+      let favorite_bts = document.querySelectorAll('.favorite')
+      for (let i=0; i<favorite_bts.length; ++i) {
+        favorite_bts[i].addEventListener('click', function(event) {
+          let blog_post_id = this.dataset.blog_post_id
+          axios({
+            method: 'get',
+            url: '/favorite_blog_post/' + blog_post_id + '/'
+          }).then(function(response) {
+            if (response.data == 'ok') {
+
+              let icon = favorite_bts[i].children[0]
+              console.log(icon)
+              if (icon.innerText == 'star') {
+                icon.innerText = 'star_border'
+              } else {
+                icon.innerText = 'star'
+              }
+            }
+          })
+          event.stopPropagation()
+
+        })
+      }
+
+    </script>
+
+
+  </body>
+</html>
