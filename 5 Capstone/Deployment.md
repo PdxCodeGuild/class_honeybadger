@@ -19,3 +19,11 @@
 ## Deploying with Python Anywhere
 
 [tutorial](https://help.pythonanywhere.com/pages/DeployExistingDjangoProject), [video](https://www.youtube.com/watch?v=Y4c4ickks2A)
+
+
+How to print to the error log on pythonanywhere
+
+```python
+import sys
+print('check the error log', file=sys.stderr)
+```
