@@ -17,8 +17,12 @@ def code_gen():
 
 def index(request):
     context = {
+<<<<<<< HEAD
+        'message': 'Enter your URL'
+=======
         'message': 'Enter your URL',
         'url_shorts': UrlCode.objects.all()
+>>>>>>> 26d2ca2e849b96cb19d7537771ce4e0481d57852
     }
     return render(request, 'urlapp/index.html', context)
 

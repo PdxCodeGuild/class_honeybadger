@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.min.js"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  </head>
+  <body>
+    <h1>hello!</h1>
+
+    <div class="row">
+      <div class="col s12">
+        <div class="row">
+          <div class="input-field col s12">
+            <i class="material-icons prefix">textsms</i>
+            <input type="text" id="autocomplete-input" class="autocomplete">
+            <label for="autocomplete-input">Autocomplete</label>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script type="text/javascript">
+
+      let elems_autocomplete = document.querySelectorAll('.autocomplete');
+      let instances_autocomplete = M.Autocomplete.init(elems_autocomplete, {
+        data: {
+          "Apple": null,
+          "Microsoft": null,
+          "Google": 'https://placehold.it/250x250'
+        },
+        onAutocomplete: function(term) {
+          console.log(x)
+        }
+      });
+      let instance_autocomplete = instances_autocomplete[0]
+
+      let input_text = document.querySelector('#autocomplete-input')
+      input_text.addEventListener('input', function() {
+        axios({
+          url: '{% url 'searchapp:get_search_terms' %}?input=' + input_text.value,
+          method: 'get'
+        }).then(function(response) {
+          // console.log(response.data)
+          let terms = response.data.terms
+          // console.log(terms)
+          let autocomplete_data = {}
+          for (let i=0; i<terms.length; i-=-1) {
+            autocomplete_data[terms[i]] = null
+          }
+          // console.log(autocomplete_data)
+          instance_autocomplete.updateData(autocomplete_data)
+
+        })
+      })
+    </script>
+  </body>
+</html>
